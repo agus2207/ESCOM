@@ -1,0 +1,9 @@
+c:\users\agust\documents\visual studio 2015\Projects\Proyecto_Cripto\Proyecto_Cripto\bin\Debug\Proyecto_Cripto.exe.config
+c:\users\agust\documents\visual studio 2015\Projects\Proyecto_Cripto\Proyecto_Cripto\bin\Debug\Proyecto_Cripto.exe
+c:\users\agust\documents\visual studio 2015\Projects\Proyecto_Cripto\Proyecto_Cripto\bin\Debug\Proyecto_Cripto.pdb
+c:\users\agust\documents\visual studio 2015\Projects\Proyecto_Cripto\Proyecto_Cripto\obj\Debug\Proyecto_Cripto.csprojResolveAssemblyReference.cache
+c:\users\agust\documents\visual studio 2015\Projects\Proyecto_Cripto\Proyecto_Cripto\obj\Debug\Proyecto_Cripto.Form1.resources
+c:\users\agust\documents\visual studio 2015\Projects\Proyecto_Cripto\Proyecto_Cripto\obj\Debug\Proyecto_Cripto.Properties.Resources.resources
+c:\users\agust\documents\visual studio 2015\Projects\Proyecto_Cripto\Proyecto_Cripto\obj\Debug\Proyecto_Cripto.csproj.GenerateResource.Cache
+c:\users\agust\documents\visual studio 2015\Projects\Proyecto_Cripto\Proyecto_Cripto\obj\Debug\Proyecto_Cripto.exe
+c:\users\agust\documents\visual studio 2015\Projects\Proyecto_Cripto\Proyecto_Cripto\obj\Debug\Proyecto_Cripto.pdb
