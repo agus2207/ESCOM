@@ -1,0 +1,9 @@
+c:\users\agust\documents\visual studio 2015\Projects\Cifrador_imagenes\Cifrador_imagenes\bin\Debug\Cifrador_imagenes.exe.config
+c:\users\agust\documents\visual studio 2015\Projects\Cifrador_imagenes\Cifrador_imagenes\bin\Debug\Cifrador_imagenes.exe
+c:\users\agust\documents\visual studio 2015\Projects\Cifrador_imagenes\Cifrador_imagenes\bin\Debug\Cifrador_imagenes.pdb
+c:\users\agust\documents\visual studio 2015\Projects\Cifrador_imagenes\Cifrador_imagenes\obj\Debug\Cifrador_imagenes.csprojResolveAssemblyReference.cache
+c:\users\agust\documents\visual studio 2015\Projects\Cifrador_imagenes\Cifrador_imagenes\obj\Debug\Cifrador_imagenes.Form1.resources
+c:\users\agust\documents\visual studio 2015\Projects\Cifrador_imagenes\Cifrador_imagenes\obj\Debug\Cifrador_imagenes.Properties.Resources.resources
+c:\users\agust\documents\visual studio 2015\Projects\Cifrador_imagenes\Cifrador_imagenes\obj\Debug\Cifrador_imagenes.csproj.GenerateResource.Cache
+c:\users\agust\documents\visual studio 2015\Projects\Cifrador_imagenes\Cifrador_imagenes\obj\Debug\Cifrador_imagenes.exe
+c:\users\agust\documents\visual studio 2015\Projects\Cifrador_imagenes\Cifrador_imagenes\obj\Debug\Cifrador_imagenes.pdb
