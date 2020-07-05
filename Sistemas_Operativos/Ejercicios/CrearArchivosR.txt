@@ -1,0 +1,56 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <dirent.h>
+#include <unistd.h>
+#include <string.h>
+#include <ctype.h>
+
+char * generaNombre();
+
+int main(){
+	char dir[30], *nombreArchivo = (char*)malloc(sizeof(char));
+	char *buf[] = {"Hola\n", "Como estas\n", "Programando\n", "¿Eres consciente de que el pensamiento crea tu realidad?\n", "La suerte es proporcional al sudor.\n",
+					"Un amigo de todos es una amigo de nadie.\n", "No conozco la llave del éxito\n", "Elige un empleo que te guste\n", "La vida es realmente sencilla\n",
+					"Para de pensar y termina tus problemas.\n"};
+	int nArchivos, creados=0;
+	int carpeta, archivo, i, archivo2, aux;
+	printf("\t\t\t Progama para crear archivos aleatorios\n");
+	printf("Ingrese la ruta del directorio que desea crear: ");
+	scanf("%s", dir); 	
+	carpeta = mkdir(dir, 0777);
+	if(carpeta == 0){												//Si se crea correctamente el directorio
+		printf("Carpeta %s creada con exito\n ", dir);
+		if(chdir(dir) ==0){											//si se cambio de carpeta correctamente
+			nArchivos = rand()%15+1;
+			for(i=0; i< nArchivos; i++){
+				sprintf(nombreArchivo,"%d",i+1);
+				strcat(nombreArchivo, ".txt");
+				archivo = creat(nombreArchivo, 0777);
+				if(archivo == -1)									//si no se pudo crear el archivo
+					printf("No se pudo crear el archivo %s\n", nombreArchivo);
+				else{
+						printf("Archivo %s creado\n", nombreArchivo);
+						creados ++;
+						archivo2 = open(nombreArchivo, O_RDWR, 0777);
+						if(archivo2 == -1)		//si no se puede abrir el archivo
+							printf("No se pudo abrir el archivo %s\n", nombreArchivo);
+						else{
+							int n = rand()%10;
+							if(write(archivo2, buf[n], strlen(buf[n])) == 0)				//si no se escribe nada retorna 0
+								printf("No se escribio nada en el archivo\n");
+						}
+					}
+					close(archivo2);
+				}
+			}	
+		else
+			printf("No se pudo cambiar al directorio%s\n", dir);
+	}
+	else
+		printf("No se pudo crear la carpeta\n");
+	printf("\n\n\nSe crearon %d/%d archivos\n", creados, nArchivos);
+	return 0;
+}

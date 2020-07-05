@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+int  hanoi(int N, char O, char A, char D);
+int main (){
+	char O, A, D;
+	int num, mov=0;
+	O= 'O';
+	A= 'A';
+	D= 'D';
+	printf ("Introduce el numero de discos para jugar a las Torres de Hanoi: ");
+	scanf ("%d", &num);
+	printf ("\n\n");
+	hanoi(num, O, A, D);
+	mov= (pow(2,num)-1);
+	printf ("\nEl numero de movimientos para %d discos es: %d movimientos\n", num, mov);
+	return 0;
+}
+
+int  hanoi(int N, char O, char A, char D){
+if (N==1)
+	{	
+		printf ("Mueve el disco %d del poste %c al poste %c\n", N, O, D);
+	}else{
+		hanoi (N-1, O, D, A);
+		printf ("Mueve el disco %d del poste %c al poste %c\n", N, O, D);
+		hanoi (N-1, A, O, D);
+	}
+return 0;
+}

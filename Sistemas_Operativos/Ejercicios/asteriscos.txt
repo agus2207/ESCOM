@@ -1,0 +1,79 @@
+#include <stdlib.h>
+#include <stdio.h>
+int main(){
+	FILE *f;
+	int n, i, j, aux;
+	char r;
+	do{
+		printf("Ingrese n (debe ser impar): ");
+		scanf("%d", &n);
+	}while(n%2==0 || n>110);
+	do{
+		printf("Desea guardar la figura que se cree?[s/n]: ");
+		fflush(stdin);
+		scanf("%c", &r);
+	}while(r != 's' && r != 'n');
+	if(r == 's')
+		f = fopen("Dibujo.txt", "w");
+	else
+		f = NULL;
+	aux = n/2;
+	//mitad superior
+	for(i=0; i<=aux; i++){
+		for(j=0; j<(2*n);j++){
+			if(j<n){
+				if(j == aux-i || j == aux+i)
+					{
+						printf("*");
+						fprintf(f, "*");
+					}
+				else{
+					printf(" ");	
+					fprintf(f, " ");	
+				}
+			}
+			else{
+				if(j >= (aux*3)-i && j <= (aux*3)+i ){
+					printf("*");
+					fprintf(f,"*");
+				}
+				else{
+					printf(" "); 
+					fprintf(f, " "); 
+				}
+			}
+		}
+		printf("\n");
+		fprintf(f, "\n");
+	}
+	for(i=aux; i>0; i--){
+		for(j=0; j<(2*n); j++){
+			if(j<n){
+				if(j == aux-i+1 || j == aux+i-1){
+					printf("*");
+					fprintf(f,"*");
+				}
+				else{
+					printf(" ");
+					fprintf(f, " ");
+				}
+			}
+			else{
+				if(j >= (aux*3)-i+1 && j <= (aux*3)+i-1){
+					printf("*");
+					fprintf(f, "*");
+				}
+				else{
+					printf(" ");
+					fprintf(f, " ");
+				}
+			}
+		}
+		printf("\n");	
+		fprintf(f,"\n");
+	}
+	if(r == 's')
+		printf("\nArchivo Creado\n");
+	fclose(f);	
+	return 0;
+}

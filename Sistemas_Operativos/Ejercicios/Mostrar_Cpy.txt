@@ -1,0 +1,73 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+
+int main(){
+	struct stat info;
+	mode_t modo;
+	int archivo, archivo2, archivo3, archivo4;
+	char *dir = (char*)malloc(sizeof(char));
+	char *dir2 = (char*)malloc(sizeof(char));
+	char *nombrea = (char*)malloc(sizeof(char));
+	char *nombrea2 = (char*)malloc(sizeof(char));
+	char *texto = (char*)malloc(sizeof(char));
+	char *texto2 = (char*)malloc(sizeof(char));
+	char esdo;	
+	printf("Programa para vizualizar el contenido de un archivo y copiar archivos\n");
+	printf("Nombre de la carpeta: ");
+	scanf("%s", dir);
+	if(chdir(dir) == 0){
+		printf("Nombre del archivo: ");
+		scanf("%s", nombrea);
+		archivo = open(nombrea, O_RDWR);
+		if(archivo == -1){
+			printf("NO se pudo abrir el archivo %s\n", nombrea);
+			return -1;
+		}
+		else{		//si se abrio
+			if(read(archivo, texto, 200) == -1){
+				printf("Error al leer el archivo\n");
+				return -1;
+			}
+			else{	//si se lee											//mostrar contenido archivo
+				printf("Contenido del archivo es:\n%s\n", texto);
+				stat(nombrea, &info);
+				modo = info.st_mode;
+				printf("Ingrese la carpeta donde copiar el archivo: ");
+				scanf("%s", dir2);
+				if(chdir(dir2) ==0){	
+					archivo2 = creat(nombrea, modo);
+					if(archivo2 == -1){								//si no se pudo crear el archivo
+						printf("No se pudo crear el archivo %s\n", nombrea);
+						return -1;
+					}
+					else{
+						archivo2 = open(nombrea, O_RDWR);
+						if(archivo2 != -1){
+							if( write(archivo4, texto2, strlen(texto)) == 0)				//si no se escribe nada retorna 0
+								printf("No se copio el archivo\n");
+							else
+								printf("Archivo Copiado\n");
+						}
+					}
+					close(archivo);
+					close(archivo2);
+				}
+				else
+					printf("No existe la carpeta %s\n", dir2);
+			chmod(nombrea, modo);
+		
+			}
+		}
+	}
+	else{
+		printf("No se puede cambiar a la carpeta %s\n", dir);
+		return -1;
+	}
+	return 0;
+}	

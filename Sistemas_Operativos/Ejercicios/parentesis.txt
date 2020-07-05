@@ -1,0 +1,168 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct nodo{
+	char car;
+	struct nodo *siguiente;
+}nodo;
+
+nodo *primero= NULL;
+
+void push(char caracter){
+	nodo *nuevo= (nodo*)malloc(sizeof(nodo));
+	nuevo->car= caracter;
+	nuevo->siguiente= primero;
+	primero= nuevo;
+}
+
+void imprimir(){
+	nodo *actual= (nodo*)malloc(sizeof(nodo));
+	actual= primero;
+	if (actual!=NULL){
+		while(actual!=NULL){
+			printf ("%c", actual->car);
+			actual= actual->siguiente;
+		}
+	}else{
+		printf ("La pila se encuentra vacia\n");
+	}
+}
+
+int pop(){
+	nodo *actual= (nodo*)malloc(sizeof(nodo));
+	actual= primero;
+	if (actual!=NULL){
+		primero= actual->siguiente;
+		actual= primero;
+	}else{
+		printf ("La pila se encuentra vacia\n");
+		return 0;
+	}
+}
+
+int vacia(){
+	nodo *actual= (nodo*)malloc(sizeof(nodo));
+	actual= primero;
+	if (actual==NULL){
+		return 1;
+	}else{
+		return 2;
+	}
+}
+
+void vaciar(){
+	nodo *actual= (nodo*)malloc(sizeof(nodo));
+	actual= primero;
+	while(actual!=NULL){
+		if (actual!=NULL){
+			primero= actual->siguiente;
+			actual= primero;
+		}
+	}
+}
+
+int main (int argc, char **argv[]){
+	char cadena[100];
+	int i=0, aux=0, aux1=0;
+	printf ("\t\t\tBalanceo de cadena\n\n");
+	printf ("Ingresa una cadena para validar: ");
+	gets(cadena);
+	for (i=0; cadena[i]!='\0'; i++){
+		if (cadena[i]=='('){
+			push('(');
+		}else{
+			if (cadena[i]==')'){
+				if (vacia()!=1){
+					pop();
+				}else{
+					if (vacia()==1){
+						if (aux!=1){
+							printf ("Los parentesis no se encuentran balanceados :(\n");
+							aux1=1;
+						}
+						aux=1;
+					}
+				}
+			}
+		}
+	}
+	if (vacia()==1 && aux!=1){
+		printf ("Los parentesis se encuentra balanceados %c\n", 1);
+	}else{
+		if (vacia()==2){
+			if (aux1!=1){
+				printf ("Los parentesis no se encuentran balanceados :(\n");
+			}
+			vaciar();
+		}
+	}
+	
+	///////////////////////////
+	
+	aux=0, aux1=0;
+	for (i=0; cadena[i]!='\0'; i++){
+		if (cadena[i]=='{'){
+			push('{');
+		}else{
+			if (cadena[i]=='}'){
+				if (vacia()!=1){
+					pop();
+				}else{
+					if (vacia()==1){
+						if (aux!=1){
+							printf ("Las llaves no se encuentran balanceadas :(\n");
+							aux1=1;
+						}
+						aux=1;
+					}
+				}
+			}
+		}
+	}
+	
+	if (vacia()==1 && aux!=1){
+		printf ("Las llaves se encuentra balanceadas %c\n", 1);
+	}else{
+		if (vacia()==2){
+			if (aux1!=1){
+				printf ("Las llaves no se encuentran balanceadas :(\n");
+			}
+			vaciar();
+		}
+	}
+	
+	/////////////
+	
+	aux=0, aux1=0;
+	for (i=0; cadena[i]!='\0'; i++){
+		if (cadena[i]=='['){
+			push('[');
+		}else{
+			if (cadena[i]==']'){
+				if (vacia()!=1){
+					pop();
+				}else{
+					if (vacia()==1){
+						if (aux!=1){
+							printf ("Los corchetes no se encuentran balanceados :(\n");
+							aux1=1;
+						}
+						aux=1;
+					}
+				}
+			}
+		}
+	}
+	
+	if (vacia()==1 && aux!=1){
+		printf ("Los corchetes se encuentra balanceados %c\n", 1);
+	}else{
+		if (vacia()==2){
+			if (aux1!=1){
+				printf ("Los corchetes no se encuentran balanceados :(\n");
+			}
+			vaciar();
+		}
+	}
+	return 0;
+}

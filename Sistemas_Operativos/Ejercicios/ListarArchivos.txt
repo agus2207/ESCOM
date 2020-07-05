@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+
+#include <dirent.h>
+
+int main(){
+	DIR *d;
+	struct stat info;
+	struct dirent *rdir;
+	char *dir = (char*)malloc(sizeof(char));
+	char *arch[20];
+	int totalArchivos = 0, i;
+
+	
+	//*arch = (char*)malloc(sizeof(char));
+	for(i=0; i<20; i++)
+		arch[i] = (char*)malloc(sizeof(char));
+
+	printf("PROGRAMA PARA LISTAR ARCHIVOS CREADOS\n");
+	printf("Ingrese la direccion de la carpeta: ");
+	scanf("%s", dir);
+	d = opendir(dir);
+	if(d == NULL){	
+		printf("No se pudo abrir el directorio %s\n", dir);
+		return -1;
+	}
+	while((rdir = readdir(d)) != NULL){	
+		strcpy(arch[totalArchivos], rdir->d_name);
+		//arch[totalArchivos] = rdir->d_name;
+		totalArchivos++;
+	}
+	closedir(d);
+	chdir(dir);
+	for(i=1; i<totalArchivos; i++){
+		printf("Nombre del archivo: %s\n", arch[i]);
+		stat(arch[i], &info);
+		printf("Tamaño del archivo: %ld Bytes\n", info.st_size);
+		printf("Ultima Fecha de acceso: %s\n", ctime(&info.st_ctime));
+	}
+	return 0;
+}

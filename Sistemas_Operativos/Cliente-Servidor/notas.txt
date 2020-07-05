@@ -1,0 +1,8 @@
+*en el ejemplo de pipeline es programa se ejecuta de manera indeterminada esperando recibir una cadena para posteriormente mostrarla por medio de las tuberias. para finalizar el programa se debe presionar ctr+z
+
+*en el ejemplo de memoria compartida se debe ejecutar primero el servidor que esta esperando respuesta del cliente
+
+*en el programa de memoria compartida se debe tener compilado los 3 programas, para compilar el servidor se debe compilar
+	gcc servidor.c -o servidor -lm
+para que reconosca la libreria math.h
+posteriormente solo se debe ejecutar el archivo servidor (./servidor)

@@ -1,0 +1,239 @@
+Soy el proceso padre numero: 9552
+
+
+Soy el proceso padre numero: 9553
+Soy el proceso padre numero: 9554
+
+Soy el proceso padre numero: 9555
+
+Soy el proceso padre numero: 9556
+
+	1.-Soy el proceso hijo numero: 9557 Mi padre es:9552
+
+	2.-Soy el proceso hijo numero: 9559 Mi padre es:9553	
+
+
+	4.-Soy el proceso hijo numero: 9562 Mi padre es:9555
+Soy el proceso padre numero: 9563
+
+
+	2.-Soy el proceso hijo numero: 9567 Mi padre es:9559
+	3.-Soy el proceso hijo numero: 9560 Mi padre es:9554
+
+	5.-Soy el proceso hijo numero: 9564 Mi padre es:9556
+
+Soy el proceso padre numero: 9558
+
+	1.-Soy el proceso hijo numero: 9565 Mi padre es:9557
+
+	8.-Soy el proceso hijo numero: 9569 Mi padre es:9563
+
+
+	2.-Soy el proceso hijo numero: 9572 Mi padre es:9567
+	4.-Soy el proceso hijo numero: 9570 Mi padre es:9562
+
+Soy el proceso padre numero: 9561
+
+	1.-Soy el proceso hijo numero: 9575 Mi padre es:9565
+
+	6.-Soy el proceso hijo numero: 9574 Mi padre es:9558
+
+Soy el proceso padre numero: 9566
+
+	3.-Soy el proceso hijo numero: 9571 Mi padre es:9560
+
+Soy el proceso padre numero: 9568
+
+	5.-Soy el proceso hijo numero: 9573 Mi padre es:9564
+
+	9.-Soy el proceso hijo numero: 9582 Mi padre es:9566
+
+	3.-Soy el proceso hijo numero: 9583 Mi padre es:9571
+
+	5.-Soy el proceso hijo numero: 9585 Mi padre es:9573
+
+	1.-Soy el proceso hijo numero: 9580 Mi padre es:9575
+
+	8.-Soy el proceso hijo numero: 9576 Mi padre es:9569
+
+	2.-Soy el proceso hijo numero: 9577 Mi padre es:9572
+
+	4.-Soy el proceso hijo numero: 9578 Mi padre es:9570
+
+	1.-Soy el proceso hijo numero: 9589 Mi padre es:9580
+
+	7.-Soy el proceso hijo numero: 9579 Mi padre es:9561
+
+	9.-Soy el proceso hijo numero: 9586 Mi padre es:9582
+
+	3.-Soy el proceso hijo numero: 9587 Mi padre es:9583
+
+	4.-Soy el proceso hijo numero: 9592 Mi padre es:9578
+
+	6.-Soy el proceso hijo numero: 9581 Mi padre es:9574
+
+
+	2.-Soy el proceso hijo numero: 9591 Mi padre es:9577
+	5.-Soy el proceso hijo numero: 9588 Mi padre es:9585
+
+	1.-Soy el proceso hijo numero: 9593 Mi padre es:9589
+
+	10.-Soy el proceso hijo numero: 9584 Mi padre es:9568
+
+
+
+	5.-Soy el proceso hijo numero: 9599 Mi padre es:9588
+	4.-Soy el proceso hijo numero: 9597 Mi padre es:9592
+	8.-Soy el proceso hijo numero: 9590 Mi padre es:9576
+
+	6.-Soy el proceso hijo numero: 9598 Mi padre es:9581
+
+
+	2.-Soy el proceso hijo numero: 9600 Mi padre es:9591
+
+
+	1.-Soy el proceso hijo numero: 9601 Mi padre es:9593
+	5.-Soy el proceso hijo numero: 9603 Mi padre es:9599
+
+	2.-Soy el proceso hijo numero: 9607 Mi padre es:9600
+
+	6.-Soy el proceso hijo numero: 9606 Mi padre es:9598
+
+	1.-Soy el proceso hijo numero: 9608 Mi padre es:9601
+
+
+
+		8.-Soy el proceso hijo terminal numero: 9604 Mi padre es: 9590
+ 		10.-Soy el proceso hijo terminal numero: 9602 Mi padre es: 9584
+		5.-Soy el proceso hijo terminal numero: 9609 Mi padre es: 9603
+	3.-Soy el proceso hijo numero: 9596 Mi padre es:9587
+
+	4.-Soy el proceso hijo numero: 9605 Mi padre es:9597
+
+	7.-Soy el proceso hijo numero: 9594 Mi padre es:9579
+
+	4.-Soy el proceso hijo numero: 9614 Mi padre es:9605
+
+	2.-Soy el proceso hijo numero: 9610 Mi padre es:9607
+
+		9.-Soy el proceso hijo terminal numero: 9595 Mi padre es: 9586
+
+	6.-Soy el proceso hijo numero: 9611 Mi padre es:9606
+
+	2.-Soy el proceso hijo numero: 9619 Mi padre es:9610
+
+		8.-Soy el proceso hijo terminal numero: 9618 Mi padre es: 9590
+
+	7.-Soy el proceso hijo numero: 9616 Mi padre es:9594
+
+		5.-Soy el proceso hijo terminal numero: 9615 Mi padre es: 9603
+
+		6.-Soy el proceso hijo terminal numero: 9620 Mi padre es: 9611
+
+	3.-Soy el proceso hijo numero: 9613 Mi padre es:9596
+
+	1.-Soy el proceso hijo numero: 9612 Mi padre es:9608
+
+		4.-Soy el proceso hijo terminal numero: 9617 Mi padre es: 9614
+
+		9.-Soy el proceso hijo terminal numero: 9622 Mi padre es: 9586
+
+		8.-Soy el proceso hijo terminal numero: 9624 Mi padre es: 9590
+
+	7.-Soy el proceso hijo numero: 9623 Mi padre es:9616
+
+	3.-Soy el proceso hijo numero: 9625 Mi padre es:9613
+
+
+		5.-Soy el proceso hijo terminal numero: 9626 Mi padre es: 9603
+
+		2.-Soy el proceso hijo terminal numero: 9621 Mi padre es: 9619
+		4.-Soy el proceso hijo terminal numero: 9629 Mi padre es: 9614
+
+	1.-Soy el proceso hijo numero: 9627 Mi padre es:9612
+
+		7.-Soy el proceso hijo terminal numero: 9630 Mi padre es: 9623
+
+		6.-Soy el proceso hijo terminal numero: 9628 Mi padre es: 9611
+
+
+
+	3.-Soy el proceso hijo numero: 9631 Mi padre es:9625
+		5.-Soy el proceso hijo terminal numero: 9632 Mi padre es: 9603
+
+
+		1.-Soy el proceso hijo terminal numero: 9636 Mi padre es: 9627
+
+
+		2.-Soy el proceso hijo terminal numero: 9633 Mi padre es: 9619
+		3.-Soy el proceso hijo terminal numero: 9637 Mi padre es: 9631
+
+		6.-Soy el proceso hijo terminal numero: 9639 Mi padre es: 9611
+		4.-Soy el proceso hijo terminal numero: 9634 Mi padre es: 9614
+
+		1.-Soy el proceso hijo terminal numero: 9640 Mi padre es: 9627
+
+		2.-Soy el proceso hijo terminal numero: 9641 Mi padre es: 9619
+		7.-Soy el proceso hijo terminal numero: 9635 Mi padre es: 9623
+
+
+
+		6.-Soy el proceso hijo terminal numero: 9643 Mi padre es: 9611
+		5.-Soy el proceso hijo terminal numero: 9638 Mi padre es: 9603
+		3.-Soy el proceso hijo terminal numero: 9642 Mi padre es: 9631
+
+
+
+		4.-Soy el proceso hijo terminal numero: 9644 Mi padre es: 9614
+		7.-Soy el proceso hijo terminal numero: 9645 Mi padre es: 9623
+		2.-Soy el proceso hijo terminal numero: 9646 Mi padre es: 9619
+
+		1.-Soy el proceso hijo terminal numero: 9647 Mi padre es: 9627
+
+		5.-Soy el proceso hijo terminal numero: 9649 Mi padre es: 9603
+
+		6.-Soy el proceso hijo terminal numero: 9648 Mi padre es: 9611
+
+
+		4.-Soy el proceso hijo terminal numero: 9652 Mi padre es: 9614
+		7.-Soy el proceso hijo terminal numero: 9650 Mi padre es: 9623
+
+
+		3.-Soy el proceso hijo terminal numero: 9653 Mi padre es: 9631
+		2.-Soy el proceso hijo terminal numero: 9651 Mi padre es: 9619
+
+
+		4.-Soy el proceso hijo terminal numero: 9655 Mi padre es: 9614
+		1.-Soy el proceso hijo terminal numero: 9654 Mi padre es: 9627
+
+		2.-Soy el proceso hijo terminal numero: 9656 Mi padre es: 9619
+
+		4.-Soy el proceso hijo terminal numero: 9657 Mi padre es: 9614
+
+
+		1.-Soy el proceso hijo terminal numero: 9658 Mi padre es: 9627
+		2.-Soy el proceso hijo terminal numero: 9659 Mi padre es: 9619
+
+		3.-Soy el proceso hijo terminal numero: 9660 Mi padre es: 9631
+
+		1.-Soy el proceso hijo terminal numero: 9661 Mi padre es: 9627
+
+		2.-Soy el proceso hijo terminal numero: 9662 Mi padre es: 9619
+
+		3.-Soy el proceso hijo terminal numero: 9663 Mi padre es: 9631
+
+		1.-Soy el proceso hijo terminal numero: 9664 Mi padre es: 9627
+
+
+		2.-Soy el proceso hijo terminal numero: 9665 Mi padre es: 9619
+		3.-Soy el proceso hijo terminal numero: 9666 Mi padre es: 9631
+
+		1.-Soy el proceso hijo terminal numero: 9667 Mi padre es: 9627
+
+		3.-Soy el proceso hijo terminal numero: 9668 Mi padre es: 9631
+
+		1.-Soy el proceso hijo terminal numero: 9669 Mi padre es: 9627
+
+		3.-Soy el proceso hijo terminal numero: 9670 Mi padre es: 9631
+
+		1.-Soy el proceso hijo terminal numero: 9671 Mi padre es: 9627
