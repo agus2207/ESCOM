@@ -1,0 +1,5 @@
+Palabras Aceptadas
+working
+ing
+ing
+Numero de palabras aceptadas 3
