@@ -1,0 +1,2 @@
+Cadenas Aceptadas
+Cadenas totales con Paridad 0

@@ -1,0 +1,6 @@
+Palabras Aceptadas
+Encontre: web en ---> web, 
+Encontre: Web en ---> Web 
+Encontre: web en ---> web. 
+Encontre: web en ---> web 
+Numero de palabras aceptadas 4
