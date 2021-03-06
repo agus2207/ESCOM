@@ -1,0 +1,8 @@
+[Project]
+Current config=GENERIC
+VCS=0
+modified=9
+[Configurations]
+GENERIC=detector
+[Files]
+/F:\DSD\automata\vhd\detector.vhd=4, 1 30634001 539368704, 0, , , ,

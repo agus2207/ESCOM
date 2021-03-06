@@ -1,0 +1,2 @@
+detector.VHD #Entity det 4
+detector.VHD #Architecture a_det det 10

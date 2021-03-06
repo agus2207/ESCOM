@@ -1,0 +1,11 @@
+ENTITY robot IS
+    PORT (
+	a : in std_logic  ; 
+	b : in std_logic  ; 
+	c : in std_logic  ; 
+	d : in std_logic  ; 
+	e : in std_logic  ; 
+	f1 : inout std_logic  ; 
+	f2 : inout std_logic 
+    ) ;
+END robot ;

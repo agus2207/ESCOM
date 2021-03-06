@@ -1,0 +1,7 @@
+ Compilation with file reorder...
+ File: F:\DSD\automata\vhd\detector.vhd
+ Compile Entity "det"
+ Compile Architecture "DSMB" of Entity "det"
+ Top-Level unit detected
+ Entity  =>   det
+ Compile success 0 Errors 0 Warnings  Analysis time :  0.2 [s]
