@@ -1,0 +1,390 @@
+/***********************************CLIENTE************************************************/
+#include "header.h"
+#include "File.h"
+#include "SocketDatagrama.h"
+#include "PaqueteDatagrama.h"
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+
+using namespace std;
+
+int main(int argc, char *argv[]) {
+
+    struct mensaje cliente_msg;
+    SocketDatagrama socket(6666);
+    cout << "CLIENTE" << "\n";
+    int operacion;
+    char origen[255];
+    char destino[1024];
+    cout << "Bienvenido al cliente ingrese una opcion:" <<endl;
+    cout << "1. Enviar archivo\n2.Buscar archivo en el servidor" << endl;
+    cin >> operacion;
+    while(operacion == 0 || operacion > 2){
+        cout << "Opcion invalida\nIntente de nuevo:" << endl;
+        cin >> operacion;
+    }
+    if(operacion == 1){
+        cout << "Escriba la ruta del archivo a enviar:" << endl;
+        cin >> origen;
+        cout << "Escriba el nombre del archivo destino:" << endl;
+        cin >> destino;
+    }
+    else if(operacion == 2){
+        cout << "Escriba el nombre del archivo a buscar:" << endl;
+        cin >> origen;
+        cout << "Escriba la ruta del archivo destino:" << endl;
+        cin >> destino;
+    }
+
+    cliente_msg.opcode = READ;
+    memcpy(cliente_msg.name, origen, sizeof(cliente_msg.name));
+    PaqueteDatagrama paquete(cliente_msg, sizeof(cliente_msg), (char *) "127.0.0.1", 7200);
+    socket.envia(paquete);
+    socket.recibe(paquete);
+    cliente_msg = paquete.obtieneDatos();
+    //printf("Estado: %li\n", cliente_msg.result);
+
+    if(cliente_msg.result != -1){
+        cliente_msg.opcode = WRITE;
+        memcpy(cliente_msg.name, origen, sizeof(cliente_msg.name));
+        memcpy(cliente_msg.data, destino, sizeof(cliente_msg.data));
+        PaqueteDatagrama paquete(cliente_msg, sizeof(cliente_msg), (char *) "127.0.0.1", 7200);
+        socket.envia(paquete);
+        socket.recibe(paquete);
+        cliente_msg = paquete.obtieneDatos();
+        //printf("Estado: %li\n", cliente_msg.result);
+        if(cliente_msg.result != -1 && operacion == 1)
+            printf("ARCHIVO ENVIADO AL SERVIDOR\n");
+        else if(cliente_msg.result != -1 && operacion == 2)
+            printf("ARCHIVO RECIBIDO CON EXITO\n");
+        else
+            printf("OCURRIO ALGUN ERROR EN EL SERVIDOR\n");
+    }
+
+    else
+        printf("OCURRIO ALGUN ERROR EN EL SERVIDOR\n");
+}
+/***********************************SERVIDOR************************************************/
+#include "SocketDatagrama.h"
+#include "PaqueteDatagrama.h"
+#include "header.h"
+#include "File.h"
+
+int main(int argc, char const *argv[]) {
+    printf("%s\n", "SERVIDOR");
+    //creando objetos SocketDatagrama en puerto 7200 y PaqueteDatagrama para recibir
+    SocketDatagrama cliente(7200);
+    PaqueteDatagrama paquete(sizeof(struct mensaje));
+    int estado;
+
+    for(;;){
+        printf("%s\n", "ESPERANDO...");
+        cliente.recibe(paquete);
+        //cuando el cliente se conecte (ver SocketDatagrama.cpp)
+        //printf("Recibidos = %d\n", cliente.recibe(paquete));  //funcion recibe(objeto PaqueteDatagrama)
+        struct mensaje msg;
+        msg = paquete.obtieneDatos();
+        //printf("Recibi esta opcion: %li\n", paquete.obtieneDatos().opcode);
+        //printf("Recibi este nombre %s\n", msg.name);
+        if(msg.opcode == READ){
+            File archivo(msg.name, (char *)"");
+            estado = archivo.buscar();
+            msg.result = estado;
+            printf("ENVINDO RESULTADO\n");
+            PaqueteDatagrama respuesta(msg, sizeof(msg), paquete.obtieneDireccion(), paquete.obtienePuerto());
+            cliente.envia(respuesta);
+        }
+        //printf("Estado: %d\n", estado);
+        if(msg.opcode == WRITE){
+            File archivo(msg.name, msg.data);
+            estado = archivo.escribir();
+            msg.result = estado;
+            printf("ENVIANDO RESULTADO\n");
+            PaqueteDatagrama respuesta(msg, sizeof(msg), paquete.obtieneDireccion(), paquete.obtienePuerto());
+            cliente.envia(respuesta);
+        }
+    }
+    return 0;
+}
+/***********************************FILE.CPP************************************************/
+#include <stdlib.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include "File.h"
+
+using namespace std;
+
+File::File(char* original, char* copia){
+    memcpy(origen, original, sizeof(origen));
+    memcpy(destino, copia, sizeof(destino));
+}
+
+int File::buscar(){
+    int partida;
+
+    if((partida = open(origen, O_RDONLY)) == -1)
+        perror("No se encontro el archivo de origen");
+    
+    printf("ARCHIVO ENCONTRADO\n");
+
+    return partida;
+}
+
+int File::escribir(){
+    int nbytes, partida, llegada;
+
+    if((partida = open(origen, O_RDONLY)) == -1)
+        perror(origen);
+
+    if((llegada = open(destino, O_WRONLY|O_TRUNC|O_CREAT, 0666)) == -1)
+        perror(destino);
+
+    printf("ESCRIBIENDO ARCHIVO\n");
+
+    while((nbytes = read(partida, buffer, sizeof buffer)) > 0)
+        write(llegada, buffer, nbytes);
+
+    printf("ARCHIVO LISTO\n");
+        
+    close(llegada);
+    close(partida);
+    
+    return llegada;
+}
+/***********************************FILE.H************************************************/
+#include <stdio.h>
+
+#ifndef FILE_H_
+#define FILE_H_
+
+class File{
+	private:
+		char buffer[BUFSIZ];
+		char origen[255];
+		char destino[255];
+	public:
+		File(char*, char*);
+		int buscar();
+		int escribir();
+};
+
+#endif
+/***********************************HEADER.H************************************************/
+#ifndef HEADER_H_
+#define HEADER_H_
+
+//Definiciones necesarias para los clientes y servidores
+#define MAX_PATH 255    //longitud maxima del nombre de un archivo
+#define BUF_SIZE 1024   //cantidad de datos que se pueden transferir de una sola vez
+#define FILE_SERVER 243 //Direccion en la red del servidor de archivos
+
+//Definicion de operaciones permitidas
+#define CREATE 1    //Crea un archivo
+#define READ 2  //Lee una parte del archivo y la regresa
+#define WRITE 3 //Escribe una parte del archivo
+#define DELETE 4    //Elimina un archivo existente
+
+//Codigos de error
+#define OK 0    //Operacion desarrollada en forma correcta
+#define E_BAD_OPCODE -1 //Solicitud de una operacion desconocida
+#define E_BAD_PARAM -2  //Error en un parametro
+#define E_IO -3 //Error en disco u otro error en E/S
+
+//Definicion del formato del mensaje
+struct mensaje{
+    long source; //identidad del emisor
+    long dest;   //identidad del receptor
+    long opcode; //operacion
+    long count;  //numero de bits por transferir
+    long offset; //Lugar del archivo donde comienza la lectura o la escritura
+
+    long extra1;   //Campo adicioal
+    long extra2;   //Campo adicional
+    long result;    //Resultado de la operacio que se informa
+    char name[MAX_PATH];     //Nombre del archivo en el cual se opera
+    //char destiny[MAX_PATH];
+    char data[BUF_SIZE];    //Datos por leer o escribir
+};
+
+#endif
+/***********************************PAQUETEDATAGRAMA.CPP************************************************/
+#include "PaqueteDatagrama.h"
+#include "header.h"
+
+
+PaqueteDatagrama::PaqueteDatagrama(struct mensaje msg, unsigned int longi, char *dir, int port){
+
+    m1 = msg;
+    //printf("Opcion: %li\n", m1.opcode);
+    //printf("Nombre: %s\n", m1.name);
+    
+    memcpy(ip, dir, sizeof(char)*16);           
+
+    longitud = longi;                           //variable longitud configurada
+    puerto = port;     
+}
+PaqueteDatagrama::PaqueteDatagrama(unsigned int num){
+
+    longitud = num;                             //variable longitud configurada
+}
+
+char * PaqueteDatagrama::obtieneDireccion(){   
+    return ip;                                  //a donde se envia el datagrama o desde donde
+}
+
+unsigned int PaqueteDatagrama::obtieneLongitud(){ 
+    return longitud;                              //enviados o recibidos
+}
+int PaqueteDatagrama::obtienePuerto(){         
+    return puerto;                              //ya sea quien envia o para quien se envia
+}
+struct mensaje PaqueteDatagrama::obtieneDatos(){        
+    return m1;
+}
+void PaqueteDatagrama::inicializaPuerto(int port){    //inicializa puerto
+    puerto = port;
+}
+void PaqueteDatagrama::inicializaIp(char *dir){       //inicializa IP
+    memcpy(ip, dir, sizeof(char)*16);
+}
+void PaqueteDatagrama::inicializaDatos(struct mensaje msg){   //inicializa los datos
+    m1 = msg;
+}
+/***********************************PAQUETEDATAGRAMA.H************************************************/
+#ifndef PAQUETE_DATAGRAMA_H_
+#define PAQUETE_DATAGRAMA_H_
+#include <new>
+#include <cstring>
+#include <stdio.h>
+#include "header.h"
+
+using namespace std;
+
+class PaqueteDatagrama {
+    public:
+        PaqueteDatagrama(struct mensaje, unsigned int, char *, int );
+        PaqueteDatagrama(unsigned int );
+        char *obtieneDireccion();
+        unsigned int obtieneLongitud();
+        int obtienePuerto();
+        struct mensaje obtieneDatos();
+        void inicializaPuerto(int);
+        void inicializaIp(char *);
+        void inicializaDatos(struct mensaje);
+    private:
+        struct mensaje m1;
+        char ip[16];//Almacena la IP
+        unsigned int longitud;//Almacena la longitude de la cadena de datos
+        int puerto;//Almacena el puerto
+};
+#endif
+/***********************************SOCKETDATAGRAMA.CPP************************************************/
+#include "SocketDatagrama.h"
+#include "header.h"
+
+SocketDatagrama::SocketDatagrama(int puerto){         //configuracion del socket
+    s = socket(AF_INET, SOCK_DGRAM, 0);               //crear socket
+    bzero((char *)&direccionLocal, sizeof(direccionLocal));   //limpiar estructura de info de socket
+    direccionLocal.sin_family = AF_INET;              //familia: AF_INET
+    direccionLocal.sin_addr.s_addr = INADDR_ANY;      //direccion: cualquiera se acepta
+    direccionLocal.sin_port = htons(puerto);          //puerto: parametro
+    bind(s, (struct sockaddr *)&direccionLocal, sizeof(direccionLocal));  //levantar el servicio
+}
+
+SocketDatagrama::~SocketDatagrama() {     //DESTRUCTOR: cierra el socket
+    close(s);
+}
+
+int SocketDatagrama::envia(PaqueteDatagrama &p){      //metodo para enviar el paquete de datagramas
+    bzero((char *)&direccionForanea, sizeof(direccionForanea));   //limpiando la estructura
+
+    //configurando la estructura, con GETTERS de PaqueteDatagrama.cpp
+    direccionForanea.sin_family = AF_INET;
+    direccionForanea.sin_addr.s_addr = inet_addr(p.obtieneDireccion());
+    direccionForanea.sin_port = htons(p.obtienePuerto());
+
+    //enviando datos, con GETTERS de PaqueteDatagrama.cpp
+    struct mensaje msg;
+    msg = p.obtieneDatos();
+    return sendto(s, &msg, p.obtieneLongitud(), 0, (struct sockaddr *)&direccionForanea, sizeof(direccionForanea));
+}
+
+int SocketDatagrama::recibe(PaqueteDatagrama &p){ //metodo para recibir un paquete de datagrama
+
+    struct mensaje m2;
+    //char datos[p.obtieneLongitud()];      //arreglo de caracteres con longitud longi (ver PaqueteDatagrama.cpp)
+    char aux[INET_ADDRSTRLEN];
+    socklen_t clilen = sizeof(direccionForanea);  //longitud en terminos de socket
+
+    //recibiendo en arreglo "datos" con GETTER de longitud de PaqueteDatagrama.cpp
+    int i = recvfrom(s, &m2, p.obtieneLongitud(), 0, (struct sockaddr *) &direccionForanea, &clilen);
+
+    //inet_ntop convierte una direccion IP a formato de texto, lo almacena en aux
+    //obtiene en cadena la direccion del cliente conectado
+    inet_ntop(AF_INET, &(direccionForanea.sin_addr), aux, INET_ADDRSTRLEN);
+
+    //ntohs: convierte numero de red en entero short, obtiene puerto del cliente
+    //inicializa puerto con dato obtenido
+    p.inicializaPuerto(ntohs(direccionForanea.sin_port));
+    //inicializa IP con dato obtenido por inet_ntop
+    p.inicializaIp(aux);
+    //inicializa mensaje con cadena recibida de recvfrom
+    p.inicializaDatos(m2);
+    //devuelve resultado de la funcion recvfrom
+    return i;
+}
+/***********************************SOCKETDATAGRAMA.H************************************************/
+#ifndef __SOCKET_DATAGRAMA__
+#define __SOCKET_DATAGRAMA__
+#include "SocketDatagrama.h"
+#include "PaqueteDatagrama.h"
+#include "header.h"
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <string.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <stdio.h>
+#include <string>
+#include <unistd.h>
+
+using namespace std;
+
+class SocketDatagrama {
+public:
+    SocketDatagrama(int);
+    ~SocketDatagrama();
+    // Recibe un paquete tipo datagrama proveniente de este socket
+    int recibe(PaqueteDatagrama &p);
+    // Envia un paquete tipo datagrama desde este socket
+    int envia(PaqueteDatagrama &p);
+private:
+    struct sockaddr_in direccionLocal;    //estructura a configurar en creacion de socket
+    struct sockaddr_in direccionForanea;  //estructura para recibir datos de cliente
+    int s; // ID socket
+};
+
+#endif
+/***********************************MAKEFILE************************************************/
+run: servidor cliente
+
+cliente: cliente.o PaqueteDatagrama.o SocketDatagrama.o File.o
+	g++ SocketDatagrama.o PaqueteDatagrama.o cliente.o File.o -o cliente
+servidor: servidor.o PaqueteDatagrama.o SocketDatagrama.o File.o
+	g++ SocketDatagrama.o PaqueteDatagrama.o servidor.o File.o -o servidor
+servidor.o: servidor.cpp
+	g++ -Wall -c servidor.cpp
+cliente.o: cliente.cpp
+	g++ -Wall -c cliente.cpp
+File.o: File.cpp
+	g++ -Wall -c File.cpp
+PaqueteDatagrama.o: PaqueteDatagrama.cpp
+	g++ -Wall -c PaqueteDatagrama.cpp
+SocketDatagrama.o:SocketDatagrama.cpp 
+	g++ -Wall -c SocketDatagrama.cpp
+clean:
+	rm *.o *.out ./cliente ./servidor

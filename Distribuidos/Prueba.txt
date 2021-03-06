@@ -1,0 +1,6 @@
+ftp 10.100.74.248
+user: alumno
+password: escom2018
+get archivo
+put archivo
+binary
