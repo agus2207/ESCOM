@@ -1,0 +1,37 @@
+/*
+@Autor: Ing.Sergio Romero. 
+@Fecha: Martes 16 de Septiembre del 2014.
+@IDE: NetBeans IDE 8.0.
+@OS: Linux Ubuntu 14.04.
+@Language: Spanish.
+@Observaciones: Control de Información de versión desde versión
+    Java_SAEAAV_TT_v118. 
+*/
+
+#Modificaciones realizadas:
+    
+    ->Optimización cargador JOGL
+    sobre: JOGL_Principal y eliminación paquete librerías MACOS
+
+
+#Observaciones:
+
+    *Se incorporó la nueva versión de la librería JFlex.
+
+#Componentes Actualizados:
+    
+    *Calculadora
+    basada en: Java_SAEAAV_TT_Modulo_EvaluadorDeExpresiones_v12
+
+#Pendientes:
+    OK_1. Revisar clases cargador dinamico JOGL
+    OK_2. Modificar GUI para elección de PLano 2D en Visualización.
+    3. Modificar GUI para visualización del modo 2D/3D desde ventana Principal.
+    OK_4. Corregir error en información acercaDe
+    OK_5. Corregir error al dar doble clic sobre los botones de graficar.
+    6. Colocar un control para saber el modo de visualizacion en pantalla principal.
+    7. Checar porque al graficar en plano YZ un campo escalar X+Y o X, este se ve. 
+    OK_8. Modo de Visualkzación 2D-XY por default.
+#Modelo comentario
+    ->
+    sobre:

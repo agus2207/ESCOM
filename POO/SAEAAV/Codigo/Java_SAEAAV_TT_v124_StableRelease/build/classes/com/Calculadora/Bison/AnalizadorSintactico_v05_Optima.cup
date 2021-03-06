@@ -1,0 +1,467 @@
+/*To compile: java java_cup.Main path/file.cup*/
+
+// CUP specification for a simple expression evaluator (w/ actions)
+import java_cup.runtime.*;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.ArrayList;
+
+/* Preliminaries to set up and use the scanner.  */
+action code
+{: 
+    private double varX=0.0;
+    private double varY=0.0;
+    private double varZ=0.0;
+    private String valor="";
+    private Boolean esError=false;
+    private String mensajeError="";
+    private ArrayList<String> listaDeValores=new ArrayList<>();
+    private ArrayList<Boolean> listaDeTiposDeValores_esError=new ArrayList<>();
+    public void ImprimeValor()
+    {
+       //System.out.println("----------------------------------------------------");
+       //System.out.println("parser::MSG::ImprimeValor::esError="+esError);
+       this.listaDeTiposDeValores_esError.add(esError);
+       if(!esError)
+       {
+        //System.out.println("parser::MSG::ImprimeValor::this.listaDeValores.add="+valor);
+        this.listaDeValores.add(valor);
+       }
+       else
+       {
+        //System.out.println("parser::MSG::ImprimeValor::this.listaDeValores.add="+mensajeError);
+        this.listaDeValores.add(mensajeError);
+       }
+       valor="";
+       mensajeError="";
+       esError=false;
+       //System.out.println("----------------------------------------------------");
+    }
+    public ArrayList<String> getListaDeValores()
+    {
+        return listaDeValores;
+    } 
+    public ArrayList<Boolean> getListaDeTiposDeValores_esError()
+    {
+        return listaDeTiposDeValores_esError;
+    }
+    public void setVarX(double valorX) 
+    {
+        this.varX = valorX;
+    }
+    public void setVarY(double valorY) 
+    {
+        this.varY = valorY;
+    }
+    public void setVarZ(double valorZ) 
+    {
+        this.varZ = valorZ;
+    }
+
+:};
+parser code
+{:
+    private double varX=0.0;
+    private double varY=0.0;
+    private double varZ=0.0;
+    /** Action encapsulation object initializer. This is from SAEAAV. Remove others. */
+    protected void init_actions()
+    {
+      action_obj = new CUP$parser$actions(this);
+      action_obj.setVarX(this.varX);
+      action_obj.setVarY(this.varY);
+      action_obj.setVarZ(this.varZ);
+    }
+    public void setVarX(double valorX) 
+    {
+        this.varX = valorX;
+    }
+    public void setVarY(double valorY) 
+    {
+        this.varY = valorY;
+    }
+    public void setVarZ(double valorZ) 
+    {
+        this.varZ = valorZ;
+    }
+    public static parser Principal(String pathArchivo) 
+    {
+        //Variables
+        parser objparser=null;
+        
+        //Nos aseguramos de que todo salga bien
+        try
+        {
+            //Leemos el archivo de entrada...
+            Reader reader = new BufferedReader(new FileReader(pathArchivo));
+            
+            //Leemos con el analizador
+            objparser=new parser(new scanner(reader));
+            
+            //Ejecutamos el análisis
+            objparser.parse();
+        }
+        catch(Exception ex)
+        {
+            return objparser;
+            //ex.printStackTrace();
+        }
+        
+        //Retornamos el resultado
+        return objparser;
+    }
+    public static parser PrincipalRecibeContenidoDirecto(String contenido) 
+    {
+        //Variables
+        String str = contenido;
+        parser objparser=null;
+        InputStream is;
+        BufferedReader br;
+        
+        //Nos aseguramos de que todo salga bien
+        try
+        {
+            //Realizamos el proceso de conversión
+            is = new ByteArrayInputStream(str.getBytes());
+            br = new BufferedReader(new InputStreamReader(is));
+
+            //Leemos el contenido de entrada...
+            Reader reader = br;
+            
+            //Leemos con el analizador
+            objparser=new parser(new scanner(reader));
+            
+            //Ejecutamos el análisis
+            objparser.parse();
+        }
+        catch(Exception ex)
+        {
+            return objparser;
+            //ex.printStackTrace();
+        }
+        
+        //Retornamos el resultado
+        return objparser;
+    }
+    public static parser PrincipalRecibeContenidoDirecto(String contenido, double valorX, double valorY, double valorZ) 
+    {
+        //Variables
+        String str = contenido;
+        parser objparser=null;
+        InputStream is;
+        BufferedReader br;
+        
+        //Nos aseguramos de que todo salga bien
+        try
+        {
+            //Realizamos el proceso de conversión
+            is = new ByteArrayInputStream(str.getBytes());
+            br = new BufferedReader(new InputStreamReader(is));
+
+            //Leemos el contenido de entrada...
+            Reader reader = br;
+            
+            //Leemos con el analizador
+            objparser=new parser(new scanner(reader));
+            
+            //Ajustamos atributos
+            objparser.setVarX(valorX);
+            objparser.setVarY(valorY);
+            objparser.setVarZ(valorZ);
+            
+            //Ejecutamos el análisis
+            objparser.parse();
+        }
+        catch(Exception ex)
+        {
+            return objparser;
+            //ex.printStackTrace();
+        }
+        
+        //Retornamos el resultado
+        return objparser;
+    }
+:};
+
+/* Terminals (tokens returned by the scanner). */
+terminal Double   TKN_NUMREAL;
+terminal           TKN_VARX;
+terminal           TKN_VARY;
+terminal           TKN_VARZ;
+terminal           TKN_PTOCOMA;
+terminal           TKN_MAS;
+terminal           TKN_MENOS;
+terminal           TKN_MULT;
+terminal           TKN_DIV;
+terminal           TKN_MOD;
+terminal           TKN_POT;
+terminal           TKN_SEN;
+terminal           TKN_COS;
+terminal           TKN_TAN;
+terminal           TKN_SENH;
+terminal           TKN_COSH;
+terminal           TKN_TANH;
+terminal           TKN_ARCSEN;
+terminal           TKN_ARCCOS;
+terminal           TKN_ARCTAN;
+terminal           TKN_LOG;
+terminal           TKN_SQRT;
+terminal           TKN_RAD;
+terminal           TKN_DEG;
+terminal           TKN_EXP;
+terminal           TKN_PI;
+terminal           TKN_E;
+terminal           TKN_PABRE;
+terminal           TKN_PCIERRA;
+terminal           TKN_ERROR;
+terminal           UMENOS;
+terminal           UMAS;
+
+/* Non-terminals */
+non terminal Double    Expresion;
+non terminal            Inicio;
+non terminal            Evaluador;
+
+/* Precedences */
+precedence left TKN_MAS, TKN_MENOS;
+precedence left TKN_MULT, TKN_DIV,TKN_MOD;
+precedence right TKN_POT;
+precedence left UMENOS;
+precedence left UMAS;
+
+/* The grammar */
+Inicio ::= Inicio Evaluador 
+	      | 
+              Evaluador;
+
+Evaluador ::= Expresion:e TKN_PTOCOMA
+	      {: 
+                //System.out.println("----------------------------------------------------");
+                //System.out.println("-->Expresion:e TKN_PTOCOMA");
+                //System.out.println("esError="+esError);
+                if(!esError)
+                {
+                    //System.out.println("if-true");
+                    valor=""+e;
+                    ImprimeValor();
+                }
+                if(esError)
+                {
+                    //System.out.println("if-false");
+                    ImprimeValor();
+                }
+                //System.out.println("----------------------------------------------------");
+              :} 
+	      |
+              error
+              {: 
+                //System.out.println("----------------------------------------------------");
+                //System.out.println("-->error");
+                esError=true;
+                mensajeError+="Linea mal escrita.";
+                ImprimeValor();
+                //System.out.println("->ERROR=Linea mal escrita.");
+                //System.out.println("----------------------------------------------------");
+              :}
+	      ;
+
+Expresion     ::= Expresion:e1 TKN_MAS Expresion:e2    
+	      {: RESULT = new Double(e1.doubleValue() + e2.doubleValue()); :} 
+	      | 
+              Expresion:e1 TKN_MENOS Expresion:e2    
+              {: RESULT = new Double(e1.doubleValue() - e2.doubleValue()); :} 
+	      | 
+              Expresion:e1 TKN_MULT Expresion:e2 
+	      {: RESULT = new Double(e1.doubleValue() * e2.doubleValue()); :} 
+	      | 
+              Expresion:e1 TKN_DIV Expresion:e2 
+	      {: 
+                if(e2.doubleValue()>0.0)
+                {
+                    RESULT = new Double(e1.doubleValue() / e2.doubleValue());
+                }
+                else
+                {
+                    if(!esError)
+                    {
+                        //System.out.println("----------------------------------------------------");
+                        //System.out.println("-->DIVISION ENTRE 0");
+                        esError=true;
+                        mensajeError+="Resultado indeterminado.";
+                        //System.out.println("->ERROR="+mensajeError);
+                        //System.out.println("----------------------------------------------------");
+                    }
+                    RESULT = new Double(e1.doubleValue());
+                }
+              :} 
+	      | 
+              Expresion:e1 TKN_MOD Expresion:e2 
+	      {: RESULT = new Double(e1.doubleValue() % e2.doubleValue()); :} 
+	      |
+              Expresion:e1 TKN_POT Expresion:e2 
+	      {: RESULT = new Double(Math.pow(e1.doubleValue(),e2.doubleValue())); :} 
+	      |
+              TKN_SEN TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.sin(e1.doubleValue())); :} 
+	      |
+              TKN_COS TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.cos(e1.doubleValue())); :} 
+	      |
+              TKN_TAN TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: 
+                if( !(e1.doubleValue()==90 || e1.doubleValue()==270) )
+                {
+                    RESULT = new Double(Math.tan(e1.doubleValue()));
+                }
+                else
+                {
+                    if(!esError)
+                    {
+                        //System.out.println("----------------------------------------------------");
+                        //System.out.println("-->TANGENTE DE 90 ó 270");
+                        esError=true;
+                        mensajeError+="Resultado indeterminado.";
+                        //System.out.println("->ERROR="+mensajeError);
+                        //System.out.println("----------------------------------------------------");
+                    }
+                    RESULT = new Double(e1.doubleValue());
+                }
+              :} 
+	      |
+              TKN_SENH TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.sinh(e1.doubleValue())); :} 
+	      |
+              TKN_COSH TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.cosh(e1.doubleValue())); :} 
+	      |
+              TKN_TANH TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: 
+                if( !(e1.doubleValue()==90 || e1.doubleValue()==270) )
+                {
+                    RESULT = new Double(Math.tanh(e1.doubleValue()));
+                }
+                else
+                {
+                    if(!esError)
+                    {
+                        //System.out.println("----------------------------------------------------");
+                        //System.out.println("-->TANGENTE HIPERBOLICA DE 90 ó 270");
+                        esError=true;
+                        mensajeError+="Resultado indeterminado.";
+                        //System.out.println("->ERROR="+mensajeError);
+                        //System.out.println("----------------------------------------------------");
+                    }
+                    RESULT = new Double(e1.doubleValue());
+                }
+              :} 
+	      |
+              TKN_ARCSEN TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.asin(e1.doubleValue())); :} 
+	      |
+              TKN_ARCCOS TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.acos(e1.doubleValue())); :} 
+	      |
+              TKN_ARCTAN TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: 
+                if( !(e1.doubleValue()==90 || e1.doubleValue()==270) )
+                {
+                    RESULT = new Double(Math.atan(e1.doubleValue()));
+                }
+                else
+                {
+                    if(!esError)
+                    {
+                        //System.out.println("----------------------------------------------------");
+                        //System.out.println("-->ARCO TANGENTE DE 90 ó 270");
+                        esError=true;
+                        mensajeError+="Resultado indeterminado.";
+                        //System.out.println("->ERROR="+mensajeError);
+                        //System.out.println("----------------------------------------------------");
+                    }
+                    RESULT = new Double(e1.doubleValue());
+                }
+              :} 
+	      |
+              TKN_SQRT TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: 
+                if(e1.doubleValue()>=0)
+                {
+                    RESULT = new Double(Math.sqrt(e1.doubleValue()));
+                }
+                else
+                {
+                    if(!esError)
+                    {
+                        //System.out.println("----------------------------------------------------");
+                        //System.out.println("-->RAIZ DE NUMERO NEGATIVO");
+                        esError=true;
+                        mensajeError+="Resultado indeterminado.";
+                        //System.out.println("->ERROR="+mensajeError);
+                        //System.out.println("----------------------------------------------------");
+                    }
+                    RESULT = new Double(e1.doubleValue());
+                }
+              :}
+	      |
+              TKN_RAD TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.toRadians(e1.doubleValue())); :} 
+	      |
+              TKN_DEG TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.toDegrees(e1.doubleValue())); :} 
+	      |
+              TKN_EXP TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.exp(e1.doubleValue())); :} 
+	      |
+              TKN_LOG TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(Math.log(e1.doubleValue())); :} 
+	      |
+              TKN_NUMREAL:e1                 
+	      {: RESULT = e1.doubleValue(); :}  
+              |
+              TKN_VARX
+              {:
+                 RESULT = new Double(varX);
+                 //System.out.println("->varX="+varX);
+              :}
+              |
+              TKN_VARY
+              {: RESULT = new Double(varY); :}
+              |
+              TKN_VARZ
+              {: RESULT = new Double(varZ); :}
+              |
+              TKN_PI       
+	      {: RESULT = Math.PI; :}  
+              |
+              TKN_E       
+	      {: RESULT = Math.E; :}  
+              |
+              TKN_MENOS Expresion:e1
+              {: RESULT = new Double(0 - e1.doubleValue()); :} 
+	      %prec UMENOS
+              |
+              TKN_MAS Expresion:e1
+              {: RESULT = new Double(0 + e1.doubleValue()); :} 
+	      %prec UMAS
+              |
+              TKN_PABRE Expresion:e1 TKN_PCIERRA
+              {: RESULT = new Double(e1.doubleValue()); :} 
+              |
+              TKN_ERROR       
+              {:  
+                if(!esError)
+                {
+                    //System.out.println("----------------------------------------------------");
+                    //System.out.println("-->ERROR");
+                    esError=true;
+                    mensajeError+="Resultado indeterminado.";
+                    //System.out.println("->ERROR="+mensajeError);
+                    //System.out.println("----------------------------------------------------");
+                }
+                RESULT = new Double(0.0);
+              :}
+              ;
