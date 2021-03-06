@@ -1,0 +1,9 @@
+VERSION:3 SOURCE_TIMESTAMP:4E6649E0
+NODE:I LEVEL:0 LINE:23 "C:\cvavreval\inc\mega32.h"
+NODE:I LEVEL:0 LINE:24 "C:\cvavreval\inc\delay.h"
+NODE:M LEVEL:0 LINE:26 "btnIzquierda"
+NODE:M LEVEL:0 LINE:27 "btnDerecha"
+NODE:M LEVEL:0 LINE:28 "btnDelante"
+NODE:M LEVEL:0 LINE:29 "btnAtras"
+NODE:M LEVEL:0 LINE:30 "salida"
+NODE:F LEVEL:0 LINE:34 "main(void)"

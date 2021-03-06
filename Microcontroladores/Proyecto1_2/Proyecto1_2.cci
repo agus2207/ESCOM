@@ -1,0 +1,13 @@
+VERSION:3 SOURCE_TIMESTAMP:4E6743EE
+NODE:I LEVEL:0 LINE:23 "C:\cvavreval\inc\mega8535.h"
+NODE:I LEVEL:0 LINE:24 "C:\cvavreval\inc\delay.h"
+NODE:M LEVEL:0 LINE:25 "receptor"
+NODE:M LEVEL:0 LINE:26 "entrada11"
+NODE:M LEVEL:0 LINE:27 "entrada12"
+NODE:M LEVEL:0 LINE:28 "enable1"
+NODE:M LEVEL:0 LINE:29 "entrada21"
+NODE:M LEVEL:0 LINE:30 "entrada22"
+NODE:M LEVEL:0 LINE:31 "enable2"
+NODE:V LEVEL:0 LINE:32 "contador -> R4,R5"
+NODE:V LEVEL:0 LINE:33 "contMilis -> R6,R7"
+NODE:F LEVEL:0 LINE:37 "main(void)"

@@ -1,0 +1,27 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+botonp0                                                                           R2.0      1bit
+botona0                                                                           R2.1      1bit
+botonp1                                                                           R2.2      1bit
+botona1                                                                           R2.3      1bit
+botonp2                                                                           R2.4      1bit
+botona2                                                                           R2.5      1bit
+aux2                                                                              R5           1
+aux3                                                                              R4           1
+var1                                                                              R7           1
+var2                                                                              R6           1
+var3                                                                              R9           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x0004B    163
