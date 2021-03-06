@@ -1,0 +1,62 @@
+struct punto {
+	itn x;
+	int y;
+};
+punto origen;
+oringen.x =  0;
+origen.y = 0;
+punto estad[102];
+estad[27].x = 12;
+
+struct amigo{
+	string nombre;
+	int edad, amigos;
+	string correo;
+	float dineroDebo;
+	int calif[502];
+	punto favor[1000];
+};
+amigo Escom[3002];
+Escom[50].favor[741].y = 8; //El amigo 50, el punto 741, su valor en y es igual a 8
+Escom[0].calif[5] = 7; //El primer amigo, su quinta calificacion fue 7
+amigo Erick;
+Erick.nombre = "Erick";
+Erick.edad = 18;
+Erick.correo = "e1@gmail.com";
+Erick.dineroDebo = 352.50;
+amigo Amigosdeamigo[3000][3000];
+
+int posErick = 0;
+while(Escom[posErick].nombre != "Erick")
+	posErick ++;
+for (int i = 0; i < Escom[posErick].amigos; i++)
+	total += Amigosdeamigos[posErick][i].dineroDebo;
+cout << "Le deben: " << total;
+
+
+pair<amigo, amigo>bf
+bf.first.nombre = "Fernando";
+bf.second.nombre = "Chris";
+bf.first.claif[1] = 9;
+
+pair<amigo, amigo>bf[1500];
+cout<<bf[2].second.correo;
+pair<pair<amigo, amigo>, int>info[1500];
+info[0].second = 10;
+info.first.second.dineroDebe += 10;
+
+vector<amigo> misAmigos; // Dentro del vector se indica lo que se quiere guardar
+vector<bf>misAmigos [10][10];
+mis>Amigos.push_back(Erick); // Manda a Erick al final de la lista
+cout << misAmigos[0].nombre = "Erick";
+cout << misAmigos.size();
+
+/*librerias utilizadas:
+#include <iostream>
+#include <utility>
+#include <cmath>
+#include <algorithm>
+#include <vector>*/
+
+#include <bits/ stdc++.h> //Incluye todas las librerias anteriores
+
