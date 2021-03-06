@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bd>
+  <grupo>
+    <nombre>administradores</nombre>
+    <administrador>Ricardo Leon</administrador>
+  </grupo>
+  <grupo>
+    <nombre>3CM3</nombre>
+    <alumno>Victor Ivan Nolasco Cid</alumno>
+    <profesor>Ruben Peredo</profesor>
+    <alumno>Agustin Galindo Reyes</alumno>
+  </grupo>
+  <grupo>
+    <nombre>3CM8</nombre>
+  </grupo>
+</bd>
+

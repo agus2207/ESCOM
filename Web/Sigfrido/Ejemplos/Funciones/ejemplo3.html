@@ -1,0 +1,22 @@
+<!-- Enteros aleatorios, desplazar y escalar. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Desplazar y escalar enteros aleatorios</title>   
+		<style type="text/css">    
+			p, ol { margin: 0; }    
+			li { display: inline; margin-right: l0px; }   
+		</style>   
+		<script>    
+			var valor;    
+			document.writeln( "<p>N&uacute;meros aleatorios</p><ol>" );    
+			for ( var i = 1; i <= 30; ++i ){     
+				valor = Math.floor ( 1 + Math.random() * 6 );     
+				document.writeln( "<li> " + valor + "</li>" );    
+			} // fin del for    
+			document.writeln( "</ol>" );   
+		</script>  
+	</head>
+	<body></body> 
+</html> 

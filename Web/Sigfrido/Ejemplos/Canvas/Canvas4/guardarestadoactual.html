@@ -1,0 +1,35 @@
+<!-- Guardar el estado actual y restaurar el estado anterior. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset = "utf-8">   
+		<title>Save y restore</title>  
+	</head>  
+	<body>   
+		<canvas id = "save" width = "400" height = "200"></canvas>   
+		<script>    
+			function dibujar(){     
+				var canvas = document.getElementById("save");     
+				var contexto = canvas.getContext("2d");     
+				// dibujar rectángulo y guardar la configuración 
+				 contexto.fillStyle = "red";    
+				 contexto.fillRect(0, 0, 400, 200);     
+				 contexto.save();     
+				 // modificar la configuración y guardar de nuevo     
+				 contexto.fillStyle = "orange"     
+				 contexto.fillRect(0, 40, 400, 160);     
+				 contexto.save();     
+				 // modificar la configuración de nuevo     
+				 contexto.fillStyle = "yellow";     
+				 contexto.fillRect(0, 80, 400, 120);     
+				 // restaurar a la configuración anterior y dibujar nuevo rectángulo     
+				 contexto.restore();     
+				 contexto.fillRect(0, 120, 400, 80);     
+				 // restaurar a la configuración original y dibujar nuevo rectángulo     
+				 contexto.restore();     
+				 contexto.fillRect(0, 160, 400, 40);    
+			}    
+			window.addEventListener( "load", dibujar, false );   
+		</script>  
+	</body> 
+</html>

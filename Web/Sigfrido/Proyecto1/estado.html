@@ -1,0 +1,246 @@
+<!-- Carrito de compras-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Estado del Carrito</title>
+		<link rel="stylesheet" href="master.css" type="text/css">
+	</head>
+	<script>
+		function alterError(value) {
+			if (value<=0.99) {
+				newPounds = '0';
+			} else {
+				newPounds = parseInt(value);
+			}
+			newPence = parseInt((value+.0008 - newPounds)* 100);
+			if (eval(newPence) <= 9) 
+				newPence='0'+newPence;
+			newString = newPounds + '.' + newPence;
+			return (newString);
+		}
+		function showItems() {
+			index = document.cookie.indexOf("TheBasket");
+			countbegin = (document.cookie.indexOf("=", index) + 1);
+			countend = document.cookie.indexOf(";", index);
+			if (countend == -1) {
+           		countend = document.cookie.length;
+			}
+			fulllist = document.cookie.substring(countbegin, countend);
+			totprice = 0;
+			document.writeln('<form><table border="1" cellspacing="0" width="640" bgcolor="#EFEFEF" bordercolor="#FFFFFF" class="td">');
+
+			document.writeln('<tr><td width="250"><b>Producto</b></td><td width="80" align="right"><b>Cantidad</b></td><td width="120" align="right"><b>Costo x unidad</b></td><td width="100" align="right"><b>Costo total</b><td width="90">&nbsp;</td></tr>');
+			itemlist = 0;
+			for (var i = 0; i <= fulllist.length; i++) {
+				if (fulllist.substring(i,i+1) == '[') {
+					itemstart = i+1;
+				} else if (fulllist.substring(i,i+1) == ']') {
+					itemend = i;
+					thequantity = fulllist.substring(itemstart, itemend);
+					itemtotal = 0;
+					itemtotal = (eval(theprice*thequantity));
+					temptotal = itemtotal * 100;
+					var tax = itemtotal / 100 * (0 - 0);
+    				tax = Math.floor(tax * 100)/100
+					totprice = totprice + itemtotal + tax;
+					itemlist=itemlist+1;
+					document.writeln('<tr><td>'+theitem+'</td><td align=right>'+thequantity+'</td><td align=right>'+theprice+'</td><td align=right>'+alterError(itemtotal)+'</td><td align=center><input TYPE="button" NAME="remove" VALUE="Quitar" onclick="javascript:removeItem('+itemlist+')"></td></tr>');
+				} else if (fulllist.substring(i,i+1) == ',') {
+					theitem = fulllist.substring(itemstart, i);
+					itemstart = i+1;
+				} else if (fulllist.substring(i,i+1) == '#') {
+					theprice = fulllist.substring(itemstart, i);
+					itemstart = i+1;
+				}
+			}
+			document.writeln('<tr><td colspan=3><b>Total</b></td><td align=right>'+alterError(totprice)+'</td><td>&nbsp;</td></tr>');
+			document.writeln('</table>');
+		}
+		function removeItem(itemno) {
+			newItemList = null;
+			itemlist = 0;
+			for (var i = 0; i <= fulllist.length; i++) {
+				if (fulllist.substring(i,i+1) == '[') {
+					itemstart = i+1;
+				} else if (fulllist.substring(i,i+1) == ']') {
+					itemend = i;
+					theitem = fulllist.substring(itemstart, itemend);
+					itemlist=itemlist+1;
+					if (itemlist != itemno) {
+						newItemList = newItemList+'['+fulllist.substring(itemstart, itemend)+']';
+					}
+				}
+			}
+			index = document.cookie.indexOf("TheBasket");
+			document.cookie="TheBasket="+newItemList;
+			top.location = "estado.html";
+		}
+		function clearBasket() {
+			if (confirm('¿Confirma que desea reestablecer el carrito?')) {
+				index = document.cookie.indexOf("TheBasket");
+				document.cookie="TheBasket=.";
+				top.location = "estado.html";
+			}
+		}
+		function paypal(){
+			document.writeln('<form name="_xclick" target="paypal" action="https://www.paypal.com" method="post">');
+			document.writeln('<input type="hidden" name="cmd" value="_cart">');
+			document.writeln('<input type="hidden" name="business" value="me@mybusiness.com">');
+			document.writeln('<input type="hidden" name="currency_code" value="MXN">');
+			document.writeln('<input type="hidden" name="item_name" value="Spiderman">');
+			document.writeln('<input type="hidden" name="amount" value="24.99">');
+			document.writeln('<input type="image" src="http://www.paypal.com/en_US/i/btn/sc-but-01.gif" border="0" name="submit" alt="Make payments with PayPal - its fast, free and secure!">');
+			document.writeln('<input type="hidden" name="add" value="1">');
+			document.writeln('</form>');
+		}
+	</script>
+	<body link="#0000FF" vlink="#800080" class="body">
+		<center>
+			<table border="0" cellpadding="0" cellspacing="0" width="640" class="body">
+				<tr>
+					<td width="50%"><big><big><h1>Estado del Carrito</h1></big></big></td>
+					<td width="50%" align="right">[ <a href="carrito.html">Carrito</a> | Estado | <a href="formulario.html">Orden de Compra</a> ]</td>
+				</tr>
+				<tr>
+					<td width="100%" colspan="2">
+						<hr size="1" color="#000000">
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" colspan="2"></td>
+				</tr>
+			</table>
+			<br>
+			<script>
+				showItems();
+			</script>	
+			<br>
+			<table border="0" cellpadding="0" cellspacing="0" width="640" class="body">
+				<tr>
+					<td width="100%" colspan="2">
+						<hr size="1" color="#000000">
+					</td>
+				</tr>
+				<tr>
+					<td width="50%"></td>
+					<td width="50%" align="right">[ <a href="javascript:clearBasket()">Reestablecer Carrito</a> ]</td>
+				</tr>
+			</table>
+			<script>
+				paypal();
+			</script>
+		</center>
+		<div id="content">
+			<div id="mainContent">
+				<section>
+					<article class="blogPost">
+						<header>
+							<h2>Bienvenido al carrito de compras</h2>
+							<p>Enviado el <time datetime="2016-06-29T23:31+01:00">15 de Septiembre de 2018</time> por <a href="#">Agustin Galindo Reyes</a> - <a href="#comments">3 comentarios</a></p>
+						</header>
+					</article>
+				</section>
+				<section id="comments">
+					<h3>Comentarios</h3>
+					<article>
+						<header>
+							<a href="#">Antonio Estrella</a> el <time datetime="2016-06-29T23:35:20+01:00">1 de Octubre de 2018</time>
+						</header>
+						<p>Posiblemente la mejor tienda de comics en linea. Tienen un staff muy servicial y todo muy bien organizado.</p>
+					</article>
+					<article>
+						<header>
+							<a href="#">Pedro Parque</a> on <time datetime="2016-06-29T23:40:09+01:00">29 de Septiembre de 2018</time>
+						</header>
+						<p>Un lugar muy surtido de comics en ingles y algunos volumenes en latino ,en la cual encontraran cualquier tipo de novela grafica o comics con accesibilidad en todos los aspectos</p>
+					</article>
+					<article>
+						<header>
+							<a href="#">Bruno Diaz</a> on <time datetime="2016-06-29T23:59:00+01:00">24 de Septiembre de 2018</time>
+						</header>
+						<p>Mi hijo disfruta mucho visitar este lugar, pero hay publicaciones que no infantiles y estan a su alcance, por lo que es importante que los padres no dejen solos a sus hijos, o que pongan esas publicaciones en un lugar mas limitado en su acceso.</p>
+					</article>
+				</section>
+				<form action="#" method="post">
+					<h3>Enviar un comentario</h3>
+					<p>
+						<label for="name">Nombre</label>
+						<input name="name" id="name" type="text" required />
+					</p>
+					<p>
+						<label for="email">E-mail</label>
+						<input name="email" id="email" type="email" required />
+					</p>
+					<p>
+						<label for="website">Website</label>
+						<input name="website" id="website" type="url" />
+					</p>
+					<p>
+						<label for="comment">Comentario</label>
+						<textarea name="comment" id="comment" required></textarea>
+					</p>
+					<p><input type="submit" value="Post comment" /></p>
+				</form>
+			</div>
+			<aside>
+				<section>
+					<header>
+						<h3>Archivos</h3>
+					</header>
+					<ul>
+						<li><a href="carrito.html">Diciembre 2017</a></li>
+						<li><a href="carrito.html">Enero 2018</a></li>
+						<li><a href="carrito.html">Febrero 2018</a></li>
+						<li><a href="carrito.html">Marzo 2018</a></li>
+						<li><a href="carrito.html">Abril 2018</a></li>
+						<li><a href="carrito.html">Mayo 2018</a></li>
+						<li><a href="carrito.html">Junio 2018</a></li>
+					</ul>
+				</section>
+			</aside>
+		</div>
+		<footer>
+			<div>
+				<section id="about">
+					<header>
+						<h3>Acerca</h3>
+					</header>
+					<p>
+						MISION<br>
+
+						Ofrecer una gran variedad de productos geek a un buen precio, para satisfacer todas las necesidades <br>
+						de los coleccionistas mexicanos. Contamos con los mejores productos con certificado de autenticidad <br>
+					</p>
+				</section>
+				<section id="Follow">
+					<header>
+						<h3>Siguenos en</h3>
+					</header>
+					<ul>
+						<li><a href="https://www.facebook.com/">Facebook</a></li>
+						<li><a href="https://www.twitter.com/">Twitter</a></li>
+						<li><a href="https://www.instagram.com/">Instagram</a></li>
+						<li><a href="https://www.snapchat.com/">Snapchat</a></li>
+						<li><a href="https://www.periscope.com/">Periscope</a></li>
+					</ul>
+				</section>
+				<section id="popular">
+					<header>
+						<h3>Popular</h3>
+					</header>
+					<ul>
+						<li><a href="https://www.comic-con.org/">San Diego Comic-Con 2018</a></li>
+						<li><a href="https://www.lamole.com.mx/">La mole 2018</a></li>
+						<li><a href="http://expocoleccionistas.com.mx/">Expo Coleccionistas Mexico</a></li>
+						<li><a href="https://www.comic-con.org/">Expo TNT</a></li>
+						<li><a href="https://www.frikiplaza.com/">Frikiplaza</a></li>
+						<li><a href="https://www.funko.com/">Funko Pop</a></li>
+						<li><a href="https://disneyland.disney.go.com/destinations/disneyland/">Disneyland Park</a></li>
+						<li><a href="www.hottoys.com.hk/">Hot Toys</a></li>
+						<li><a href="https://shop.lego.com/">Lego</a></li>
+					</ul>
+				</section>
+			</div>
+		</footer>
+	</body>
+</html>

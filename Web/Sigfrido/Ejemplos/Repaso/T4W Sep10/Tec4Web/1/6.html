@@ -1,0 +1,39 @@
+<!-- Formulario con un campo de texto y campos ocultos. -->
+<!DOCTYPE html>
+<!-- Formulario con un campo de texto y campos ocultos. -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Formularios</title>
+	</head>
+	<body>
+		<h1>Formulario de retroalimentaci&oacute;n</h1>
+		<p>Llenar este formulario para ayudar
+			a mejorar este sitio.</p>
+		<!-- esta etiqueta empieza el formulario, indica el -->
+		<!-- método de enviar información y la ubicación -->
+		<!-- de la secuencia de comandos de procesamiento del formulario -->
+		<form method="post" action="http://www.facebook.com">
+			<!-- las entradas ocultas contienen información -->
+			<!-- no visual que también se enviará -->
+			<input type ="hidden" name="destinatario"
+				value="avionica1@yahoo.com">
+			<input type="hidden" name="asunto"
+				value="Formularlo de retroal1mentaci&oacute;n">
+			<input type="hidden" name="redirigir"
+				value="principal. html">
+			<!-- <1nput type="text"> inserta un campo de texto -->
+			<p><label>Nombre:
+				<input name="nombre" type="text" size="25"
+					maxlength="30">
+			</label></p>
+			<p>
+				<!-- los tipos de entrada "submit" y "reset" insertan -->
+				<!-- botones para enviar y borrar el contenido -->
+				<!-- del formulario, respectivamente -->
+				<input type="submit" value="Enviar">
+				<input type="reset" value="Borrar">
+			</p>
+		</form>
+	</body>
+</html>

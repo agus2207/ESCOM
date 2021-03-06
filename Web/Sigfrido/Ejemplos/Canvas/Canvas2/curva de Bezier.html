@@ -1,0 +1,23 @@
+<!-- Dibujo de una curva de Bezier sobre un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset = "utf-8">   
+		<title>Curvas de Bezier</title>  
+	</head>  
+	<body>   
+		<canvas id = "dibujarBezier" width = "150" height = "150"    
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("dibujarBezier");    
+			var contexto = canvas.getContext("2d");    
+			contexto.beginPath();    
+			contexto.moveTo(115, 20);    
+			contexto.bezierCurveTo(12, 37, 176, 77, 32, 133);    
+			contexto.lineWidth = 10;    
+			contexto.strokeStyle = "red";    
+			contexto.stroke();   
+		</script>  
+	</body> 
+</html>

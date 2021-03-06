@@ -1,0 +1,59 @@
+<!-- Dibujo de lineas en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Dibujar l&iacute;neas</title>  
+	</head>  
+	<body>   
+		<canvas id = "dibujarLineas" width = "400" height = "200"    
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("dibujarLineas");    
+			var contexto = canvas.getContext("2d");    
+			// lineas rojas sin una ruta cerrada    
+			contexto.beginPath(); // comenzar una nueva ruta    
+			contexto.moveTo(10, 10 ); // origen de la ruta    
+			contexto.lineTo(390, 10);    
+			contexto.lineTo(390, 30);    
+			contexto.lineTo(10, 30);    
+			contexto.lineWidth = 10; // anchura de la linea    
+			contexto.lineJoin = "bevel" // estilo de unión de la linea    
+			contexto.lineCap = "butt"; // estilo de terminación de la linea    
+			contexto.strokeStyle = "red" // color de la linea    
+			contexto.stroke(); // dibujar ruta    
+			// líneas naranjas sin ruta cerrada    
+			contexto.beginPath(); // comenzar una nueva ruta    
+			contexto.moveTo(40, 75); // origen de la ruta    
+			contexto.lineTo(40, 55);    
+			contexto.lineTo(360, 55);    
+			contexto.lineTo(360, 75);    
+			contexto.lineWidth = 20; // ancho de la línea    
+			contexto.lineJoin = "round" // estilo de unión de la línea    
+			contexto.lineCap = "round"; // estilo de terminación de la linea    
+			contexto.strokeStyle = "orange"; // color de la linea    
+			contexto.stroke(); // dibujar ruta    
+			// líneas verdes con una ruta cerrada    
+			contexto.beginPath(); // comenzar una nueva ruta    
+			contexto.moveTo(10, 100); // origen de la ruta    
+			contexto.lineTo(390, 100);    
+			contexto.lineTo(390, 130);    
+			contexto.closePath(); // cerrar ruta    
+			contexto.lineWidth = 10; // anchura de la linea    
+			contexto.lineJoin = "miter"; // estilo de unión de la linea    
+			contexto.strokeStyle = "green"; // color de la linea    
+			contexto.stroke(); // dibujar ruta    
+			// lineas azules sin una ruta cerrada    
+			contexto.beginPath(); // comienza una nueva ruta    
+			contexto.moveTo(40, 140); // origen de la ruta    
+			contexto.lineTo(360, 190);    
+			contexto.lineTo(360, 140);    
+			contexto.lineTo(40, 190);    
+			contexto.lineWidth = 5; // anchura de la linea    
+			contexto.lineCap = "square"; // estilo de terminación de la línea 
+			contexto.strokeStyle = "blue" // color de la linea    
+			contexto.stroke(); // dibujar ruta   
+		</script>  
+	</body> 
+</html> 

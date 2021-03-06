@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Validación de una expresión regular</title>
+		<script type="text/javascript">
+			function literal() {
+				var m = document.getElementById("matricula").value;
+				var er = /^[A-Z]{1,2}\s\d{4}\s([B-D]|[F-H]|[J-N]|[P-T]|[V-Z]){3}$/;
+				if(er.test(m))
+					alert("La matricula es correcta");
+				else
+					alert("La matricula NO es correcta");
+			}
+		</script>
+	</head>
+	<body>
+		<form id="miFormulario" action="" method="get">
+			<p>
+				Matr&iacute;cula: <input type="text" id="matricula" /> <br />
+				<input type="button" value="Literal" onclick="literal()" />
+				<input type="button" value="Objeto" onclick="objeto()" />
+			</p>
+		</form>
+	</body>
+</html>

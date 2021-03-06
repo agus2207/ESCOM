@@ -1,0 +1,42 @@
+<!--Juego del gato-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Juego del gato</title>
+		<style type="text/css">
+			table {
+				width:300px;
+				border-collapse: collapse;
+				background-color: lightblue;
+			}
+			table, td, th {
+				border: 1px solid black;
+				padding: 4px;
+			}
+			th{
+				text-align: left;
+				color: white;
+				background-color: darkblue;
+			}
+		</style>
+		<script>
+			var x;
+			document.writeln("<table>");
+			document.writeln("<caption>Juego del gato</caption>");
+			for(var i=0; i<3; i++){
+				document.writeln("<tr>");
+				for(var j=0; j<3; j++){
+					x=window.prompt("Inserte simbolo?");
+					document.writeln("<td>"+x+"</td>");
+				}
+				document.writeln("</tr>");
+			}
+			document.writeln("</table>");
+		</script>
+	</head>
+	<body>
+		Juego del gato
+	</body>
+</html>

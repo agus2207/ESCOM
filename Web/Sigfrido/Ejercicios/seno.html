@@ -1,0 +1,26 @@
+<!-- Dibujo de arcos y círculos en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Seno</title>  
+	</head>  
+	<body>   
+		<canvas id = "dibujarArcos" width = "2000" height = "2000"
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("dibujarArcos");    
+			var contexto = canvas.getContext("2d"); 
+			contexto.fillStyle = "#000000";
+			var y;
+			var x;
+			var a= Math.PI;
+			for(x=0; x<=300; x++){ 
+				var arg=(x/6)*a;
+				y=Math.sin(arg)+100; 
+				contexto.fillRect(10*x,15*y,5,5);
+			}
+		</script>  
+	</body> 
+</html> 

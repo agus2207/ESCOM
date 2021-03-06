@@ -1,0 +1,97 @@
+<html>
+	<head>
+		<title>Slide + overlay</title>
+		<style type="text/css">
+			@import url(https://fonts.googleapis.com/css?family=Open+Sans);	
+			.container {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 60px;
+				margin: 0 auto;
+				top: 20px;
+			}
+			.div-img {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}	
+			.div-img.hidden {
+				overflow: hidden;
+			}
+			.div-img .img {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 200px;
+				height: 200px;
+				border-radius: 150px;
+				-webkit-border-radius: 150px;
+				-moz-border-radius: 150px;
+				transform: translate(0px);
+				-ms-transform: translate(0px);
+				-moz-transform: translate(0px);
+				-webkit-transform: translate(0px);
+				-o-transform: translate(0px);
+				-webkit-transition: all 500ms ease-in-out;
+				-moz-transition: all 500ms ease-in-out;
+				-ms-transition: all 500ms ease-in-out;
+				-o-transition: all 500ms ease-in-out;
+			}
+			.div-img .text {
+				font-family: 'Open Sans';
+				position: absolute;
+				z-index: -1;
+				display: block;
+				height: 50%;
+				top: 50%;
+				left: 0;
+				padding-left: 5px;
+				opacity: 0;
+				transition: all 1.5s;
+				-webkit-transition: all 1.5s ease-in;
+				-moz-transition: all 1.5s ease-in;
+				-ms-transition: all 1.5s ease-in;
+				-o-transition: all 1.5s ease-in;
+			}
+			.div-img .overlay {
+				position: absolute;
+				z-index: 10;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.3);
+				/*dim the background*/
+				opacity: 0;
+				transition: opacity 1s;
+				-webkit-transition: opacity 1s ease-in-out;
+				-moz-transition: opacity 1s ease-in-out;
+				-ms-transition: opacity 1s ease-in-out;
+				-o-transition: opacity 1s ease-in-out;		
+			}
+			.div-img:hover .img {
+				transform: translate(90px, 0px);
+				-ms-transform: translate(90px, 0px);
+				-moz-transform: translate(90px, 0px);
+				-webkit-transform: translate(90px, 0px);
+				-o-transform: translate(90px, 0px);
+			}
+			.div-img:hover .overlay {
+			opacity: 1;
+			}
+			.div-img:hover .text {
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="div-img hidden" >
+				<img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto6.png" title="Foto6" alt="Foto6">
+				<div class="overlay"></div>
+				<div class="text">I see you!</div>
+			</div>
+		</div>
+	</body>
+</html>

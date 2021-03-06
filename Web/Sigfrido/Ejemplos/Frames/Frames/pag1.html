@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Uso de Frames</title>
+	</head>
+	<frameset cols="20%, *" frameborder=0 framespacing=0 border=0>
+		<frame name="izquierda" src="pag4.html"
+			marginwidth="0" marginheight="auto" frameborder="no">
+		<frameset rows="30%, *" frameborder=0 framespacing=0 border=0>
+			<frame  name="superior" src="pag2.html" marginwidth="0"
+				marginheight="0" scrolling="auto" frameborder="no">
+			<frame name="principal" src="pag3.html" marginwidth="0"
+				marginheight="0" scrolling="auto" frameborder="no">
+		</frameset>
+	</frameset>
+	<noframes>
+		<center>
+			Este navegador no permite frames.
+		</center>
+	</noframes>
+</html>

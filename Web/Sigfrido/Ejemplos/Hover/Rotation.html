@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>Rotation</title>
+		<style type="text/css">
+			.container {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				top: 20px;
+			}
+			.div-img {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.div-img .img {
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				width: 100%;
+				transform: rotate(0deg);
+				-webkit-transform: rotate(0deg);
+				-moz-transform: rotate(0deg);
+				-o-transform: rotate(0deg);
+				-ms-transform: rotate(0deg);
+				-webkit-transition: all 500ms ease-in-out;
+				-moz-transition: all 500ms ease-in-out;
+				-ms-transition: all 500ms ease-in-out;
+				-o-transition: all 500ms ease-in-out;
+			}
+			.div-img:hover .img {
+				transform: rotate(-10deg);
+				-webkit-transform: rotate(-10deg);
+				-moz-transform: rotate(-10deg);
+				-o-transform: rotate(-10deg);
+				-ms-transform: rotate(-10deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="div-img" >
+				<img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto7.png" title="Foto7" alt="Foto7">
+			</div>	
+		</div>
+	</body>
+</html>

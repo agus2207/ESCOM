@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta charset = "utf-8">
+<title>Inclinar</title>
+</head>
+<body BGCOLOR="#f39c12">
+<!-- inclinar a la izquierda -->
+<canvas id = "transform" width = "320" height = "150"
+ style = "border: 1px solid Black;">
+</canvas>
+<script>
+var canvas = document.getElementById("transform");
+var contexto = canvas.getContext("2d");
+var anchuraRectangulo = 120;
+var alturaRectangulo = 60;
+var escalaX = 2;
+var inclinacionY = 0;
+var inclinacionX = 1;
+var escalaY = 1;
+var trasladoX = -10;
+var trasladoY = 30;
+contexto.translate(canvas.width / 2, canvas.height / 2);
+contexto.transform(escalaX, inclinacionY, inclinacionX, escalaY, trasladoX , trasladoY);
+contexto.fillStyle = "red";
+contexto.fillRect(-anchuraRectangulo / 2, -alturaRectangulo / 2, anchuraRectangulo, alturaRectangulo);
+</script>
+<!-- inclinar a la derecha -->
+<canvas id = "transform2" width = "220" height = "150"
+ style = "border: 1px solid Black;">
+<script>
+var canvas = document.getElementById("transform2");
+var contexto = canvas.getContext("2d");
+var anchuraRectangulo = 120;
+var alturaRectangulo = 60;
+var escalaX = 1;
+var inclinacionY = 0;
+var inclinacionX = -1.5;
+var escalaY = 2;
+var trasladoX = 0;
+var trasladoY = 0;
+contexto.translate(canvas.width / 2, canvas.height / 2);
+contexto.transform(escalaX, inclinacionY, inclinacionX, escalaY, trasladoX, trasladoY);
+contexto.fillStyle = "blue";
+contexto.fillRect(-anchuraRectangulo / 2, -alturaRectangulo / 2, anchuraRectangulo, alturaRectangulo);
+
+</script>
+</body>
+</html>

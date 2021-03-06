@@ -1,0 +1,147 @@
+<!-- Simulación del juego de Craps. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Simulaci&oacute;n del juego de Craps</title>   
+		<style type ="text/css">    
+			p.rojo { color: red }    
+			img { width: 54px; height: 54px; }  
+			div { border: 5px ridge royalblue;      
+					padding: 10px; width: 120px;      
+					margin-bottom: 10px; }    
+			.punto { margin: 0px; }   
+		</style>   
+		<script>    
+			// variables utilizadas para referirse a los elementos de página    
+			var puntoDado1Img; // se refiere a la img de puntos del primer dado    
+			var puntoDado2Img; // se refiere a la img de puntos del segundo dado    
+			var tiroDado1Img;  // se refiere a la img de tiro del primer dado    
+			var tiroDado2Img;  // se refiere a la img de tiro del segundo dado    
+			var mensajes;  // se refiere al párrafo "mensajes"    
+			var botonJugar;  // se refiere al botón lugar    
+			var botonTirar;  // se refiere al botón Tirar    
+			var tirodados;  // se refiere al audio para arrojar los dados    
+			// otras variables utilizadas en el programa    
+			var miPunto;  // punto si no gana/pierde en el primer tiro    
+			var valorDado1;  // valor del primer dado en el tiro actual    
+			var valorDado2;  // valor del segundo dado en el tiro actual    
+			// inicia un nuevo juego    
+			function iniciarJuego(){     
+				// obtiene los elementos de página con los que vamos a interactuar     
+				tirodados = document.getElementById( "tirodados" );     
+				puntoDado1Img = document.getElementById( "puntoDado1" );     
+				puntoDado2Img = document.getElementById( "puntoDado2" );     
+				tiroDado1Img = document.getElementById( "tiroDado1" );     
+				tiroDado2Img = document.getElementById( "tiroDado2" );     
+				mensajes = document.getElementById( "mensajes" );     
+				botonJugar = document.getElementById( "jugar" );     
+				botonTirar = document.getElementById( "tirar" ) ;     
+				// prepara la GUI     
+				botonTirar.disabled = true; // deshabilitar botonTirar     
+				establecerImagen( puntoDado1Img ); // restablecer para nuevo juego     
+				establecerImagen( puntoDado2Img ); // restablecer para nuevo juego     
+				establecerImagen( tiroDado1Img ); // restablecer para nuevo juego     
+				establecerImagen( tiroDado2Img ); // restablecer para nuevo juego     
+				miPunto = 0;    
+				// en este momento no hay punto     
+				primerTiro();    
+				// tirar el dado para iniciar el juego    
+			} // fin de la función iniciarJuego    
+			// realizar el primer tiro del juego    
+			function primerTiro(){     
+				var sumaDeDados = tirarDados(); // primer tiro de los dados     
+				// determinar si el usuario ganó, perdió o debe seguir tirando     
+				switch (sumaDeDados){      
+					case 7: 
+					case 11: // gana en el primer tiro       
+					mensajes.innerHTML =         "Ha ganado. Clic en Reproducir para nuevo juego.";       break;      
+					case 2: 
+					case 3: 
+					case 12: // pierde en el primer tiro       
+					mensajes.innerHTML =        "Ud pierde. Clic en Reproducir para nuevo juego.";       break;      
+					default:  // recordar punto       
+						miPunto = sumaDeDados;       
+						establecerImagen ( puntoDado1Img, valorDado1 );       
+						establecerImagen ( puntoDado2Img, valorDado2 ); 
+						mensajes.innerHTML = "Tire de nuevo";       
+						botonTirar.disabled = false; // habilitar botonTirar       
+						botonJugar.disabled = true; //deshabilitar botonJugar       
+					break;     
+				} // fin de switch    
+			} // fin de la función primerTiro    
+			// se llama para los tiros subsiguientes de los dados    
+			function tirarDeNuevo(){     
+				var sumaDeDados = tirarDados(); // tiro subsiguiente de los dados     
+				if (sumaDeDados == miPunto){      
+					mensajes.innerHTML =        "¡Ha ganado! Clic en Reproducir para jugar de nuevo.";      
+					botonTirar.disabled = true; // deshabilitar botonTirar      
+					botonJugar.disabled = false; // habilitar botonJugar     
+				} // fin de if     
+				else if (sumaDeDados == 7 ) { // craps      
+					mensajes.innerHTML =       "Usted pierde. Haga clic en Jugar para jugar de nuevo.";      
+					botonTirar.disabled = true; // deshabilitar botonTirar      
+					botonJugar.disabled = false; // habilitar botonJugar     
+				} // fin de else if    
+			} // fin de la función tirarDeNuevo    
+			// tirar los dados    
+			function tirarDados(){     
+				tirodados.play(); // reproduce sonido de tiro de dados     
+				// borra imágenes anteriores mientras se reproduce el sonido de tiro     
+				valorDado1 = NaN;     
+				valorDado2 = NaN;     
+				mostrarDados();     
+				valorDado1 = Math.floor( 1 + Math.random() * 6);     
+				valorDado2 = Math.floor( 1 + Math.random() * 6);     
+				return valorDado1 + valorDado2;    
+			} // fin de la función tirarDados    
+			// mostrar dados que se tiraron    
+			function mostrarDados(){     
+				establecerImagen( tiroDado1Img, valorDado1 );     
+				establecerImagen( tiroDado2Img, valorDado2 );    
+			} // fin de la función mostrarDados    
+			// establecer origen de imagen para un dado    
+			function establecerImagen( imgDado, valorDado ){     
+				if ( isFinite( valorDado ) )      
+					imgDado.src = "dado" + valorDado + ".png";     
+				else      
+					imgDado.src = "blanco.png";    
+			} // fin de la función establecerImagen    
+			// registrar componentes de escucha de eventos    
+			function iniciar(){     
+				var botonJugar = document.getElementById( "jugar" );     
+				botonJugar.addEventListener( "click", iniciarJuego, false );     
+				var botonTirar = document.getElementById( "tirar" );     
+				botonTirar.addEventListener( "click", tirarDeNuevo, false );     
+				var sonidoDados = document.getElementById( "tirodados" );     
+				sonidoDados.addEventListener( "ended", mostrarDados, false );    
+			} // fin de la función iniciar    
+			window.addEventListener( "load", iniciar, false );   
+		</script>  
+	</head> 
+	<body>   
+		<audio id = "tirodados" preload = "auto">    
+			<source src = "http://test.deitel.com/dicerolling.mp3"     type = "audio/mpeg">    
+			<source src = "http://test.deitel.com/dicerolling.ogg"     type = "audio/ogg">    
+			El navegador no soporta la etiqueta audio
+		</audio>   
+		<p>
+			<a href = "ReglasCraps.html">Haga clic aqu&iacute; para un video corto que explica las reglas b&aacute;sicas de Craps</a>
+		</p>   
+		<div id = "puntoDiv">    
+			<p class = "punto">El punto es:</p>    
+			<img id = "puntoDado1" src = "dado1.png" alt = "Dado 1 de valor de punto">    
+			<img id = "puntoDado2" src = "dado2.png" alt = "Dado 2 de valor de punto">   
+		</div>   
+		<div class = "tiroDiv">    
+			<img id = "tiroDado1" src = "dado3.png" alt = "Dado 1 de valor de tiro">    
+			<img id = "tiroDado2" src = "dado4.png" alt = "Dado 2 de valor de tiro">   
+		</div>   
+		<form action = "#">    
+			<input id = "jugar" type = "button" value = "Jugar">    
+			<input id = "tirar" type = "button" value = "Tirar" >   
+		</form>   
+		<p id = "mensajes" class = "rojo">Haga clic en Jugar para iniciar el juego</p>  
+	</body> 
+</html> 
+  

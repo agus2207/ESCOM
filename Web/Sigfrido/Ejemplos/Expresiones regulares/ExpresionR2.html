@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Validación de un usuario y contraseña</title>
+		<script type="text/javascript">
+			function literal() {
+				var u = document.getElementById("usuario").value;
+				var p = document.getElementById("password").value
+				var er = /^[A-Z]|[a-z]{4,12}\d{1,2}$/;
+				var er2 = /^[A-Z]|[a-z]{6,12}\d{2}$/
+				if(er.test(u)&er2.test(p))
+					alert("Usuario y password validos");
+				else if(er.test(u))
+					alert("Usuario valido pero password no");
+				else if(er2.test(p))
+					alert("Password valido pero usuario no");
+				else
+					alert("Usuario y password no validos");
+			}
+		</script>
+	</head>
+	<body>
+		<form id="miFormulario" action="" method="get">
+			<p>
+				Usuario: <input type="text" id="usuario" /> <br />
+				Password: <input type="text" id="password" /> <br />
+				<input type="button" value="Validar" onclick="literal()" />
+			</p>
+		</form>
+	</body>
+</html>

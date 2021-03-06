@@ -1,0 +1,26 @@
+--Objetos
+
+Para crear un objeto:
+-Definir el objeto con una funcion constructor:
+	funcion persona(nombre, fecha, DNI){
+		this.nombre=nombre;
+		this.fecha=fecha;
+		this.DNI=DNI;
+	}
+-Crear una instancia del objeto utilizando new:
+	alumno=new persona("ESCOM", 2018, "123")
+-Uso del objeto:
+	Por ejemplo
+	function edad(){
+		var edad=20118-anio;
+		document.write("Su edad: <b>"+edad+"</b>");
+	}
+-En el constructor, se asigna la funcion al objeto:
+	function persona(nombre, fecha, DNI){
+		this.nombre= nombre;
+		this.fecha=anio;
+		this.DNI=DNI;
+		this.edad=edad();
+	}
+-Por ultimo, despues de declarar las instancias con new, invocar a la funcion desde html:
+	alumno.edad();

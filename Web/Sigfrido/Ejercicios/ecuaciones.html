@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> La Chicharronera </title>
+		<script>
+			var a;
+			var b;
+			var c;
+			var n1;
+			var n2;
+			var n3;
+			var x1;
+			var x2;
+			var aux;
+			var aux2;
+			var disc;
+			a=window.prompt("ingresa a?:");
+			b=window.prompt("ingresa b?:");
+			c=window.prompt("ingresa c?:");
+			n1=parseInt(a);
+			n2=parseInt(b);
+			n3=parseInt(c);
+			document.writeln("<h1>La ecuacion es la siguiente: </h1>");
+			document.writeln("<h1>"+a+"x<sup>2</sup>+"+b+"x+"+c+"</h1>");
+			document.writeln("<h1>Su solucion es la siguiente: </h1>");
+			disc=((n2*n2)-(4*n1*n3));
+			if(disc<0)
+			{
+				disc=disc*(-1);
+				aux=(Math.pow(disc,.5))/(2*n1);
+				x1=((-n2)/(2*n1));
+				
+				document.writeln("<h1>valor x1:"+x1+"+"+aux+"i"+"</h1>");
+				document.writeln("<h1>valor x2:"+x1+"-"+aux+"i"+"</h1>");
+			}
+			else if(disc>0)
+			{
+				aux2=(Math.pow(disc,.5))/(2*n1);
+				x1=((-n2)/(2*n1))+aux2;
+				x2=((-n2)/(2*n1))-aux2;
+				document.writeln("<h1>valor x1:"+x1+"</h1>");
+				document.writeln("<h1>valor x2:"+x2+"</h1>");
+			}else if(disc==0)
+			{
+				x1=((-n2)/(2*n1));
+				document.writeln("<h1>valor x:"+x1+"</h1>");
+			}
+		
+			
+		</script>
+	</head>
+
+</html>

@@ -1,0 +1,40 @@
+<!--Funciones-->
+function nombre(arg1, arg2, ...){
+	//codigo
+}
+
+<!--Ejemplo-->
+function suma1(num){
+	num++;
+}
+var a=1;
+suma1(a);
+
+<!--Ejemplo-->
+funtion cuadrado(num){
+	return num*num;
+}
+a=cuadrado(3);
+<!--Ejemplo-->
+function sumaArgs(){
+	r=0;
+	for(i=0; i<argument.length; i++)
+		r+=arguments[i];
+	return r;
+}
+
+
+<!--Estructuras de control-->
+if, if-else, for, while, do-while
+switch?:
+Ademas: for...in
+Por ejemplo:
+var vector = [1, 2, 2, 5];
+for(i in vector)
+	vector[i]+=2;
+	
+Tambien with
+with(objeto){
+	propiedad1=...; //alguna operacion
+	propiedad3=...; //otra operacion
+}

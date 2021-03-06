@@ -1,0 +1,244 @@
+<!-- Examen primer parcial -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Determinante de 3x3</title>
+		<link rel="stylesheet" href="master.css" type="text/css" media="screen" />
+		<style type="text/css">
+			table {
+				width:300px;
+				border-collapse: collapse;
+				background-color: lightblue;
+			}
+			table, td, th {
+				border: 1px solid black;
+				padding: 4px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Determinante de 3x3</h1>
+		</header>
+		<nav>
+			<ul>
+				<li class="selected"><a href="#">Blog</a></li>
+				<li><a href="#">Acerca</a></li>
+				<li><a href="#">Archivos</a></li>
+				<li><a href="#">Contacto</a></li>
+				<li class="subscribe"><a href="#">Subscribir</a></li>
+			</ul>
+		</nav>
+		
+			<header>
+				<h2></h2>
+			</header>
+			<p></p>
+			<center>
+			<img src="triangulo.gif" alt="Flor" width="500" height="250"/>
+			</center>
+		</section>
+		<div style="color: black;">
+		<center> 
+			<h4>
+				El calculo del area de un triangulo mediante matrices se puede calcular de la siguiente manera:
+			</h4><br>
+			<img src="area.png" alt="Flower"/><br>
+			<h4>
+				Donde las X's y Y's representan las coordenadas de los vertices del triangulo
+			</h4><br>
+			<h4>
+				Mientras que el calculo del perimetro de un triangulo mediante matrices se puede calcular de la siguiente manera:
+			</h4><br>
+			<img src="perimetro.png" alt="Flower"/><br>
+  			<script>
+				document.writeln("<h4>Inserte datos de la matriz:");
+				var u;
+				document.writeln("<table id='Table 1'>");
+				for(var i=0; i<3; i++){
+					document.writeln("<tr>");
+					for(var j=0; j<3; j++){
+						u = window.prompt("Inserte dato");
+						document.writeln("<td>"+parseInt(u)+"</td>");
+					}
+					document.writeln("</tr>");
+				}
+				document.writeln("</table>");
+				var x1= document.getElementById("Table 1").rows[0].cells[0].innerText;
+				var y1= document.getElementById("Table 1").rows[0].cells[1].innerText;
+				var x2= document.getElementById("Table 1").rows[1].cells[0].innerText;
+				var y2= document.getElementById("Table 1").rows[1].cells[1].innerText;
+				var x3= document.getElementById("Table 1").rows[2].cells[0].innerText;
+				var y3= document.getElementById("Table 1").rows[2].cells[1].innerText;
+				var a = (x1*y2)+(x2*y3)+(x3*y1);
+				var b = (x1*y3)+(x3*y2)+(x2*y1);
+				var d = 1/2*(a-b);
+				var c = Math.sqrt(Math.pow((x2-x1), 2) + Math.pow((y2-y1), 2));
+				var e = Math.sqrt(Math.pow((x3-x2), 2) + Math.pow((y3-y2), 2));
+				var f = Math.sqrt(Math.pow((x3-x1), 2) + Math.pow((y3-y1), 2));
+				var p = c+e+f;
+				document.writeln("<h3>El area es igual a: "+d+" U<sup>2</sup></h3>");
+				document.writeln("<h3>El perimetro es igual a: "+p+" U </h3>");
+			</script>
+			<canvas id = "dibujarLineas" width = "500" height = "500"    
+				style = "border: 1px solid black;">   
+			</canvas>
+			<script>
+				var canvas = document.getElementById("dibujarLineas");    
+				var lienzo1 = canvas.getContext("2d");
+				lienzo1.lineWidth=1;
+				lienzo1.strokeStyle = 'black'; 
+				//EJEX
+				lienzo1.beginPath(); 
+				lienzo1.moveTo(250,0); 
+				lienzo1.lineTo(250,500);
+				lienzo1.stroke(); 
+				lienzo1.closePath(); 
+				//EJE Y
+				lienzo1.beginPath(); 
+				lienzo1.moveTo(0,250);
+				lienzo1.lineTo(500,250);
+				lienzo1.stroke();
+				lienzo1.closePath();
+				for(var i = 0; i<500; i++){
+					lienzo1.fillRect(250+(i*20),250,1,5);
+					lienzo1.fillRect(250-(i*20),250,1,5);
+					lienzo1.fillRect(250,250+(i*20),5,1);
+					lienzo1.fillRect(250,250-(i*20),5,1);
+				}
+				//Interseccion
+				lienzo1.fillRect(250+(20*x1), 250-(20*y1),2,2);
+				lienzo1.fillRect(250+(20*x2), 250-(20*y2),2,2);
+				lienzo1.fillRect(250+(20*x3), 250-(20*y3),2,2);
+				//Triangulo
+				lienzo1.beginPath();
+				lienzo1.moveTo(250+(20*x1), 250-(20*y1));
+				lienzo1.lineTo(250+(20*x2), 250-(20*y2));
+				lienzo1.lineTo(250+(20*x3), 250-(20*y3));
+				lienzo1.fillStyle="purple";
+				lienzo1.fill();
+				//Coordenadas
+				lienzo1.fillStyle = "black";  
+				lienzo1.font = "bold 12px serif";    
+				lienzo1.textBaseline = "top";    
+				lienzo1.fillText("("+x1+","+y1+")", 250+(20*x1)-10, 250-(20*y1)+10);
+				lienzo1.fillText("("+x2+","+y2+")", 250+(20*x2)-10, 250-(20*y2)+10);
+				lienzo1.fillText("("+x3+","+y3+")", 250+(20*x3)-15, 250-(20*y3)-15);
+			</script>
+			<br><br>
+			<a href="agustinexamen.html">
+				<input type="button" value="Nueva determinante"> 
+			</a><br>
+			<a href="https://es.planetcalc.com/218/">
+				<input type="button" value="Comprobar resultado en otra pagina web"> 
+			</a><br><br><br> 
+			<img src="triangulo2.png" alt="Flower" width="300" height="200"/>
+ 		</center>
+		</div>
+		<div id="content">
+			<div id="mainContent">
+				<section>
+					<article class="blogPost">
+						<header>
+							<h2>Calculadora de matrices 3x3</h2>
+							<p>Enviado: <time datetime="2016-06-29T23:31+01:00">September 19th 2018</time> by <a href="#">Agustin Galindo Reyes</a> - <a href="#comments">3 comments</a></p>
+						</header>
+						<div>
+				
+    		
+							
+							</p>
+						</div>
+					</article>
+				</section>
+				<section id="comments">
+					<h3>Comments</h3>
+					
+				</section>
+				<form action="#" method="post">
+					<h3>Enviar un comentario</h3>
+					<p>
+						<label for="name">Nombre</label>
+						<input name="name" id="name" type="text" required />
+					</p>
+					<p>
+						<label for="email">E-mail</label>
+						<input name="email" id="email" type="email" required />
+					</p>
+					<p>
+						<label for="website">Website</label>
+						<input name="website" id="website" type="url" />
+					</p>
+					<p>
+						<label for="comment">Comentario</label>
+						<textarea name="comment" id="comment" required></textarea>
+					</p>
+					<p><input type="submit" value="Post comment" /></p>
+				</form>
+			</div>
+			<aside>
+				<section>
+				<header>
+					<h3>Referencia</h3>
+				</header>
+					<ul>
+						<li><a href="http://musicaenmexico.com.mx/himno-nacional-mexicano/">http://musicaenmexico.com.mx/himno-nacional-mexicano/</a></li>
+						
+					</ul>
+				</section>
+				<section>
+					<header>
+						<h3>Archives</h3>
+					</header>
+					<ul>
+						<li><a href="#">Diciembre 2017</a></li>
+						<li><a href="#">Enero 2018</a></li>
+						<li><a href="#">Febrero 2018</a></li>
+						<li><a href="#">Marzo 2018</a></li>
+						<li><a href="#">Abril 2018</a></li>
+						<li><a href="#">Mayo 2018</a></li>
+						<li><a href="#">Junio 2018</a></li>
+					</ul>
+				</section>
+			</aside>
+		</div>
+		<footer>
+			<div>
+				<section id="about">
+					<header>
+						<h3>Acerca</h3>
+					</header>
+					<p>
+						MISION<br>
+
+						Dar a conocer a los jovenes mexicano el significado y la letra del himno nacional, para generar
+						amor por la patria y generar una identidad nacionalista.<br>
+					</p>
+				</section>
+				<section id="blogroll">
+					<header>
+						<h3>Blogroll</h3>
+					</header>
+					<ul>
+						<li><a href="#">NETTUTS+</a></li>
+						<li><a href="#">FreelanceSwitch</a></li>
+						<li><a href="#">En los Bosques</a></li>
+						<li><a href="#">Netsetter</a></li>
+						<li><a href="#">PSDTUTS+</a></li>
+					</ul>
+				</section>
+				<section id="popular">
+					<header>
+						<h3>Popular</h3>
+					</header>
+					<ul>
+						<li><a href="http://www.google.com">Buscador</a></li>
+						<li><a href="http://www.facebook.com">Siguenos en Facebook</a></li>
+						<li><a href="http://www.twitter.com">Siguenos en Twitter</a></li>
+						<li><a href="http://www.instagram.com">Siguenos en Instagram</a></li>
+					</ul>
+				</section>
+			</div>
+		</footer>
+	</body>
+</html>

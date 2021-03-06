@@ -1,0 +1,32 @@
+--Eventos
+
+Eventos						Se ejecuta cuando						Etiqueta
+
+onLoad						Al ejecutar el documento 				body
+							html
+							
+onUnload					Al abandonar el documento				body 
+							html
+							
+onMouseOver					Al pasar el raton encima de				a
+							un enlance
+							
+onMouseOut					Al sacar el raton de encima 			a
+							de un enlace
+							
+onClick						Al digitar sobre un enlace o			a, form
+							un campo de formulario
+							
+onSubmit					Al enviar un formulario					form
+
+onFocus						Al editar un campo de edicion			input
+							de un formulario
+							
+onSelect					Al seleccionar un campo de 				input
+							edicion de un formulario
+							
+onBlur						Al deseleccionar un campo de			input
+							edicion
+					
+onChange					Al cambiar el contenido de un			input, select	
+							campo de edicion

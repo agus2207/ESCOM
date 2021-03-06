@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				$("#boton").click(function(){
+					$.get("044-ejemplo-jquery-get-pagina-externa02.php", function(htmlexterno){
+						$("#cargaexterna").html(htmlexterno);
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<input type="button" id="boton" value="Cargar HTML externo">
+		<div id="cargaexterna">Aquí se cargará el HTML externo</div>
+	</body>
+</html>

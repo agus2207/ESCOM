@@ -1,0 +1,46 @@
+<!-- Composición en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>ComposiciAoacute;n</title>  
+	</head>  
+	<body>   
+		<canvas id = "compuesto" width = "220" height = "200"></canvas>   
+		<script>   
+			function dibujar(){    
+				var canvas = document.getElementById("compuesto");    
+				var contexto = canvas.getContext("2d" );    
+				contexto.fillStyle = "red";    
+				contexto.fillRect(5, 50, 210, 100);    
+				// source-atop    
+				contexto.globalCompositeOperation = "source-atop";    
+				contexto.fillStyle = "lime";    
+				contexto.fillRect(10, 20, 60, 60);    
+				// source-over    
+				contexto.globalCompositeOperation = "source-over";    
+				contexto.fillStyle = "lime";    
+				contexto.fillRect(10, 120, 60, 60);    
+				// destination-over    
+				contexto.globalCompositeOperation = "destination-over";    
+				contexto.fillStyle = "lime";    
+				contexto.fillRect(80, 20, 60, 60);    
+				// destination-out    
+				contexto.globalCompositeOperation = "destination-out";
+				contexto.fillStyle = "lime";    
+				contexto.fillRect(80, 120, 60, 60);    
+				// lighter    
+				contexto.globalCompositeOperation = "lighter";    
+				contexto.fillStyle = "lime";    
+				contexto.fillRect(150, 20, 60, 60);    
+				// xor    
+				contexto.globalCompositeOperation = "xor";    
+				contexto.fillStyle = "lime";    
+				contexto.fillRect(150, 120, 60, 60);   
+			} // fin de la función dibujar   
+			window.addEventListener( "load", dibujar, false );   
+		</script>  
+	</body> 
+</html> 
+ 
+ 

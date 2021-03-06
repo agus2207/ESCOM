@@ -1,0 +1,314 @@
+/////////////////////////////////////////////
+// 1. Uso de estilos en línea.
+<!-- Uso de estilos en linea -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Estilos en l&iacute;nea</title>
+	</head>
+	<body>
+		<p>Este texto no tiene aplicado ning&uacute;n estilo.</p>
+		<!-- El atributo style permite declarar -->
+		<!-- estilos en linea. Se deben separar varias -->
+		<!-- propiedades de style con un punto y coma. -->
+		<p style="font-size: 20pt;">Este texto tiene aplicado el estilo
+			<em>font-size</em>, para que sea de 20pt.
+		</p>
+		<p style="font-size: 20pt; color:deepskyblue;">
+		Este texto tiene aplicados los estilos <em> font-size</em> y
+		<em>color</em>, para que sea de
+		20pt y de color azul cielo profundo.</p>
+	</body>
+</html>
+
+////////////////////////////////////////////
+// 2. Hojas de estilo incrustadas
+<!-- Hojas de estilo incrustadas. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Hoja de estilo incrustada </title>
+		<!-- esto empieza la sección de la hoja de estilo-->
+		<style type="text/css">
+			em	{font-weight: bold;
+				color: black; }
+			h1	{font-family: tahoma, helvetica, sans-serif; }
+			p	{font-size: 12pt;
+				font-family: arial, sans-serif; }
+			.especial {color: purple; }
+		</style>
+	</head>
+<body>
+	<!-- este atributo aplica la clase de estilo .especial -->
+	<h1 class="especial"> Deitel & Associates, Inc.</h1>
+	<p>Deitel & Associates, Inc. es una empresa dedicada al entrenamiento
+		corporativo y la creaci&oacute;n de contenido, que se especializa en
+		lenguajes de programaci&oacute;n, tecnolog&iacute;a de Internet y Web, 
+		desarrollo de aplicaciones para iPhone y Android, y educaci&oacute;n
+		sobre la tecnolog&iacute;a de los objetos.</p>
+		<h1>Clientes</h1>
+		<p class="especial"> Los clientes de la empresa incluyen muchas
+		<em>compa&ntilde;&iacute;as Fortune 1000</em>, agencias gubernamentales,
+		sectores del ej&eacute;rcito y organizaciones de negocios.</p>
+	</body>
+</html>
+
+//////////////////////////////////////////////
+// 3. Herencia de hojas de estilo
+<!-- Herencia en hojas de estilo. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>M&aacute;s estilos </title>
+		<style type="text/css">
+			body	{font-family: arial, helvetica, sans-serif; }
+			a.nodec	{text-decoration: none; }
+			a:hover	{text-decoration: underline; }
+			li em	{font-weight: bold; }
+			h1, em	{text-decoration: underline; }
+			ul	{margin-left: 20px; }
+			ul ul	{font-size: .8em; }
+		</style>
+	</head>
+	<body>
+		<h1>Lista de compras para el lunes:</h1>
+		<ul>
+			<li>Leche</li>	
+			<li>Pan
+				<ul>
+					<li>Pan blanco</li>
+					<li>Pan de centeno</li>
+					<li>Pan de trigo entero</li>
+				</ul>
+			</li>
+			<li>Zanahoria</li>
+			<li>Yogurt</li>
+			<li>Pizza <em>con champi&ntilde;ones</em></li>
+		</ul>
+		<p><em>Ir a la</em>
+			<a class="nodec" href="http://www.deitel.com">
+				Tienda de abarrotes</a>
+		</p>
+	</body>
+</html>
+
+///////////////////////////////////////////////
+// 4. Vinculación a una hoja de estilos externa.
+<!-- Vinculación de una hoja de estilos externa. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vinculaci&oacute;n de hojas de estilo externas</title>
+		<link rel="stylesheet" type="text/css"
+			href="estilos.css">
+	</head>
+	<body>
+		<h1>Lista de compras para el <em>lunes</em>:</h1>
+		<ul>
+			<li>Leche</li>
+			<li>Pan
+				<ul>
+					<li>Pan blanco</li>
+					<li>Pan de centeno</li>
+					<li>Pan de trigo entero</li>
+				</ul>
+			</li>
+			<li>Zanahor1as</li>
+			<li>Yogurt</li>
+			<li>Pizza <em>con champi&ntilde;ones</em></li>
+		</ul>
+		<p><em>Ir a la</em>
+			<a class="nodec" href="http://www.deitel.com">
+				Tienda de abarrotes</a>
+		</p>
+	</body>
+</html>
+
+/////////////////////////////////////////////////
+// 5. Posicionamiento absoluto de elementos.
+<!-- Posicionamiento absoluto de los elementos. -->
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title> Posicionamiento absoluto </title>
+			<style type="text/css">
+				.imagen_fondo	{position: absoluta;
+						top: Opx;
+						left: Opx;
+						z-index: 1; }
+				.imagen_primerplano {position: absolute;
+						top: 2Spx;
+						left: lOOpx;
+						z-index: 2; }
+				.texto { position: absolute;
+						top: 25px;
+						left: lOOpx;
+						z-index: 3;
+						font-size: 20pt;
+						font-family: tahoma, geneva, sans-serif ; }
+			</style>
+		</head>
+	<body>
+		<p><img src="imagen_fondo.png" class="imagen_fondo"
+			alt="Primera imagen posicionada" /></p>
+		<p><img src="imagen_primerplano.png" class="imagen_primerplano"
+			alt="Segunda imagen posicionada" /></p>
+		<p class="texto">Texto posicionado</p>
+	</body>
+</html>
+
+///////////////////////////////////////////////////
+// 6. Posicionamiento relativo de elementos.
+<!-- Posicionamiento relativo de los elementos. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Posicionamiento relativo </title>
+		<style type="text/css">
+			p	{ font-size: l.3em;
+				font-family: verdana, arial, sans-serif; }
+			span	{ color: red;
+				font-size: .6em;
+				height: 1em; }
+			.super	{ position: relative;
+				top: -1ex; }
+			.sub	{ position: relative;
+				bottom: -1ex; }
+			.desplizq { position: relative;
+				left: -1ex; }
+			.desplder { position: relative;
+				right: -1ex ; }
+		</style>
+	</head>
+	<body>
+		<p>El texto al final de esta oraci&oacute;n
+			<span class="super">est&aacute; en super&iacute;ndice</span>.</p>
+		<p>El texto al final de esta oraci&oacute;n
+			<span class="sub">est&aacute; en sub&iacute;ndice</span>.</p>
+		<p>El texto al final de esta oraci&oacute;n
+			<span class="desplizq">est&aacute; desplazado a la izquierda</span>.</p>
+		<p>El texto al final de esta oraci&oacute;n
+			<span class="desplder">est&aacute; desplazado a la derecha</span>.</p>
+	</body>
+</html>
+
+/////////////////////////////////////////////////////
+// 7. Agregar imágenes de fondo y sangría.
+<!-- Agregar imágenes de fondo y sangría -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Im&aacute;genes de fondo</title>
+		<style type="text/css">
+			body	{ background-image: url(logo.png);
+				background-position: bottom right;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-color: LightGrey; }
+			p	{ font-size: 18pt;
+				color: DarkBlue;
+				text-indent: 1em;
+				font-family: arial, sans-serif; }
+			.dark	{ font-weight: bold; }
+		</style>
+	</head>
+	<body>
+		<p>
+			Este ejemplo usa los estilos background-image,
+			background-position y background-attachment
+			para colocar el logotipo de <span class="dark">Deitel
+			& Associates, Inc.</span> en la esquina inferior 
+			derecha de la p&aacute;gina. Observe que el logo
+			permanece en la posici&oacute;n correcta cuando ajustamos
+			el tama&ntilde;o de la ventana del navegador. El color de
+			background-color llena los espacios donde no hay imagen.
+		</p>
+	</body>
+</html>
+
+////////////////////////////////////////////////////
+// 8. Dimensiones de los elementos y alineación del texto.
+<!-- Dimensiones de los elem entos y alineación del texto. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Dimensiones del cuadro </title>
+		<style type="text/css">
+			p	{ background-color: LightSkyBlue;
+				margin-bottom: .5em;
+				font-family: arial, helvetica, sans-serif; }
+		</style>
+	</head>
+	<body>
+		<p style="width: 20%;">&Eacute;ste es un
+			texto que va dentro de un cuadro, el cual
+			se estira a lo largo del veinte por ciento
+			de la anchura de la pantalla. </p>
+		<p style="width: 80%; text-align: center;">
+			&Eacute;ste es un texto CENTRADO que va dentro de un cuadro,
+			el cual se estira a lo largo del ochenta por ciento
+			de la anchura de la pantalla.</p>
+		<p style="width: 20%; height: 150px; overflow: scroll;">
+			Este cuadro solamente tiene el veinte por ciento
+			de la anchura y una altura fija.
+			&iquest;Qu&eacute; hacemos si se desborda? &iexcl;Ajustamos la
+			propiedad overflow a scroll!</p>
+	</body>
+</html>
+
+/////////////////////////////////////////////////////
+// 9. Bordes de elementos a nivel de bloque.
+<!-- Bordes de los elementos a nivel de bloque. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Borders</title>
+		<style type="text/css">
+			div	{ text-align: center;
+				width: 50%;
+				position: relative;
+				left: 25%;
+				border-width: 6px; }
+			.thick	{ border-width: thick; }
+			.medium { border-width: medium; }
+			.thin	{ border-width: thin; }
+			.solid	{ border-style: solid; }
+			.double { border-style: double; }
+			.groove { border-style: groove; }
+			.ridge	{ border-style: ridge; }
+			.dotted	{ border-style: dotted; }
+			.inset	{ border-style: inset; }
+			.outset	{ border-style: outset; }
+			.dashed { border-style: dashed; }
+			.red	{ border-color: red; }
+			.blue	{ border-color: blue; }
+		</style>
+	</head>
+	<body>
+		<div class = "solid">Borde s&oacute;lido</div><hr>
+		<div class = "double">Doble borde</div><hr>
+		<div class = "groove”>Borde ranurado</div><hr>
+		<div class = "ridge">Borde rugoso</div><hr>
+		<div class = "dotted">Borde punteado</div><hr>
+		<div class = "inset">Borde incrustado</div><hr>
+		<div class = "thick dashed">Borde grueso intermitente</div><hr>
+		<div class = "thin red solid">Borde s&oacute;lido rojo delgado</div><hr>
+		<div class = "medium blue outset">Borde saliente azul mediano</div>
+	</body>
+</html>
+
+//////////////////////////////////////////////////////
+
+
+
+
+

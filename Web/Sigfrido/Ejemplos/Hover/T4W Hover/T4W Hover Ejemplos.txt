@@ -1,0 +1,788 @@
+===========================
+// 1. Zoom in
+===========================
+// HTML:
+<div class="container">
+  <div class="div-img hidden" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto2.png" title="Foto2" alt="Foto2">
+  </div>
+</div>
+
+// CSS:
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.div-img.hidden {
+  overflow: hidden;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img:hover .img {
+  transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
+
+========================
+2. Scale + Rounded borders
+========================
+// HTML:
+<div class="container">
+  <div class="div-img" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto3.png" title="Foto3" alt="Foto3">
+  </div>
+</div>
+
+// CSS:
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img:hover .img {
+  transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+========================
+3. Scale + text slide up
+========================
+// HTML:
+<div class="container">
+  <div class="div-img" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto4.png" title="Foto4" alt="Foto4">
+    <div class="text">Nice picture</div>
+  </div>
+</div>
+
+// CSS:
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.div-img .img {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -o-transform: scale(1);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img .text {
+  font-family: 'Open Sans';
+  padding-top: 5px;
+  display: block;
+  text-align: center;
+  width: 100%;
+  transform: translate(0px);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  opacity: 0;
+  transition: transfom opacity 1.5s;
+}
+.div-img:hover .img {
+  transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -o-transform: scale(0.8);
+}
+.div-img:hover .text {
+  transform: translate(0px, -20px);
+  opacity: 1;
+}
+
+========================
+4. Slide
+========================
+// HTML:
+<div class="container">
+  <div class="div-img" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto5.png" title="Foto5" alt="Foto5">
+    <div class="text">I see you!</div>
+  </div>
+</div>
+
+// CSS:
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  right: 60px;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  transform: translate(0px);
+  -ms-transform: translate(0px);
+  -moz-transform: translate(0px);
+  -webkit-transform: translate(0px);
+  -o-transform: translate(0px);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img .text {
+  font-family: 'Open Sans';
+  position: absolute;
+  z-index: -1;
+  display: block;
+  height: 50%;
+  top: 50%;
+  right: 0;
+  padding-right: 5px;
+}
+.div-img:hover .img {
+  transform: translate(-90px, 0px);
+  -ms-transform: translate(-90px, 0px);
+  -moz-transform: translate(-90px, 0px);
+  -webkit-transform: translate(-90px, 0px);
+  -o-transform: translate(-90px, 0px);
+}
+
+========================
+5. Slide + overlay
+========================
+// HTML:
+<div class="container">
+  <div class="div-img hidden" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto6.png" title="Foto6" alt="Foto6">
+    <div class="overlay"></div>
+    <div class="text">I see you!</div>
+  </div>
+</div>
+
+// CSS:
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 60px;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.div-img.hidden {
+  overflow: hidden;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  transform: translate(0px);
+  -ms-transform: translate(0px);
+  -moz-transform: translate(0px);
+  -webkit-transform: translate(0px);
+  -o-transform: translate(0px);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img .text {
+  font-family: 'Open Sans';
+  position: absolute;
+  z-index: -1;
+  display: block;
+  height: 50%;
+  top: 50%;
+  left: 0;
+  padding-left: 5px;
+  opacity: 0;
+  transition: all 1.5s;
+  -webkit-transition: all 1.5s ease-in;
+  -moz-transition: all 1.5s ease-in;
+  -ms-transition: all 1.5s ease-in;
+  -o-transition: all 1.5s ease-in;
+}
+.div-img .overlay {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  /*dim the background*/
+  opacity: 0;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+}
+.div-img:hover .img {
+  transform: translate(90px, 0px);
+  -ms-transform: translate(90px, 0px);
+  -moz-transform: translate(90px, 0px);
+  -webkit-transform: translate(90px, 0px);
+  -o-transform: translate(90px, 0px);
+}
+.div-img:hover .overlay {
+  opacity: 1;
+}
+.div-img:hover .text {
+  opacity: 1;
+}
+
+========================
+6. Rotation
+========================
+// HTML:
+<div class="container">
+  <div class="div-img" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto7.png" title="Foto7" alt="Foto7">
+  </div>
+</div>
+
+// CSS:
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img:hover .img {
+  transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+}
+
+========================
+7. Scale + text
+========================
+// HTML:
+<div class="container">
+  <div class="div-img" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto8.png" title="Foto8" alt="Foto8">
+    <div class="text">Hey there!</div>
+  </div>
+</div>
+
+// CSS:
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  transform: translate(0px, 0px) scale(1);
+  -webkit-transform: translate(0px, 0px) scale(1);
+  -moz-transform: translate(0px, 0px) scale(1);
+  -o-transform: translate(0px, 0px) scale(1);
+  -ms-transform: translate(0px, 0px) scale(1);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img .text {
+  font-family: 'Open Sans';
+  position: absolute;
+  z-index: -1;
+  display: block;
+  height: 50%;
+  top: 70%;
+  right: 0;
+  padding-right: 5px;
+}
+.div-img:hover .img {
+  transform: translate(-50px, -50px) scale(0.5);
+  -webkit-transform: translate(-50px, -50px) scale(0.5);
+  -moz-transform: translate(-50px, -50px) scale(0.5);
+  -o-transform: translate(-50px, -50px) scale(0.5);
+  -ms-transform: translate(-50px, -50px) scale(0.5);
+}
+
+========================
+8. Horizontal slide
+========================
+// HTML:
+<div class="container">
+  <div class="div-img hidden" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto14.png" title="Foto14" alt="Foto14">
+  </div>
+</div>
+
+// CSS:
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 200px;
+}
+.div-img.hidden {
+  overflow: hidden;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  height: 200px;
+  margin-left: 0px;
+  -webkit-transition: margin 1s ease;
+  -moz-transition: margin 1s ease;
+  -o-transition: margin 1s ease;
+  -ms-transition: margin 1s ease;
+  transition: margin 1s ease;
+}
+.div-img:hover .img {
+  margin-left: -200px;
+}
+
+========================
+9. Vertical slide
+========================
+// HTML:
+<div class="container">
+  <div class="div-img hidden" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto13.png" title="Foto13" alt="Foto13">
+  </div>
+</div>
+
+// CSS:
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 200px;
+}
+.div-img.hidden {
+  overflow: hidden;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 400px;
+  margin-top: 0px;
+  -webkit-transition: margin 1s ease;
+  -moz-transition: margin 1s ease;
+  -o-transition: margin 1s ease;
+  -ms-transition: margin 1s ease;
+  transition: margin 1s ease;
+}
+.div-img:hover .img {
+  margin-top: -200px;
+}
+
+========================
+10. Slide up + text
+========================
+// HTML:
+<div class="container">
+  <div class="div-img hidden" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto9.png" title="Foto9" alt="Foto9">
+    <div class="text">What's up?</div>
+  </div>
+</div>
+
+// CSS:
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.container {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.div-img.hidden {
+  overflow: hidden;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  transform: translate(0px, 0px);
+  -ms-transform: translate(0px, 0px);
+  -moz-transform: translate(0px, 0px);
+  -webkit-transform: translate(0px, 0px);
+  -o-transform: translate(0px, 0px);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img .text {
+  font-family: 'Open Sans';
+  position: absolute;
+  z-index: -1;
+  display: block;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+.div-img:hover .img {
+  transform: translate(0px, -100px);
+  -ms-transform: translate(0px, -100px);
+  -moz-transform: translate(0px, -100px);
+  -webkit-transform: translate(0px, -100px);
+  -o-transform: translate(0px, -100px);
+}
+
+========================
+11. Tranform + scale + text
+========================
+// HTML:
+<div class="container">
+  <div class="div-img" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto10.png" title="Foto10" alt="Foto10">
+    <div class="text">That's all folks!</div>
+  </div>
+</div>
+
+// CSS:
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.transition {
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+}
+.div-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.div-img .img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  -webkit-transform: 0px 0px 1;
+  -moz-transform: 0px 0px 1;
+  -ms-transform: 0px 0px 1;
+  -o-transform: 0px 0px 1;
+  transform: 0px 0px 1;
+  transform: translate(0px, 0px) scale(1);
+  -webkit-transform: translate(0px, 0px) scale(1);
+  -moz-transform: translate(0px, 0px) scale(1);
+  -o-transform: translate(0px, 0px) scale(1);
+  -ms-transform: translate(0px, 0px) scale(1);
+  -webkit-transition: all 0s ease 0s;
+  -moz-transition: all 0s ease 0s;
+  -o-transition: all 0s ease 0s;
+  transition: all 0s ease 0s;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img .text {
+  font-family: 'Open Sans';
+  position: relative;
+  z-index: -1;
+  display: block;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  -webkit-transform: 0px 0px 1;
+  -moz-transform: 0px 0px 1;
+  -ms-transform: 0px 0px 1;
+  -o-transform: 0px 0px 1;
+  transform: 0px 0px 1;
+  transform: translate(0px, 0px) scale(1);
+  -webkit-transform: translate(0px, 0px) scale(1);
+  -moz-transform: translate(0px, 0px) scale(1);
+  -o-transform: translate(0px, 0px) scale(1);
+  -ms-transform: translate(0px, 0px) scale(1);
+  -webkit-transition: all 0s ease 0s;
+  -moz-transition: all 0s ease 0s;
+  -o-transition: all 0s ease 0s;
+  transition: all 0s ease 0s;
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+.div-img:hover .img {
+  -webkit-transform: 0px -30px 0.5;
+  -moz-transform: 0px -30px 0.5;
+  -ms-transform: 0px -30px 0.5;
+  -o-transform: 0px -30px 0.5;
+  transform: 0px -30px 0.5;
+  transform: translate(0px, -30px) scale(0.5);
+  -webkit-transform: translate(0px, -30px) scale(0.5);
+  -moz-transform: translate(0px, -30px) scale(0.5);
+  -o-transform: translate(0px, -30px) scale(0.5);
+  -ms-transform: translate(0px, -30px) scale(0.5);
+  border-radius: 50%;
+}
+.div-img:hover .text {
+  -webkit-transform: 0px 0px 2;
+  -moz-transform: 0px 0px 2;
+  -ms-transform: 0px 0px 2;
+  -o-transform: 0px 0px 2;
+  transform: 0px 0px 2;
+  transform: translate(0px, 0px) scale(2);
+  -webkit-transform: translate(0px, 0px) scale(2);
+  -moz-transform: translate(0px, 0px) scale(2);
+  -o-transform: translate(0px, 0px) scale(2);
+  -ms-transform: translate(0px, 0px) scale(2);
+}
+
+========================
+12. Tranform + scale + text
+========================
+// HTML:
+<div class="container">
+  <div class="div-img" >
+    <img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto10.png" title="Foto10" alt="Foto10">
+    <div class="text">That's all folks!</div>
+  </div>
+</div>
+
+// CSS:
+@import "lesshat";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+.transition{
+  -webkit-transition: all 500ms ease-in-out; // IE 9
+  -moz-transition: all 500ms ease-in-out; // Firefox
+  -ms-transition: all 500ms ease-in-out; // Safari and Chrome 
+  -o-transition: all 500ms ease-in-out; // Opera
+}
+
+.transform(@x,@y,@s){
+  transform: translate(@x,@y) scale(@s);
+  -webkit-transform: translate(@x,@y) scale(@s);
+  -moz-transform: translate(@x,@y) scale(@s);
+  -o-transform: translate(@x,@y) scale(@s);
+  -ms-transform: translate(@x,@y) scale(@s);
+}
+
+.container{   
+  position: relative;
+  width: 200px;
+  height: 200px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top:20px;
+}
+
+.div-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    .img{
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        .transform(0px,0px,1);
+        .transition;    
+    }      
+    .text{
+        font-family: 'Open Sans';
+        position:relative;
+        z-index: -1;
+        display:block;
+        bottom:20px;
+        width:100%;
+        text-align:center;
+        .transform(0px,0px,1);
+        .transition;
+    }
+    &:hover{
+        .img{
+            .transform(0px,-30px,0.5);
+            border-radius: 50%;
+        }
+        .text{
+            .transform(0px,0px,2);
+          }
+     } 
+}
+
+
+
+
+
+
+
+

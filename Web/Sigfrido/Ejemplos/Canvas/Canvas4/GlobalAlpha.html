@@ -1,0 +1,60 @@
+<!-- Uso del atributo globalAlpha en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Transparencia alfa</title>  
+	</head>  
+	<body>   
+		<!-- valor alfa 0.7S -->   
+		<canvas id = "alfa" width = "200" height = "200"    
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("alfa");    
+			var contexto = canvas.getContext("2d");    
+			contexto.beginPath();    
+			contexto.rect( 10, 10, 120, 120);    
+			contexto.fillStyle = "purple";    
+			contexto.fill();    
+			contexto.globalAlpha = 0.9;    
+			contexto.beginPath();    
+			contexto.arc(120, 120, 65, 0, 2 * Math.PI, false );    
+			contexto.fillStyle = "lime";    contexto.fill();   
+		</script>   
+		<!-- valor alfa0.5 -->   
+		<canvas id = "alfa2" width = "200" height = "200"    
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("alfa2");    
+			var contexto = canvas.getContext("2d");    
+			contexto.beginPath();    
+			contexto.rect(10, 10, 120, 120);    
+			contexto.fillStyle = "purple";    
+			contexto.fill();    
+			contexto.globalAlpha = 0.5;    
+			contexto.beginPath();    
+			contexto.arc( 120, 120, 65, 0, 2 * Math.PI, false );    
+			contexto.fillStyle = "lime";    
+			contexto.fill();   
+		</script>   
+		<!-- 0.15 alpha value -->   
+		<canvas id = "alfa3" width = "200" height = "200"    
+			style = "border: 1px solid black;"> 
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("alfa3");    	
+			var contexto = canvas.getContext("2d");    
+			contexto.beginPath();    
+			contexto.rect(10, 10, 120, 120);    
+			contexto.fillStyle = "purple";    
+			contexto.fill();    
+			contexto.globalAlpha = 0.15;    
+			contexto.beginPath();    
+			contexto.arc(120, 120, 65, 0, 2 * Math.PI, false );    
+			contexto.fillStyle = "lime";    
+			contexto.fill();   
+		</script>  
+	</body> 
+</html>

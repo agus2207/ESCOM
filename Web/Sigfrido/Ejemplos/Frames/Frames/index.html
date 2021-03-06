@@ -1,0 +1,39 @@
+<!-- Dibujar una elipse sobre un canvas. -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Elipse</title>
+</head>
+<body BGCOLOR="#1abc9c">
+<!-- elipse vertical -->
+<canvas id = "dibujarElipse" width = "200" height = "200"
+ style = "border: 1px solid black;">
+</canvas>
+<script>
+var canvas = document.getElementById("dibujarElipse");
+var contexto = canvas.getContext("2d")
+contexto.translate(canvas.width / 2, canvas.height / 2);
+contexto.scale(1, 3);
+contexto.beginPath();
+contexto.arc( 0, 0, 30, 0, 2 * Math.PI, true);
+
+contexto.fillStyle = "orange";
+contexto.fill();
+</script>
+<!-- elipse horizontal -->
+<canvas id = "dibujarElipse2" width = "200" height = "200"
+ style = "border: 1px solid black;">
+</canvas>
+<script>
+var canvas = document.getElementById("dibujarElipse2");
+var contexto = canvas.getContext("2d");
+contexto.translate(canvas.width / 2, canvas.height / 2);
+contexto.scale( 3, 2);
+contexto.beginPath();
+contexto.arc( 0, 0, 30, 0, 2 * Math.PI, true );
+contexto.fillStyle = "indigo";
+contexto.fill();
+</script>
+</body>
+</html>

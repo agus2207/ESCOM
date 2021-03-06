@@ -1,0 +1,27 @@
+<!--Uso de decisiones-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Decision y comparacion</title>
+		<script>
+			var nombre;
+			var ahora = new Date();
+			var hora = ahora.getHours();
+			nombre = window.prompt("Nombre?");
+			if(hora<12)	
+				document.write("<h1>Buenos Dias!, ");
+			if (hora>=12){
+				hora = hora - 12;
+				if(hora<6)
+					document.write("<h1>Buenas Tardes!, ");
+				if(hora>=6)
+					document.write("<h1>Buenas Noches!, ");
+			}
+			document.writeln(nombre+",BIENVENIDO A ESCOM!");
+		</script>
+	</head>
+	<body>
+		<h1>Uso de if y <> </h1>
+	</body>
+</html>

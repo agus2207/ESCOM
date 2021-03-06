@@ -1,0 +1,40 @@
+<!-- Ejemplo de alcance. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset = "utf-8">   
+		<style type = "text/css">    
+			p { margin: 0px; }    
+			p.espacio { margin-top: lOpx; }   
+		</style>   
+		<script>    
+			var salida; // almacena la cadena a mostrar    
+			var x = 1; // variable global    
+			function iniciar(){     
+				var x = 5; // variable local para la función iniciar     
+				salida = "<p>la x local en iniciar es " + x + "</p>";     
+				funcionA(); // funcionA tiene la x local     
+				funcionB(); // funcionA usa la variable global x     
+				funcionA(); // funcionA reinicializa la x local     
+				funcionB(); // la variable global x retiene su valor     
+				salida += "<p class = 'espacio'>la x local en iniciar es " + x + "</p>";     
+				document.getElementById("resultados" ).innerHTML = salida;  
+			} // fin de la función iniciar    
+			function funcionA(){     
+				var x = 25; // se inicializa cada vez que se llama a la funcionA     
+				salida += "<p class = 'espacio'>la x local en la funcionA es " + x + " despu&eacute;s de entrar a funcionA</p>";     
+					++x;     salida += "<p>la x local en funcionA es " + x +     
+					" antes de salir de funcionA</p>";    
+			} // fin de funcionA    
+			function funcionB(){     
+				salida += "<p class='espacio'>la variable global x es " + x +      
+					" al entrar a la funcionB";     x *= 10;     
+				salida += "<p>la variable global x es " + x +     " al salir de la funcionB</p>";    
+			} // fin de la funcionB    
+			window.addEventListener( "load", iniciar, false );   
+		</script>  
+	</head>  
+	<body onload = "iniciar()">   
+		<div id = "resultados"></div>  
+	</body> 
+</html>

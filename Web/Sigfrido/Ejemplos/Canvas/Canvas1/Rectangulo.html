@@ -1,0 +1,23 @@
+<!-- Dibujo de un rectángulo en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Dibujar un rect&aacute;ngulo</title>  
+	</head>  
+	<body>   
+		<canvas id = "dibujarRectangulo" width = "300" height = "100"    
+			style = "border: 1px solid black;">    
+			Su navegador no soporta el elemento canvas.   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("dibujarRectangulo");    
+			var contexto = canvas.getContext("2d");    
+			contexto.fillStyle = "yellow";    
+			contexto. fillRect(5, 10, 200, 75 );    
+			contexto.strokeStyle = "royalblue";    
+			contexto.lineWidth = 6;    
+			contexto.strokeRect(4, 9, 201, 76);   
+		</script>  
+	</body> 
+</html> 

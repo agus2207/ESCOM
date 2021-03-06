@@ -1,0 +1,52 @@
+<!-- Dibujo de gradientes lineales en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Gradientes lineales</title>  
+	</head>  
+	<body>   
+		<!-- gradiente lineal vertical -->   
+		<canvas id = "gradienteLineal" width = "200" height = "200"    
+			style = "border: 2px solid navy;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("gradienteLineal");    
+			var contexto = canvas.getContext("2d");    
+			var gradiente = contexto.createLinearGradient(0, 0, 0, 200);    
+			gradiente.addColorStop(0, "white");    
+			gradiente.addColorStop(0.5, "lightsteelblue");    
+			gradiente.addColorStop(1, "navy");    
+			contexto.fillStyle = gradiente;    
+			contexto.fillRect(0, 0, 200, 200);   
+		</script>   
+		<!-- gradiente lineal horizontal -->   
+		<canvas id = "gradienteLineal2" width = "200" height = "200"    
+			style = "border: 2px solid orange;">   
+		</canvas>   
+		<script>  
+			var canvas = document.getElementById("gradienteLineal2");    
+			var contexto = canvas.getContext("2d");    
+			var gradiente = contexto.createLinearGradient(0, 0, 200, 0);    
+			gradiente.addColorStop(0, "white");    
+			gradiente.addColorStop(0.5, "yellow" );    
+			gradiente.addColorStop(1, "orange");    
+			contexto.fillStyle = gradiente;    
+			contexto.fillRect(0, 0, 200, 200);   
+		</script>   
+		<!-- gradiente lineal diagonal -->   
+		<canvas id = "gradienteLineal3" width = "200" height = "200"    
+			style = "border: 2px solid purple;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("gradienteLineal3");    
+			var contexto = canvas.getContext("2d");    
+			var gradiente = contexto.createLinearGradient(0, 0, 135, 200);    
+			gradiente.addColorStop(0, "white");    
+			gradiente.addColorStop(0.5, "plum");    
+			gradiente.addColorStop(1, "purple");    
+			contexto.fillStyle = gradiente;    
+			contexto.fillRect( 0, 0, 200, 200);   
+		</script>  
+	</body> 
+</html>

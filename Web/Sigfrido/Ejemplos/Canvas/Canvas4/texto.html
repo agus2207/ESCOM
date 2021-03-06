@@ -1,0 +1,28 @@
+<!-- Dibujar texto en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Texto</title>  
+	</head>  
+	<body>   
+		<canvas id = "texto" width = "230" height = "100"    
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("texto");    
+			var contexto = canvas.getContext("2d");    
+			// dibujar la primera linea de texto    
+			contexto.fillStyle = "red";  
+			contexto.font = "italic 24px serif";    
+			contexto.textBaseline = "top";    
+			contexto.fillText("Canvas HTML5", 0, 0);    
+			// dibujar la segunda linea de texto    
+			contexto.font = "bold 30px sans-serif";    
+			contexto.textAlign = "center";    
+			contexto.lineWidth = 2;    
+			contexto.strokeStyle = "navy";    
+			contexto.strokeText("Canvas HTML5", 115, 50);   
+		</script>  
+	</body> 
+</html> 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Nuevo usuario</title>
+    </head>
+    <body>
+        <div>
+            <form action="Serv_NuevoUsuario" method="post">
+                <h1 style="text-align: center;">Nuevo usuario</h1>
+                <br/>
+                <br/>
+                Nombre: <input type="text" name="nombre" />
+                <br/>
+                <br/>
+                Correo: <input type="email" name="correo" />
+                <br/>
+                <br/>
+                Contraseña: <input type="password" name="pass" />
+                <br/>
+                <br/>
+                <select name="categoria">
+                <option selected value="0"> Elige una opción </option>
+                    <option value="1">Profesor</option> 
+                    <option value="2">Alumno</option>
+                    <option value="3">Administrador</option>
+                </select>
+                <br/>
+                <br/>
+                <input type="submit" name="Enviar" />
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejercicio 10</title>
+	<style type="text/css">
+		.yellow
+		{
+			background-color: yellow;
+		}
+		.hover
+		{
+			background-color: gray; 
+		}
+	</style>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$("#c1").click(function()
+			{
+				
+				$("#cont1").css({'border':'4px solid #b7e5ff','color':'#cc3333','font-weight':'bold','background-color':'#ffffff'});
+			});
+			$("#cont2").click(function()
+			{
+				$(this).hide().delay(1500).show(1500);
+			});
+			$(".yellow").hover(function()
+				{
+					$(this).addClass("hover");
+				}, function()
+				{
+					$(this).removeClass("hover")
+				}
+				);
+		});
+	</script>
+</head>
+<body>
+	<div id="cont1">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod ducimus ullam repudiandae perferendis dolore quo, aspernatur, animi natus in minus quasi ex inventore expedita nulla veritatis iste ab eaque, hic.
+	</div>
+	<button id="c1">Click</button>
+	<br> <br>
+
+	<div id="cont2" class="yellow">
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, aspernatur temporibus necessitatibus, perferendis dolores quisquam voluptatem ex corrupti voluptas perspiciatis, fugiat magnam. Unde soluta corporis minus quod non consectetur, possimus.
+	</div>
+</body>
+</html>

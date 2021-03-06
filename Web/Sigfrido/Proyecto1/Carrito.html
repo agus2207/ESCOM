@@ -1,0 +1,284 @@
+<!-- Carrito de compras-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Carrito de compras</title>
+		<link rel="stylesheet" href="master.css" type="text/css">
+		<script>
+			<!--
+			function CargarFoto(img, ancho, alto){
+				derecha=(screen.width-ancho)/2;
+				arriba=(screen.height-alto)/2;
+				string="toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width="+ancho+",height="+alto+",left="+derecha+",top="+arriba+"";
+				fin=window.open(img,"",string);
+			}
+			// -->
+		</script>
+	</head>
+	<body link="#0000FF" vlink="#800080" class="body">
+		<script>
+			function buyItem(newItem, newPrice, newQuantity) {
+				if (newQuantity <= 0) {
+					rc = alert('La cantidad ingresada es incorrecta');
+					return false;
+				}
+				if (confirm('¿Agregar '+newQuantity+' '+newItem+' al carrito?')) {
+					index = document.cookie.indexOf("TheBasket");
+					countbegin = (document.cookie.indexOf("=", index) + 1);
+					countend = document.cookie.indexOf(";", index);
+					if (countend == -1) {
+						countend = document.cookie.length;
+					}
+	                document.cookie="TheBasket="+document.cookie.substring(countbegin, countend)+"["+newItem+","+newPrice+"#"+newQuantity+"]";
+				}
+				return true;
+			}
+
+			function resetShoppingBasket() {
+				index = document.cookie.indexOf("TheBasket");
+				document.cookie="TheBasket=.";
+			}
+		</script>
+		<center>
+			<img src="tienda1.png" alt="tienda" />
+			<table border="0" cellpadding="0" cellspacing="0" width="640" class="body">
+				<tr>
+					<td width="50%"><big><big><h1>Carrito de compras</h1></big></big></td>
+					<td width="50%" align="right">[ Carrito | <a href="estado.html">Estado</a> | <a href="formulario.html">Orden de Compra</a> ]</td>
+				</tr>
+				<tr>
+					<td width="100%" colspan="2">
+						<hr size="1" color="#000000">
+					</td>
+				</tr>
+				<tr>
+					<td width="100%" colspan="2">La mejor cibertienda para completar tu coleccion.</td>
+				</tr>
+			</table>
+
+			<form name="itemsform">
+
+				<table border="1" cellspacing="0" width="640" bordercolor="#FFFFFF" class="td">
+					<tr>
+						<td width="120" valign="top" align="center"><a href="javascript:CargarFoto('imagenes/comic.jpg','470','385')"><img src="thumbnails/comic.jpg" width="150" height="200" border="0"></a></td>
+						<td width="340" valign="top"><a href="javascript:CargarFoto('imagenes/comic.jpg','470','385')"><strong>Comic Generico</strong></a><br>
+						<small>Escoja entre una gran variedad de comics de su editorial favorita, contamos con comics de Marvel, DC, Dark Horse</small></td>
+						<td width="60" align="center" valign="top">40.00</td>
+						<td width="50" valign="top" align="center">
+							<input type="value" name="agregar1" value="1" size="3">
+						</td>
+						<td width="70" valign="top">
+							<input type="button" name="cbtadd" value="Agregar" onclick="buyItem('Comic Generico','40.00', document.itemsform.agregar1.value)">
+						</td>
+					</tr>
+					<tr>
+						<td width="120" valign="top" align="center"><a href="javascript:CargarFoto('imagenes/pop.jpg','470','385')"><img src="thumbnails/pop.jpg" width="150" height="200" border="0"></a></td>
+						<td width="340" valign="top"><a href="javascript:CargarFoto('imagenes/pop.jpg','470','385')"><strong>Funko Pop</strong></a><br>
+						<small>Los Funko Pop son figuras de vinilo, consigue la figura de tu personaje favorito, contamos con una variedad de licencias</small></td>
+						<td width="60" align="center" valign="top">450.00</td>
+						<td width="50" valign="top" align="center">
+							<input type="value" name="agregar2" value="1" size="3">
+						</td>
+						<td width="70" valign="top">
+							<input type="button" name="cbtadd" value="Agregar" onclick="buyItem('Funko Pop','450.00', document.itemsform.agregar2.value)">
+						</td>
+					</tr>
+					<tr>
+						<td width="120" valign="top" align="center"><a href="javascript:CargarFoto('imagenes/hottoys.jpg','470','385')"><img src="thumbnails/hottoys.jpg" width="150" height="200" border="0"></a></td>
+						<td width="340" valign="top"><a href="javascript:CargarFoto('imagenes/hottoys.jpg','530','387')"><strong>Figura Hot Toys</strong></a><br>
+						<small>Te gustan las figuras de coleccion realista, no te preocupes las figuras Hot Toys son tan realistas y vienen con varios accesorios.</small></td>
+						<td width="60" align="center" valign="top">15000.00</td>
+						<td width="50" valign="top" align="center">
+							<input type="value" name="agregar3" value="1" size="3">
+						</td>
+						<td width="70" valign="top">
+							<input type="button" name="cbtadd" value="Agregar" onclick="buyItem('Figura Hot Toys','15000.00', document.itemsform.agregar3.value)">
+						</td>
+					</tr>
+					<tr>
+						<td width="120" valign="top" align="center"><a href="javascript:CargarFoto('imagenes/playera.jpg','470','385')"><img src="thumbnails/playera.jpg" width="150" height="200" border="0"></a></td>
+						<td width="340" valign="top"><a href="javascript:CargarFoto('imagenes/playera.jpg','770','469')"><strong>Playeras</strong></a><br>
+						<small>Contamos con un gran catalogo de playeras con el logo o imagen de tus personajes favoritos. Tenemos para todo tipo de personas</small></td>
+						<td width="60" align="center" valign="top">220.00</td>
+						<td width="50" valign="top" align="center">
+							<input type="value" name="agregar4" value="1" size="3">
+						</td>
+						<td width="70" valign="top">
+							<input type="button" name="cbtadd" value="Agregar" onclick="buyItem('Playera','220.00', document.itemsform.agregar4.value)">
+						</td>
+					</tr>
+					<tr>
+						<td width="120" valign="top" align="center"><a href="javascript:CargarFoto('imagenes/llavero.jpg','470','385')"><img src="thumbnails/llavero.jpg" width="150" height="200" border="0"></a></td>
+						<td width="340" valign="top"><a href="javascript:CargarFoto('imagenes/llavero.jpg','316','200')"><strong>Llaveros</strong></a><br>
+						<small>Cansado de perder tus llaves. Contamos con una gran variedad de llaveros para que tu personaje favorito cuide tus llaves</small></td>
+						<td width="60" align="center" valign="top">250.00</td>
+						<td width="50" valign="top" align="center">
+							<input type="value" name="agregar5" value="1" size="3">
+						</td>
+						<td width="70" valign="top">
+							<input type="button" name="cbtadd" value="Agregar" onclick="buyItem('Llaveros','250.00', document.itemsform.agregar5.value)">
+						</td>
+					</tr>
+					<tr>
+						<td width="120" valign="top" align="center"><a href="javascript:CargarFoto('imagenes/pelicula.jpg','470','385')"><img src="thumbnails/pelicula.jpg" width="150" height="200" border="0"></a></td>
+						<td width="340" valign="top"><a href="javascript:CargarFoto('imagenes/pelicula.jpg','316','200')"><strong>Peliculas</strong></a><br>
+						<small>Te gusta tener la pelicula de tus heroes favorito. No lo dudes contamos con un gran catalogo de peliculas para que disfrutes desde la comodidad de tu casa</small></td>
+						<td width="60" align="center" valign="top">590.00</td>
+						<td width="50" valign="top" align="center">
+							<input type="value" name="agregar6" value="1" size="3">
+						</td>
+						<td width="70" valign="top">
+							<input type="button" name="cbtadd" value="Agregar" onclick="buyItem('Pelicula','590.00', document.itemsform.agregar6.value)">
+						</td>
+					</tr>
+					<tr>
+						<td width="120" valign="top" align="center"><a href="javascript:CargarFoto('imagenes/videojuego.jpg','470','385')"><img src="thumbnails/videojuego.jpg" width="150" height="200" border="0"></a></td>
+						<td width="340" valign="top"><a href="javascript:CargarFoto('imagenes/videojuego.jpg','316','200')"><strong>Videojuegos</strong></a><br>
+						<small>Tenemos una gran variedad de videojuegos, para distintas consolas. Pregunta por el de tu preferencia</small></td>
+						<td width="60" align="center" valign="top">1250.00</td>
+						<td width="50" valign="top" align="center">
+							<input type="value" name="agregar7" value="1" size="3">
+						</td>
+						<td width="70" valign="top">
+							<input type="button" name="cbtadd" value="Agregar" onclick="buyItem('Videojuegos','1250.00', document.itemsform.agregar7.value)">
+						</td>
+					</tr>
+					<tr>
+						<td width="120" valign="top" align="center"><a href="javascript:CargarFoto('imagenes/lego.jpg','470','385')"><img src="thumbnails/lego.jpg" width="150" height="200" border="0"></a></td>
+						<td width="340" valign="top"><a href="javascript:CargarFoto('imagenes/lego.jpg','316','200')"><strong>Legos</strong></a><br>
+						<small>Te gusta armar tus propios escenarios. Contamos con una gran variedad de sets de lego con los que podras crear tu propio mundo</small></td>
+						<td width="60" align="center" valign="top">2100.00</td>
+						<td width="50" valign="top" align="center">
+							<input type="value" name="agregar8" value="1" size="3">
+						</td>
+						<td width="70" valign="top">
+							<input type="button" name="cbtadd" value="Agregar" onclick="buyItem('Legos','2100.00', document.itemsform.agregar7.value)">
+						</td>
+					</tr>
+				</table>
+			</form>
+			<h6>Pregunta por disponibilidad. Los precios pueden variar dependiendo del modelo solicitado.</h6>
+			<h1>Contamos con las siguientes licencias.</h1>
+			<table>
+				<tr>
+					<td><a href="https://www.marvel.com/"><img src="imagenes/marvel.jpg" width = "100" height = "100"/></a></td>
+					<td><a href="https://www.dccomics.com/"><img src="imagenes/dc.jpg" width = "100" height = "100"/></a></td>
+					<td><a href="https://www.darkhorse.com/"><img src="imagenes/darkhorse.jpg" width = "100" height = "100"/></a></td>
+					<td><a href="https://www.disney.com/"><img src="imagenes/disney.jpg" width = "100" height = "100"/></a></td>
+				</tr>
+			</table>
+		</center>
+		<div id="content">
+			<div id="mainContent">
+				<section>
+					<article class="blogPost">
+						<header>
+							<h2>Bienvenido al carrito de compras</h2>
+							<p>Enviado el <time datetime="2016-06-29T23:31+01:00">15 de Septiembre de 2018</time> por <a href="#">Agustin Galindo Reyes</a> - <a href="#comments">3 comentarios</a></p>
+						</header>
+					</article>
+				</section>
+				<section id="comments">
+					<h3>Comentarios</h3>
+					<article>
+						<header>
+							<a href="#">Antonio Estrella</a> el <time datetime="2016-06-29T23:35:20+01:00">1 de Octubre de 2018</time>
+						</header>
+						<p>Posiblemente la mejor tienda de comics en linea. Tienen un staff muy servicial y todo muy bien organizado.</p>
+					</article>
+					<article>
+						<header>
+							<a href="#">Pedro Parque</a> on <time datetime="2016-06-29T23:40:09+01:00">29 de Septiembre de 2018</time>
+						</header>
+						<p>Un lugar muy surtido de comics en ingles y algunos volumenes en latino ,en la cual encontraran cualquier tipo de novela grafica o comics con accesibilidad en todos los aspectos</p>
+					</article>
+					<article>
+						<header>
+							<a href="#">Bruno Diaz</a> on <time datetime="2016-06-29T23:59:00+01:00">24 de Septiembre de 2018</time>
+						</header>
+						<p>Mi hijo disfruta mucho visitar este lugar, pero hay publicaciones que no infantiles y estan a su alcance, por lo que es importante que los padres no dejen solos a sus hijos, o que pongan esas publicaciones en un lugar mas limitado en su acceso.</p>
+					</article>
+				</section>
+				<form action="#" method="post">
+					<h3>Enviar un comentario</h3>
+					<p>
+						<label for="name">Nombre</label>
+						<input name="name" id="name" type="text" required />
+					</p>
+					<p>
+						<label for="email">E-mail</label>
+						<input name="email" id="email" type="email" required />
+					</p>
+					<p>
+						<label for="website">Website</label>
+						<input name="website" id="website" type="url" />
+					</p>
+					<p>
+						<label for="comment">Comentario</label>
+						<textarea name="comment" id="comment" required></textarea>
+					</p>
+					<p><input type="submit" value="Post comment" /></p>
+				</form>
+			</div>
+			<aside>
+				<section>
+					<header>
+						<h3>Archivos</h3>
+					</header>
+					<ul>
+						<li><a href="carrito.html">Diciembre 2017</a></li>
+						<li><a href="carrito.html">Enero 2018</a></li>
+						<li><a href="carrito.html">Febrero 2018</a></li>
+						<li><a href="carrito.html">Marzo 2018</a></li>
+						<li><a href="carrito.html">Abril 2018</a></li>
+						<li><a href="carrito.html">Mayo 2018</a></li>
+						<li><a href="carrito.html">Junio 2018</a></li>
+					</ul>
+				</section>
+			</aside>
+		</div>
+		<footer>
+			<div>
+				<section id="about">
+					<header>
+						<h3>Acerca</h3>
+					</header>
+					<p>
+						MISION<br>
+
+						Ofrecer una gran variedad de productos geek a un buen precio, para satisfacer todas las necesidades <br>
+						de los coleccionistas mexicanos. Contamos con los mejores productos con certificado de autenticidad <br>
+					</p>
+				</section>
+				<section id="Follow">
+					<header>
+						<h3>Siguenos en</h3>
+					</header>
+					<ul>
+						<li><a href="https://www.facebook.com/">Facebook</a></li>
+						<li><a href="https://www.twitter.com/">Twitter</a></li>
+						<li><a href="https://www.instagram.com/">Instagram</a></li>
+						<li><a href="https://www.snapchat.com/">Snapchat</a></li>
+						<li><a href="https://www.periscope.com/">Periscope</a></li>
+					</ul>
+				</section>
+				<section id="popular">
+					<header>
+						<h3>Popular</h3>
+					</header>
+					<ul>
+						<li><a href="https://www.comic-con.org/">San Diego Comic-Con 2018</a></li>
+						<li><a href="https://www.lamole.com.mx/">La mole 2018</a></li>
+						<li><a href="http://expocoleccionistas.com.mx/">Expo Coleccionistas Mexico</a></li>
+						<li><a href="https://www.comic-con.org/">Expo TNT</a></li>
+						<li><a href="https://www.frikiplaza.com/">Frikiplaza</a></li>
+						<li><a href="https://www.funko.com/">Funko Pop</a></li>
+						<li><a href="https://disneyland.disney.go.com/destinations/disneyland/">Disneyland Park</a></li>
+						<li><a href="www.hottoys.com.hk/">Hot Toys</a></li>
+						<li><a href="https://shop.lego.com/">Lego</a></li>
+					</ul>
+				</section>
+			</div>
+		</footer>
+	</body>
+</html>

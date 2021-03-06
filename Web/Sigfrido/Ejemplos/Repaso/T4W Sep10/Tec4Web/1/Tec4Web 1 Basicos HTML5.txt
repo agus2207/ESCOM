@@ -1,0 +1,452 @@
+///////////////////////////////////////////////////////
+<!-- Inserción de caracteres especiales. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>P&aacute;gina de contacto</title>
+	</head>
+	<body>
+		<p>
+			<a href="mailto: avionica1@yahoo.com">Env&iacute;e un correo a
+				alguna persona de su elecci&oacute;n.</a>.
+		</p>
+		<hr>	<!-- inserta una regla horizontal -->
+			<!-- los caracteres especiales se introducen -->
+			<!-- usando la forma &code; -->
+		<p>Toda la informaci&oacute;n del sitio www.ipn.mx es acerca de <strong>&copy;
+			Instituto Polit&eacute;cnico Nacional.</strong> </p>
+			<!-- para subrayar texto usar el elemento <del> -->
+			<!-- para usar subíndices en e l texto usar el elemento <sub> -->
+			<!-- para usar superíndices en el texto usear el elemento <sup> -->
+			<!-- estos elementos están anidados dentro de otros elementos -->
+		<p><del>Se pueden descargar 3.14 x 10<sup>2</sup>
+			caracteres de informaci&oacute;n de este sitio.</del>
+			El primer elemento en la serie es x<sub>1</sub>.</p>
+		<p>Nota: &lt; &frac14; de la informaci&oacute;n
+			que se presenta aqu&iacute; se actualiza a diario.</p>
+	</body>
+</html>
+
+//////////////////////////////////////////////////////
+<!-- Lista desordenada que contiene hipervínculos. -->
+<!DOCTYPE htn1>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>V&iacute;nculos</title>
+	</head>
+	<body>
+		<h1>Estos son mis sitios favoritos</h1>
+		<p><strong>Seleccionar un nombre para ir a &eacute;sa p&aacute;gina</strong></p>
+		<!-- crear una lista desordenada -->
+		<ul>
+			<!-- la lista contiene cuatro elementos de lista -->
+			<li><a href="http://www.youtube.com">YouTube</a></li>
+			<li><a href="http://www.wikipedia.org">Wikipedia</a></li>
+			<li><a href="http://www.amazon.com">Amazon</a></li>
+			<li><a href="http://www.linkedin.com">LinkedIn</a></li>
+		</ul>
+	</body>
+</html>
+
+///////////////////////////////////////////////////////////
+<!-- Listas anidadas y listas desordenadas. -->
+<! DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title >Listas</title>
+	</head>
+	<body>
+		<h1>Las mejores caracter&iacute;sticas de Internet</h1>
+		<!-- crear una lista desordenada -->
+		<ul>
+			<li>Puede conocer nueva personas de pa&iacute;ses de todo
+				el mundo.</li>
+			<li>
+				Tiene acceso a los nuevos medios a medida que se hacen p&uacute;blicos:
+				<!-- esto inicia una lista desordenada anidada, que usa una -->
+				<!-- viñeta distinta. La lista termina al -->
+				<!-- cerrar la etiqueta <ul>. -->
+				<ul>
+					<li>Nuevos juegos</li>
+					<li>Nuevas aplicaciones
+					<!-- lista ordenada anidada -->
+					<ol>
+						<li>Por negocios</li>
+						<li>Por placer</li>
+					</ol>
+				</li> <!-- termina elemento 1i y que llama
+					a nuevas aplicaciones-->
+				<li>Noticias las 24 horas</li>
+				<li>Motores de b&uacute;squeda</li>
+				<li>Compras</li>
+				<li>Programaci&oacute;n
+					<!-- otra lista ordenada anidada -->
+					<ol>
+						<li>XML</li>
+						<li>Java</li>
+						<li>HTWL5</li>
+						<li>JavaScript</li>
+						<li>Nuevos lenguajes</li>
+					</ol>
+				</li><!--termina elemento li, llamado
+					programación.-->
+				</ul> <!-- termina la lista anidada.-->
+			</li>
+			<li>V&iacute;nculos</li>
+			<li>Mantenerse en contacto con viejos amigos</li>
+			<li>Es la tecnolog&iacute;a del futuro</li>
+		</ul> <!-- termina la lista desordenada.-->
+	</body>
+</html>
+
+////////////////////////////////////////////////////////////
+<!-- Creación de una tabla básica.-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Una tabla de HTML5 simple</title>
+	</head>
+	<body>
+		<!-- la etiqueta <table> abre una tabla -->
+		<table border="1">
+			<!-- la etiqueta <caption> sintetiza el contenido de -->
+			<!-- la tabla (esto ayuda a las personas con discapacidad visual) -->
+			<caption><strong>Tabla de frutas (1era columna) y
+				sus precios (2da columna)</strong></caption>
+			<!-- la sección <thead> aparece primero en la tabla -->
+			<!-- da formato al área del encabezado de la tabla -->
+			<thead>
+				<tr> <!-- <tr> inserta una fila en la tabla -->
+					<th>Fruta</th> <!-- Inserta una celda de encabezado -->
+					<th>Precio</th>
+				</tr>
+			</thead>
+			<!-- la sección <tfoot> aparece al último en la tabla -->
+			<!-- da formato al pie de la tabla -->
+			<tfoot>
+				<tr>
+					<th>Total</th>
+					<th>$3.75</th>
+				< /tr>
+			</tfoot>
+			<!-- todo el contenido de la tabla está encerrado -->
+			<!-- dentro del elemento <tbody> -->
+			<tbody>
+				<tr>
+					<td>Manzana</td> <!-- Inserta una celda de datos -->
+					<td>$0.25</td>
+				</tr>
+				<tr>
+					<td>Naranja</td>
+					<td>$0.S0</td>
+				</tr>
+				<tr>
+					<td>Pl&aacute;tano</td>
+					<td>$1.00</td>
+				</tr>
+				<tr>
+					<td>Pi&ntilde;a</td>
+					<td>$2.00</td>
+				< /tr>
+			</tbody>
+		</table>
+	</body>
+</html>
+
+/////////////////////////////////////////////////////
+<!-- Tabla de HTML5 compleja. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Tablas </title>
+	</head>
+	<body>
+		<h1>Ejemplo de tabla: combinaci&oacute;n de filas y columnas</h1>
+		<table border="1">
+			<caption>Una tabla de muestra m&aacute;s compleja</caption>
+			<thead>
+				<!-- los elementos rowspan y colspan combinan el número -->
+				<!-- especificado de celdas en sentido vertical u horizontal -->
+				<tr>
+					<!-- combina dos filas -->
+					<th rowspan="2">
+						<img src="camello.png” width="205"
+							height="167" alt="Imagen de un camello con una joroba">
+					</th>
+					<!-- combina cuatro columnas -->
+					<th colspan="4">
+						<strong>Comparaci&oacute;n de cam&eacute;lidos</strong><br>
+						Fecha aproximada: 10/2011
+					</th>
+				</tr>
+				<tr>
+					<th># jorobas</th>
+					<th>Regi&oacute;n ind&iacute;gena</th>
+					<th>Escupe?</th>
+					<th>Produce lana?</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Camellos (bactrianos)</th>
+					<td>2</td>
+					<td>Africa/Asia</td>
+					<td>S&iacute;</td>
+					<td>S&iacute;</td>
+				</tr>
+				<tr>
+					<th>Llamas</th>
+					<td>l</td>
+					<td>Monta&ntilde;as de los Andes</td>
+					<td>S&iacute;</td>
+					<td>S&iacute;</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
+
+/////////////////////////////////////////////////////////
+<!-- Formulario con un campo de texto y campos ocultos. -->
+<!DOCTYPE html>
+<!-- Formulario con un campo de texto y campos ocultos. -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Formularios</title>
+	</head>
+	<body>
+		<h1>Formulario de retroalimentaci&oacute;n</h1>
+		<p>Llenar este formulario para ayudar
+			a mejorar este sitio.</p>
+		<!-- esta etiqueta empieza el formulario, indica el -->
+		<!-- método de enviar información y la ubicación -->
+		<!-- de la secuencia de comandos de procesamiento del formulario -->
+		<form method="post" action="http://www.ipn.com">
+			<!-- las entradas ocultas contienen información -->
+			<!-- no visual que también se enviará -->
+			<input type ="hidden" name="destinatario"
+				value="avionica1@yahoo.com">
+			<input type="hidden" name="asunto"
+				value="Formularlo de retroal1mentaci&oacute;n">
+			<input type="hidden" name="redirigir"
+				value="principal. html">
+			<!-- <1nput type="text"> inserta un campo de texto -->
+			<p><label>Nombre:
+				<input name="nombre" type="text" size="25"
+					maxlength="30">
+			</label></p>
+			<p>
+				<!-- los tipos de entrada "submit" y "reset" insertan -->
+				<!-- botones para enviar y borrar el contenido -->
+				<!-- del formulario, respectivamente -->
+				<input type="submit" value="Enviar">
+				<input type="reset" value="Borrar">
+			</p>
+		</form>
+	</body>
+</html»
+
+////////////////////////////////////////////////////////////
+<!-- Formulario que usa una variedad de componentes. -->
+<!DOCTYPE html>
+<!-- Formulario que usa una variedad de componentes. -->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>M&aacute;s formularios</title>
+	</head>
+	<body>
+		<h1>Formulario de retroalimentaci&oacute;n</h1>
+		<p>Llenar este formulario para ayudar
+			a mejorar este sitio.</p>
+		<form method = "post" action="http://www.google.com">
+			<input type="hidden" name="destinatario"
+				value="avionica1@yahoo.com">
+			<input type="hidden" name="asunto"
+				value="Formulario de retroalimentaci&oacute;n">
+			<input type="hidden" name="redirigir"
+				value="principal.html">
+			<p><label>Nombre:
+				<input name="nombre" type="text" size="25">
+			</label></p>
+			<!-- <textarea> crea un cuadro de texto multlinea -->
+			<p><label> Comentarios:<br>
+				<textarea name="comentarios"
+					rows="4" cols="36">Escriba aqu&iacute; los comentarios.</textarea>
+			</label></p>
+			<!-- <input type="password"> inserta un -->
+			<!-- cuadro de texto que aparece enmascarado con -->
+			<!-- caracteres de asteriscos -->
+			<p><label>Direcci&oacute;n de correo electr&oacute;nico:
+				<input name="email" type="password" size="25">
+			</label></p>
+			<p>
+				<strong>Cosas que le gustaron:</strong><br>
+				<label>Dise&ntilde;o del sitio
+					<input name="cosasgustaron" type="checkbox"
+						value="Diseno"></label>
+				<label>V&iacute;nculos
+					<input name="cosasgustaron" type="checkbox"
+						value="Vinculos"></label>
+				<label>Facilidad de uso
+					<input name="cosasgustaron" type="checkbox"
+						value="Facilidad"></label>
+				<label>Im&aacute;genes
+					<input name="cosasgustaron" type="checkbox"
+						value="Imagenes"></label>
+				<label>C&oacute;digo fuente
+					<input name="cosasgustaron" type="checkbox"
+						value="Codigo"></label>
+			</p>
+			<!-- <input type="radio"> crea un botón de -->
+			<!-- opción. La diferencia entre botones de opción -->
+			<!-- y casillas de verificación es que sólo puede seleccionarse -->
+			<!-- un botón de opción en un grupo.-->
+			<p>
+				<strong>C&oacute;mo lleg&oacute; a nuestro sitio:</strong><br>
+				<label>Motor de b&uacute;squeda
+					<input name="comositio" type="radio"
+						value="motor búsqueda" checked></label>
+				<label>V&iacute;nculos desde otro sitio
+					<input name="comositio" type="radio"
+						value="vinculo"></label>
+				<label>Sitio Web IPN.com
+					<input name="comositio" type="radio"
+						value="ipn.com"></label>
+				<label>Referencia en un libro
+					<input name="comositio" type="radio"
+						value="libro"></label>
+				<label>Otro
+					<input name="comositio" type="radio"
+						value="otro"></label>
+			</p>
+			<p>
+				<label>Califique este sitio:
+					<!-- la etiqueta <select> presenta una lista -->
+					<!-- desplegable con opciones indicadas por las -->
+					<!-- etiquetas <option> -->
+					<select name="calificacion">
+						<option selected>Sorprendente</option>
+						<option>10</option>
+						<option>9</option>
+						<option>8</option>
+						<option>7</option>
+						<option>6</option>
+						<option>5</option>
+						<option>4</option>
+						<option>3</option>
+						<option>2</option>
+						<option>l</option>
+						<option>Malo</option>
+					</select>
+				</label>
+			</p>
+			<p>
+				<input type="submit" value="Enviar">
+				<input type="reset" value="Borrar">
+			</p>
+		</form>
+	</body>
+</html>
+
+/////////////////////////////////////////////////////////
+<!--Vinculación interna -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>V&iacute;nculos internos</title>
+	</head>
+	<body>
+		<!-- el atributo id crea un destino de hipervínculo interno -->
+		<h1 id="caracteristicas">Las mejores caracter&iacute;sticas de Internet</h1>
+		<!-- la dirección de un vinculo interno es "#id" -->
+		<p><a href="#insectos">Ir a <em>Insectos favoritos</em></a></p>
+		<ul>
+			<li>Puede conocer personas de pa&iacute;ses
+				de todo el mundo.</li>
+			<li>Tiene acceso a los medios a medida que se vuelven p&uacute;blicos:
+				<ul>
+					<li>Nuevos juegos</li>
+					<li>Nuevas aplicaciones
+						<ul>
+							<li>Por negocios</li>
+							<li>Por placer</li>
+						</ul>
+					</li>
+					<li>Noticias de todo el mundo</li>
+					<li>Motores de b&uacute;squeda</li>
+					<li>Compras</li>
+					<li>Programaci&oacute;n
+						<ul>
+							<li>HTML5</li>
+							<li>Java</li>
+							<li>Dynamic HTML</li>
+							<li>Secuencias de comandos</li>
+							<li>Nuevos lenguajes</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>V&iacute;nculos</li>
+			<li>Mantenerse en contacto con viejos amigos</li>
+			<li>Es la tecnolog&iacute;a del futuro</li>
+		</ul>
+		<!-- el atributo id crea un destino de hipervínculo interno -->
+		<h1 id="insecto»">Mis 3 insectos favoritos</h1>
+		<p>
+			<!-- hipervínculo interno a las características -->
+			<a href="#caracteristicas" > Ir a <em>Caracter&iacute;sticas favoritas</em></a>
+		</p>
+		<ol>
+			<li>Luci&eacute;rnaga</li>
+			<li>Hormiga roja </li>
+			<li>Abejorro</li>
+		</ol>
+	</body>
+</html>
+
+//////////////////////////////////////////////////////////
+<!-- los elementos meta proporcionan palabras clave y la descripción de una página. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Bienvenido</title>
+		<!-- las etiquetas <meta> proveen a los motores de búsqueda -->
+		<!-- la información que se usa para catalogar un sitio -->
+		<meta name="keywords" content="p&aacute;gina Web, dise&ntilde;o,
+			HTML5. tutorial, personal, ayuda, &iacute;ndice ,formulario,
+			contacto, retroalimentaci&oacute;n, lista, v&iacute;nculos, ipn" >
+		<meta name="description" content="Este sitio Web le ayudar&aacute;
+			a aprender los fundamentos de HTML5 y el dise&ntilde;o de p&aacute;ginas Web
+			por medio del uso de ejemplos interactivos y
+			capacitaci&oacute;n.">
+	</head>
+	<body>
+		<h1>Bienvenido a este sitio web</h1>
+		<p>Dise&ntilde;ar este sitio para aprender a usar las maravillas
+		de <strong><em>HTML5</em></strong>. <em>HTML5</em> est&aacute;
+		mejor equipado que <em>HTML</em> para representar datos
+		complejos en Internet.<em>HTML5</em> aprovecha la estricta
+		sintaxis de XML para asegurar que est&eacute; bien formado. Adem&aacute;s se
+		conocer&aacute;n muchas de las excelentes caracter&iacute;sticas de
+		<em>HTML5.</em></p>
+		<p>Aprender&aacute; mucho en este sitio</p>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

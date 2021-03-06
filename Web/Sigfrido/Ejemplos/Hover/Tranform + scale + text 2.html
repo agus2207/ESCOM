@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<title>Tranform + scale + text 2</title>
+		<style type="text/css">
+			@import "lesshat";
+
+			@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+			.transition{
+				-webkit-transition: all 500ms ease-in-out; // IE 9
+				-moz-transition: all 500ms ease-in-out; // Firefox
+				-ms-transition: all 500ms ease-in-out; // Safari and Chrome 
+				-o-transition: all 500ms ease-in-out; // Opera
+			}
+
+			.transform(@x,@y,@s){
+				transform: translate(@x,@y) scale(@s);
+				-webkit-transform: translate(@x,@y) scale(@s);
+				-moz-transform: translate(@x,@y) scale(@s);
+				-o-transform: translate(@x,@y) scale(@s);
+				-ms-transform: translate(@x,@y) scale(@s);
+			}
+
+			.container{   
+				position: relative;
+				width: 200px;
+				height: 200px;
+				left: 0;
+				right: 0;
+				margin: 0 auto;
+				top:20px;
+			}
+
+			.div-img{
+				display: block;
+				margin-left: auto;
+				margin-right: auto;
+				.img{
+					display:block;
+					margin-left: auto;
+					margin-right: auto;
+					width: 100%;
+					.transform(0px,0px,1);
+					.transition;    
+				}      
+				.text{
+					font-family: 'Open Sans';
+					position:relative;
+					z-index: -1;
+					display:block;
+					bottom:20px;
+					width:100%;
+					text-align:center;
+					.transform(0px,0px,1);
+					.transition;
+				}
+				&:hover{
+					.img{
+						.transform(0px,-30px,0.5);
+						border-radius: 50%;
+					}
+					.text{
+						.transform(0px,0px,2);
+					}
+				} 
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="div-img" >
+				<img class="img" src="https://www.interactius.com/wp-content/uploads/2017/09/foto10.png" title="Foto10" alt="Foto10">
+				<div class="text">That's all folks!</div>
+			</div>
+		</div>
+	</body>
+</html>

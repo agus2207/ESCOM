@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bd>
+  <usuario>
+    <user>Riky.Leon@hotmail.com</user>
+    <nombre>Ricardo Leon</nombre>
+    <password>25968</password>
+    <tipo>Administrador</tipo>
+    <correo>Riky.Leon@hotmail.com</correo>
+    <grupo>administradores</grupo>
+  </usuario>
+  <usuario>
+    <user>2016630275</user>
+    <nombre>Victor Ivan Nolasco Cid</nombre>
+    <password>0275</password>
+    <tipo>Alumno</tipo>
+    <correo>navi_@hotmail.com</correo>
+    <grupo>3CM3</grupo>
+  </usuario>
+  <usuario>
+    <user>RubPer</user>
+    <nombre>Ruben Peredo</nombre>
+    <password>0199</password>
+    <tipo>Profesor</tipo>
+    <correo>ruben_ESCOM@hotmail.</correo>
+    <grupo>3CM3</grupo>
+  </usuario>
+  <usuario>
+    <user>Agus0128</user>
+    <nombre>Agustin Galindo Reyes</nombre>
+    <password>password</password>
+    <tipo>Alumno</tipo>
+    <correo>agus9999@gmail.com</correo>
+    <grupo>3CM3</grupo>
+  </usuario>
+</bd>
+

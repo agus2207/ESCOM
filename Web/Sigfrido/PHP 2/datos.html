@@ -1,0 +1,24 @@
+<!-- Formulario para consultas de MySQL database. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>Ejemplo de Consulta a una Base de Datos</title>
+	</head>
+	<body>
+		<h1>Consultando una base de datos de MySQL.</h1>
+		<form method = "post" action = "database.php">
+			<p>Seleccionar un campo:
+			<!-- se agrega una caja de selección que posea opciones -->
+			<!-- para la consulta SELECT -->
+			<select name = "select">
+				<option selected>*</option>
+				<option>ID</option>
+				<option>Titulo</option>
+				<option>Categoria</option>
+				<option>ISBN</option>	
+			</select></p>
+			<p><input type = "submit" value = "Enviar Consulta"></p>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE raiz
+[
+<!ELEMENT raiz (examen)>
+<!ELEMENT examen (pregunta+)>
+<!ELEMENT pregunta (#PCDATA)>
+<!ATTLIST pregunta atributo1 (10|20) #REQUIRED>
+<!ATTLIST pregunta atributo2 (10|20) #IMPLIED>
+]>
+<raiz>
+<examen>
+<pregunta atributo1='10'></pregunta>
+</examen>
+</raiz>

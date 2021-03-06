@@ -1,0 +1,33 @@
+//Frames
+<html>
+	<head>
+		<title>Uso de Frames</title>
+	</head>
+	<frameset cols="20%, *" frameborder=0 framespacing=0 border=0>
+		<frame name="izquierda" src="pag4.html"
+			marginwidth="0" marginheight="auto" frameborder="no">
+		<frameset rows="30%, *" frameborder=0 framespacing=0 border=0>
+			<frame  name="superior" src="page2.html" marginwidth="0"
+				marginheight="0" scrolling="auto" frameborder="no">
+			<frame name="principal" src="page3.html" marginwidth="0"
+				marginheight="0" scrolling="auto" frameborder="no">
+		</frameset>
+	<frameset>
+	<noframes>
+		<center>
+			Este navegador no permite frames.
+		</center>
+	</noframes>
+</html>
+
+Donde:
+-rows: Altura de filas
+-cols: Ancho de columnas
+-framespacing: Espacio entre frames
+-marginheight: Espacio vertical (pixeles) entre objetos dentro del marco y los extremos superior e inferior.
+-marginwidth: Espacio horizontal
+-name: Nombre de ventanas FRAME para el destino de hipervinculos
+-noresize: No permite redimensionamiento del frame
+-scrolling: Barra de desplazamiento. Posee 3 parametros: YES, NO y AUTO
+-src: muestra contenido de un documento HTML
+-<noframes></noframes>: Muestra texto o pagina alternativa si no se permiten frames 

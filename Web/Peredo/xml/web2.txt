@@ -1,0 +1,14 @@
+//TIPO SIMPLE ESQUEMA XML
+
+<raiz>caracteres</raiz>
+
+//TIPO COMPLEJO ESQUEMA XML
+// TODOS LOS DEMAS
+
+<raiz atributo='10' />
+<raiz atributo='10'></raiz>
+<raiz><hijo></hijo></raiz>
+<raiz atributo='10'><hijo></hijo></raiz>
+<raiz atributo='10'>caracteres<hijo></hijo></raiz>
+
+//tarea 10 archivos xml con diferentes tipos de dato 

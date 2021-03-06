@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- Demonstración de los eventos focus y blur. -->
+<html>
+<head>
+<meta charset = "utf-8">
+<title>Formulario con focus y blur</title>
+<link rel = "stylesheet" type = "text/css" href = "estilo3.css">
+<script src = "submitreset.js"></script>
+</head>
+<body>
+<form id = "myForm" action = "">
+<p><label class = "fixed" for = "name">Nombre:</label>
+<input type = "text" id = "name"
+placeholder = "Ingresar nombre"></p>
+<p><label class = "fixed" for = "email">E-mail:</label>
+<input type = "email" id = "email"
+placeholder = "Ingresar e-mail"></p>
+<p><label>Habilitar si le gusta este sitio
+<input type = "checkbox" id = "like"></label></p>
+<p><label for = "comments">Comentarios:</p>
+	<textarea id = "comments"
+placeholder = "Ingresar commentarios"></textarea>
+<p><input id = "submit" type = "submit">
+<input id = "reset" type = "reset"></p>
+</form>
+<p id = "helpText"></p>
+</body>
+</html>

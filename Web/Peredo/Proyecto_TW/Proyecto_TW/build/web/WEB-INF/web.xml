@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>Serv_NuevoUsuario</servlet-name>
+        <servlet-class>Servlets.Serv_NuevoUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Serv_Pag_Inic</servlet-name>
+        <servlet-class>Servlets.Serv_Pag_Inic</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Serv_IniciaSesion</servlet-name>
+        <servlet-class>Servlets.Serv_IniciaSesion</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Serv_NuevoUsuario</servlet-name>
+        <url-pattern>/Serv_NuevoUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Serv_Pag_Inic</servlet-name>
+        <url-pattern>/Serv_Pag_Inic</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Serv_IniciaSesion</servlet-name>
+        <url-pattern>/Serv_IniciaSesion</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

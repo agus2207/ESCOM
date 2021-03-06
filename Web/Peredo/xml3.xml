@@ -1,0 +1,15 @@
+<!DOCTYPE raiz
+[
+<!ELEMENT raiz (contenedor)>
+<!ELEMENT contenedor (a,b,c)>
+<!ELEMENT a (#PCDATA)>
+<!ELEMENT b (#PCDATA)>
+<!ELEMENT c (#PCDATA)>
+]>
+<raiz>
+<contenedor>
+<a></a>
+<b></b>
+<c></c>
+</contenedor>
+</raiz>

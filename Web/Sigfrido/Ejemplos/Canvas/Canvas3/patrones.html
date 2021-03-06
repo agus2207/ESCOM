@@ -1,0 +1,26 @@
+<!-- Creación de un patrón mediante el uso de una Imagen en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Patrones</title>   
+		<script>    
+			var imagen = new Image();    
+			imagen.src = "floresamarillas.png";    
+			function iniciar(){     
+				var canvas = document.getElementById("patron");     
+				var contexto = canvas.getContext("2d");     
+				var patron = contexto.createPattern(imagen, "repeat");     
+				contexto.rect(5, 5, 385, 200);     
+				contexto.fillStyle = patron;     
+				contexto.fill();    
+			} // fin de la función iniciar    
+			window.addEventListener( "load", iniciar, false );   
+		</script>  
+	</head>  
+	<body>   
+		<canvas id = "patron" width = "400" height = "200"    
+			style = "border: 1px solid black;">   
+		</canvas>  
+	</body> 
+	</html> 

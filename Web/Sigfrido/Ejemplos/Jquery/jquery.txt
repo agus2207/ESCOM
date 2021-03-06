@@ -1,0 +1,63 @@
+//JQuey intro
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js?">
+</script>
+//Alternativa
+<script src="jquery-3.3.1.min.js"></script>
+-Codigo
+$(document).ready(function(){
+	//Codigo jquery
+});
+
+-Seleccion de elementos
+$("div");
+$("#miElemento");
+$(".miClase");
+$("p#miElemento");
+$("ul li a.navigation");
+
+-Seleccion con CSS
+$("p>a");
+$("input[type=text]");
+$("a:first");
+$("p:odd");
+$("li:first-child");
+
+-Propios de JQuery
+$(":animated");
+$(":button");
+$(":radio");
+$(":checkbox");
+$(":checked");
+$(":header");
+
+-Con nombres de clase
+$("div").addClass("content");
+$("div").removeClass("content");
+$("div").toggleClass("content");
+
+-Manipulacion del estilo CSS
+$("p").css("width", "400px");
+$("#miElemento").css("color", "blue");
+$("nl").css("border", "solid 1px #ccc");
+
+-Añadir, Eliminar y Pegar Elementos y Contenidos
+var miElementoHTML = $("#miElemento").html();
+var miElementoHTML = $("#miElemento").text();
+$("#miElemento").html("<p>Un nuevo Contenido</p>");
+$("#miElemento").text("Un nuevo contenido");
+$("#miElemento").append("<p>Un nuevo contenido</p>");
+$("p").append("<p>Un nuevo contenido</p>");
+
+-Eventos
+$("a").click(function(){
+	//eventos
+});
+
+-Algunos Eventos
+blur, focus, hover, keydown. load, mousemove, rezise, scroll, submit, select
+Por ejemplo
+$("#miElemento").hide("slow", function(){
+	//hacer algo cuando el elemento
+	//se oculta
+});

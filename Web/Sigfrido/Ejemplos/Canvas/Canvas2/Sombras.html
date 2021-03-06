@@ -1,0 +1,31 @@
+<!--Creacion de sombras en un canvas-->
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Sombras</title>  
+	</head>  
+	<body>   
+		<canvas id = "sombra" width = "525" height = "250"    
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			// efecto de sombra con desplazamientos positivos    
+			var canvas = document.getElementById("sombra");    
+			var contexto = canvas.getContext("2d");    
+			contexto.shadowBlur = 10;    
+			contexto.shadowOffsetX = 15;    
+			contexto.shadowOffsetY = 15;    
+			contexto.shadowColor = "blue";    
+			contexto.fillStyle = "cyan";    
+			contexto.fillRect(25, 25, 200, 200);    
+			// efecto de sombra con desplazamientos negativos    
+			contexto.shadowBlur = 20;    
+			contexto.shadowOffsetX = -20;    
+			contexto.shadowOffsetY = -20;    
+			contexto.shadowColor = "gray";    
+			contexto.fillStyle = "magenta";    
+			contexto.fillRect(300, 25, 200, 200);   
+		</script>  
+	</body> 
+</html>

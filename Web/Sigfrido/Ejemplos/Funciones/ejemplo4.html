@@ -1,0 +1,53 @@
+<!-- Generación de imágenes aleatorias de dados usando Math.random. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Im&aacute;genes aleatorias de dados</title>   
+		<style type="text/css">    
+			li { display: inline; margin-right: 10px; }    
+			ul { margin: 0; }   
+		</style>   
+		<script>    
+			// variables utilizadas para interactuar con los elementos img    
+			var imagenDado1;    
+			var imagenDado2;    
+			var imagenDado3;    
+			var imagenDado4;    
+			// registrar componente de escucha del botón y obtener los elementos img    
+			function iniciar(){     
+				var boton = document.getElementById( "botonTirar" );     
+				boton.addEventListener( "click", tirarDados, false );     
+				imagenDado1 = document.getElementById( "dado1" );     
+				imagenDado2 = document.getElementById( "dado2" );     
+				imagenDado3 = document.getElementById( "dado3" );     
+				imagenDado4 = document.getElementById( "dado4" );    
+			} // fin de la función iniciar    
+			// tirar los dados   
+			function tirarDados(){     
+				establecerImagen( imagenDado1 );     
+				establecerImagen( imagenDado2 );     
+				establecerImagen( imagenDado3 );     
+				establecerImagen( imagenDado4 );    
+			} // fin de la función tirarDados    
+			// seleccionar el origen de la imagen de un dado    
+			function establecerImagen( imgDado ){     
+				var valorDado = Math.floor( 1 + Math.random() * 6 );     
+				imgDado.setAttribute( "src", "dado" + valorDado + ".png" );     
+				imgDado.setAttribute( "alt", "dado de " + valorDado + " puntos" );    
+			} // fin de la función establecerlmagen    
+			window.addEventListener( "load", iniciar, false );   
+		</script>  
+	</head>  
+	<body>   
+		<form action="#">    
+			<input id="botonTirar" type="button" value="Tirar dados">   
+		</form>   
+		<ol>    
+			<li><img id = "dado1" src = "dado1.png" alt = "imagen en blanco"></li>    
+			<li><img id = "dado2" src = "dado2.png" alt = "imagen en blanco"></li>    
+			<li><img id = "dado3" src = "dado3.png" alt = "imagen en blanco"></li>    
+			<li><img id = "dado4" src = "dado4.png" alt = "imagen en blanco"></li>   
+		</ol>  
+	</body> 
+</html>

@@ -1,0 +1,49 @@
+<!--Uso de tablas-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Tablas desde Javascript</title>
+		<style type="text/css">
+			table {
+				width:300px;
+				border-collapse: collapse;
+				background-color: lightblue;
+			}
+			table, td, th {
+				border: 1px solid black;
+				padding: 4px;
+			}
+			th{
+				text-align: left;
+				color: white;
+				background-color: darkblue;
+			}
+			tr.filaimpar{
+				background-color: white;
+			}
+		</style>
+		<script>
+			var monto;
+			var principal=1000.0;
+			var tasa=0.05;
+			document.writeln("<table>");
+			document.writeln("<caption>C&aacute;lculo del inter&eacute;s compuesto</caption>");
+			document.writeln("<thead><tr><th>A&ntilde;o</th>");
+			document.writeln("<th>Monto en dep&oacute;sito</th>");
+			document.writeln("</tr></thead><tbody>");
+			for(var anio=1; anio<=10; ++anio){
+				monto=principal*Math.pow(1.0+tasa, anio);
+				if(anio%2 !==0)
+					document.writeln("<tr class='filaimpar'><td>"+anio+"</td><td>"+monto.toFixed(2)+"</td></tr>");
+				else
+					document.writeln("<tr><td>"+anio+"</td><td>"+monto.toFixed(2)+"</td></tr>");
+			}
+			document.writeln("</tbody></table>");
+		</script>
+	</head>
+	<body>
+		Tablas y Javascript.
+	</body>
+</html>

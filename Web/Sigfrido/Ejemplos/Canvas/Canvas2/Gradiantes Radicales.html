@@ -1,0 +1,41 @@
+<!--Dibujo de gradientes radiales en un canvas.--> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset = "utf-8">   
+		<title>Gradientes radiales</title>  
+	</head>  
+	<body>   
+		<!-- gradiente radial con círculos concéntricos -->   
+		<canvas id = "gradienteRadial" width = "200" height = "200" 
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("gradienteRadial");    
+			var contexto = canvas.getContext("2d");    
+			var gradiente = contexto.createRadialGradient(100, 100, 10, 100, 100, 125);    
+			gradiente.addColorStop(0, "white");    
+			gradiente.addColorStop(0.5, "yellow");    
+			gradiente.addColorStop(0.75, "orange");    
+			gradiente.addColorStop(1, "red");    
+			contexto.fillStyle = gradiente;    
+			contexto.fillRect(0, 0, 200, 200);   
+		</script>   
+		<!-- gradiente radial con círculos no concéntricos -->   
+		<canvas id = "gradienteRadial2" width = "200" height = "200"    
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("gradienteRadial2");    
+			var contexto = canvas.getContext("2d");    
+			var gradiente = contexto.createRadialGradient(20, 150, 10, 100, 100, 125);    
+			gradiente.addColorStop(0, "red");    
+			gradiente.addColorStop(0.5, "orange");    
+			gradiente.addColorStop(0.75, "yellow");    
+			gradiente.addColorStop(1, "white");    
+			contexto.fillStyle = gradiente;    
+			contexto.fillRect(0, 0, 200, 200);   
+		</script>  
+	</body> 
+</html> 
+ 

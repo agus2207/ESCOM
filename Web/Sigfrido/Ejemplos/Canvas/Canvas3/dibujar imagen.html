@@ -1,0 +1,23 @@
+<!-- Dibuja una imagen en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Im&aacute;genes</title>   
+		<script>    
+			var imagen = new Image();    
+			imagen.src = "floresamarillas.png";    
+			function dibujar(){     
+				var canvas = document.getElementById("miimagen");     
+				var contexto = canvas.getContext("2d");     
+				contexto.drawImage(imagen, 0, 0, 175, 175);    
+			} // fin de la función dibujar    
+			window.addEventListener( "load", dibujar, false );   
+		</script>  
+	</head>  
+	<body>   
+		<canvas id = "miimagen" width = "200" height = "200"    
+			style = "border: 1px solid Black;">   
+		</canvas>  
+	</body> 
+</html> 

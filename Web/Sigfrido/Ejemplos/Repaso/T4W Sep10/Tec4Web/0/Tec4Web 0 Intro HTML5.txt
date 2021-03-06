@@ -1,0 +1,112 @@
+///////////////////////////////////////////////////
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Bienvenido </title>
+	</head>
+	<body>
+		<p>Bienvenido a HTML5</p>
+	</body>
+</html>
+
+///////////////////////////////////////////////////
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Encabezados</title>
+	</head>
+	<body>
+		<hl>Encabezado de nivel 1</h1>
+		<h2>Encabezado de nivel 2</h2>
+		<h3>Encabezado de nivel 3</h3>
+		<h4>Encabezado de nivel 4</h4>
+		<hS>Encabezado de nivel 5</h5>
+		<h6>Encabezado de nivel 6</h6>
+	</body>
+</html>
+
+////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>V&iacute;nculos</title>
+	</head>
+	<body>
+		<h1>Estos son mis sitios favoritos:</h1>
+		<p><strong>Haga clic en un nombre para visitar ese sit1o.</strong></p>
+		<!-- crea cuatro hipervínculos de texto -->
+		<p><a href="http://www.facebook.com">Facebook</a></p>
+		<p><a href="http://www.twitter.com">Twitter</a></p>
+		<p><a href="http://www.foursquare.com">Foursquare</a></p>
+		<p><a href="http://www.google.com">Google</a></p>
+	</body>
+</html>
+
+////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<t1tle>P&aacute;g1na de contacto</t1tle>
+	</head>
+	<body>
+		<p>
+		Para escribir a <a href="mailto:avionica1@yahoo.com">
+		Digitar clic en el v&iacute;nculo para enviar un mensaje.
+		</p>
+	</body>
+</html>
+
+//////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Im&aacute;genes</title>
+	</head>
+	<body>
+		<p>
+		<img src="cpphtp.png" wldth="92" height="120"
+			alt="Portada del libro C++ How to Program">
+		<img src="jhtp.png" width="92" height="120"
+			alt="Portada del libro Java How to Program">
+		</p>
+	</body>
+</html>
+
+////////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Barra de navegaci&oacute;n</title>
+	</head>
+	<body>
+		<p>
+			<a href="vincu1os.html">
+				<img src="botones/vínculos.jpg" width="65"
+					height="5O" alt="V&iacute;nculos">
+			</a>
+			<a href="lista.html">
+				<img src="botones/lista.jpg" width="65"
+					height="5O" alt="Lista de funciones">
+			</a>
+			<a href="contacto.html">
+				<img src="botones/contacto.jpg" width="65"
+					height="50" alt="Contacto">
+			</a>
+			<a href="tablal.html">
+				<img src="botones/tabla.jpg" width="65"
+					height="50" alt="P&acute;gina de tablas">
+			</a>
+			<a href="formulario.html">
+				<img src="botones/formulario.jpg" width="65"
+					height="50" alt="Formulario de retroalimentaci&oacute;n">
+			</a>
+		</p>
+	</body>
+</html>
+

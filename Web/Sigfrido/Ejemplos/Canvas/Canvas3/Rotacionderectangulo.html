@@ -1,0 +1,28 @@
+<!-- Uso del método rotate para girar un rectángulo en un canvas. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset="utf-8">   
+		<title>Girar</title>  
+	</head>  
+	<body>   	
+		<canvas id = "girarRectangulo" width = "200" height = "200"    
+			style = "border: 1px solid black;">   
+		</canvas>   
+		<script>    
+			var canvas = document.getElementById("girarRectangulo");    
+			var contexto = canvas.getContext("2d");    
+			function iniciarRotacion(){     
+				contexto.translate(canvas.width/ 2, canvas.height / 2);     
+				setInterval(girar, 10);    
+			}    
+			function girar(){     
+				contexto.clearRect(-100, -100, 200, 200);     
+				contexto.rotate(Math.PI / 360);     
+				contexto.fillStyle = "lime"; 	 
+				contexto.fillRect( -50, -50, 100, 100);    
+			}    
+			window.addEventListener( "load", iniciarRotacion, false );   
+		</script>  
+	</body> 
+</html> 

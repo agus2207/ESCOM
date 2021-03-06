@@ -1,0 +1,24 @@
+<!-- Ajuste del tamaño de un canvas para llenar la ventana. --> 
+<!DOCTYPE html> 
+<html>  
+	<head>   
+		<meta charset = "utf-8">   
+		<title>Llenar la ventana</title>   
+		<style type = "text/css">    
+			canvas { position: absolute; left: 0px; top: 0px;     
+			width: 100%; height: 100%; }   
+		</style>  
+	</head>  
+	<body>   
+		<canvas id = "ajustam"></canvas>   
+		<script>    
+			function dibujar(){     
+				var canvas = document.getElementById("ajustam");     
+				var contexto = canvas.getContext("2d");     
+				contexto.fillStyle = "yellow";     
+				contexto.fillRect(0, 0, contexto.canvas.width, contexto.canvas.height );    
+			} // fin de la función dibujar    
+			window.addEventListener( "load", dibujar, false );   
+		</script>  
+	</body> 
+</html> 

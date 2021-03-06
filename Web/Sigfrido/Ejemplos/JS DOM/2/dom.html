@@ -1,0 +1,49 @@
+<!-- Funcionalidad básica del DOM. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>Funcionalidad b&aacute;sica del DOM</title>
+		<link rel = "stylesheet" type = "text/css" href = "estilo.css">
+		<script src = "dom.js" ></script>
+	</head>
+	<body>
+		<h1 id = "encabezadogrande" class = "highlighted">
+			[encabezadogrande] Modelo de objetos DHTML</h1>
+		<h3 id = "encabezadochico">[encabezadochico] Funcionalidad de elementos</h3>
+		<p id = "para1">[para1] El modelo de objetos de documento (DOM) permite	
+			el acceso r&aacute;pido y din&aacute;mico a todos los elementos en un documento
+			de HTML5
+			para manipularlos con JavaScript.</p>
+		<p id = "para2">[para2] Para mayor informaci&oacute;n, revise la
+			secci&oacute;n "JavaScript y el DOM" del
+			<a id = "link" href = "http://www.deitel.com/javascript">
+			[link] Centro de recursos de JavaScript</a> de Deitel.</p>
+		<p id = "para3">[para3] Los siguientes botones demuestran:(lista)</p>
+		<ul id = "lista">
+			<li id = "elemento1">[elemento1] getElementById y parentNode</li>
+			<li id = "elemento2">[elemento2] insertBefore y appendChild</li>
+			<li id = "elemento3">[elemento3] replaceChild y removeChild</li>
+		</ul>
+		<div id = "nav" class = "nav">
+			<form onsubmit = "regresa falso" action = "#">
+				<p><input type = "text" id = "gbi" value = "encabezadogrande">
+					<input type = "button" value = "Obtener por id"
+						id = "botonPorId"></p>
+				<p><input type = "text" id = "ins">
+					<input type = "button" value = "Insertar antes"
+					id = "botonInsertar" ></p>
+				<p><input type = "text" id = "adjuntar">
+					<input type = "button" value = "Adjuntar hijo"
+					id = "botonAdjuntar"></p>
+				<p><input type = "text" id = "reemplazar">
+					<input type = "button" value = "Reemplazar actual"
+					id = "botonReemplazar"></p>
+				<p><input type = "button" value = "Eliminar actual"
+					id = "botonEliminar"></p>
+				<p><input type = "button" value = "Obtener padre"
+					id = "botonPadre"></p>
+			</form>
+		</div>
+	</body>
+</html>
