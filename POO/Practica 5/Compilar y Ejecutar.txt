@@ -1,0 +1,13 @@
+Copiar los archivos j3dcore.jar,  j3dutils.jar y vecmath.jar a la carpeta donde esta su programa
+Compilar en Ubuntu con
+javac -cp .: j3dcore.jar:j3dutils.jar:vecmath.jar nombreArchivo.java
+Compilar en Windows con
+javac -cp .; j3dcore.jar;j3dutils.jar;vecmath.jar nombreArchivo.java
+
+Si todavía no compila descomprima los archivos con extensión jar
+
+Ejecutar en Ubuntu con
+java -cp .: j3dcore.jar:j3dutils.jar:vecmath.jar nombreArchivo
+
+Ejecutar en Windows con
+java -cp .;j3dcore.jar;j3dutils.jar;vecmath.jar SolarSis
